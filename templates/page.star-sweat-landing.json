@@ -18,8 +18,7 @@
       "settings": {
         "logo_text": "Star Sweat",
         "nav_label": "Elemental Water",
-        "cta_label": "Get Star Sweat",
-        "cta_url": "#offer"
+        "cta_label": "Get Star Sweat"
       }
     },
     "ssland_hero": {
@@ -41,9 +40,7 @@
         "compare_price": "$119.70 one-time",
         "note_text": "Free shipping · skip or cancel anytime",
         "primary_cta_label": "Get Star Sweat",
-        "primary_cta_url": "#offer",
-        "secondary_cta_label": "See why",
-        "secondary_cta_url": "#different"
+        "secondary_cta_label": "See why"
       }
     },
     "ssland_benefits": {
@@ -248,8 +245,7 @@
         "once_label": "Star Sweat · one-time 30-pack",
         "once_price": "$119.70",
         "once_price_per_can": "$3.99 / can",
-        "cta_label": "Get Star Sweat",
-        "cta_url": "#offer"
+        "cta_label": "Get Star Sweat"
       }
     }
   },
