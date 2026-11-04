@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+  /* Raitor is a licensed display face and is not available here. Syne 800 stands in for
+     display type. Drop Raitor woff2 next to this file and uncomment to swap it in globally. */
+  /* @font-face { font-family: "Raitor"; src: url("./Raitor.woff2") format("woff2"); font-weight: 400 700; font-display: swap; } */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #06090F; -webkit-font-smoothing: antialiased; }
+  a { color: #C8A44A; text-decoration: none; border-bottom: 1px solid rgba(200,164,74,0.35); }
+  a:hover { color: #E4C679; border-bottom-color: rgba(228,198,121,0.7); }
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; }
+  details[open] .faqPlus { transform: rotate(45deg); }
+  @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-14px); } }
+</style>
+</helmet>
+<div style="font-family: Syne, system-ui, sans-serif; background: #06090F; color: #EDE3D3; overflow-x: hidden; padding-bottom: 84px">
+
+  <div style="display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: center; align-items: center; padding: 11px 18px; background: #0D1320; border-bottom: 1px solid rgba(237,227,211,0.09); font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(237,227,211,0.72)">
+    <span style="color: #C8A44A">Batch 001. 10,000 cans.</span>
+    <span>Free shipping on every subscription</span>
+    <span style="opacity: 0.6">Made in the USA</span>
+  </div>
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1240px; margin: 0 auto; padding: 20px 22px">
+    <div style="font-size: 19px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase">Star Sweat</div>
+    <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237,227,211,0.55)">Elemental Water</div>
+  </header>
+
+  <section style="position: relative; max-width: 1240px; margin: 0 auto; padding: 8px 22px 64px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 64px); align-items: center">
+
+      <div style="position: relative; order: 2">
+        <div style="position: absolute; inset: -8% -6% -4% -6%; background: radial-gradient(60% 55% at 50% 45%, rgba(200,164,74,0.16), rgba(6,9,15,0) 70%); pointer-events: none"></div>
+        <div style="position: relative; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; border: 1px solid rgba(237,227,211,0.12)">
+          <image-slot id="ss-hero-can" shape="rect" fit="cover" placeholder="Hero: 12 oz can and 30-pack carton, front lit, on a real kitchen surface"></image-slot>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px">
+          <span style="padding: 7px 13px; border: 1px solid rgba(237,227,211,0.16); border-radius: 999px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.72)">12 oz can</span>
+          <span style="padding: 7px 13px; border: 1px solid rgba(237,227,211,0.16); border-radius: 999px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.72)">30 pack</span>
+          <span style="padding: 7px 13px; border: 1px solid rgba(200,164,74,0.4); border-radius: 999px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #C8A44A">2.2 ppm H&#8322; verified</span>
+        </div>
+      </div>
+
+      <div style="order: 1">
+        <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 18px">One can a day</div>
+        <h1 style="font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 20px; text-wrap: pretty">{{ headline }}</h1>
+        <p style="font-size: clamp(16px, 1.5vw, 19px); line-height: 1.58; color: rgba(237,227,211,0.78); margin: 0 0 26px; max-width: 46ch; text-wrap: pretty">Hydrogen water in a 12 oz can, with magnesium and trace colloidal gold and platinum. Independently tested at a minimum of 2.2 ppm dissolved hydrogen. Sold as a 30-pack, one can a day.</p>
+
+        <div style="border: 1px solid rgba(237,227,211,0.14); border-radius: 16px; padding: 22px; background: linear-gradient(180deg, rgba(237,227,211,0.05), rgba(237,227,211,0.01))">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px">
+            <div style="font-size: clamp(30px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em">$95.76</div>
+            <div style="font-size: 15px; color: #C8A44A">$3.19 per can</div>
+            <div style="font-size: 13px; color: rgba(237,227,211,0.55); text-decoration: line-through">$119.70</div>
+          </div>
+          <div style="font-size: 13px; color: rgba(237,227,211,0.66); margin-top: 8px">Monthly subscription. Free shipping. Skip, pause or cancel anytime.</div>
+          <a href="#offer" style="display: block; margin-top: 18px; padding: 17px 20px; border-radius: 12px; background: #C8A44A; color: #0A0D14; border: 0; font-family: Syne, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-align: center; cursor: pointer" style-hover="background: #E4C679">Subscribe and Save</a>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; margin-top: 14px; font-size: 13px; color: rgba(237,227,211,0.6)">
+            <a href="#offer" style="color: rgba(237,227,211,0.75); border-bottom-color: rgba(237,227,211,0.3)">Buy once for $119.70, $3.99 per can</a>
+            <span>Batch 001. 10,000 cans.</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; padding: 14px 16px; border: 1px dashed rgba(200,164,74,0.45); border-radius: 12px; background: rgba(200,164,74,0.05); font-size: 14px; line-height: 1.5; color: rgba(237,227,211,0.8)">{{ heroClaim }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid rgba(237,227,211,0.09); border-bottom: 1px solid rgba(237,227,211,0.09); background: #0A0E18">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 68px) 22px">
+      <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 30px">Five seconds, then decide</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px">
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 26px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 13px; color: #C8A44A; margin-bottom: 14px; letter-spacing: 0.12em; text-transform: uppercase">01</div>
+          <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em">What is in the can</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(237,227,211,0.72)">Purified water, dissolved molecular hydrogen at 2.2 ppm minimum, magnesium, and trace colloidal gold and platinum. Five things. Nothing else, no sweeteners, no caffeine, no calories.</p>
+        </div>
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 26px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 13px; color: #C8A44A; margin-bottom: 14px; letter-spacing: 0.12em; text-transform: uppercase">02</div>
+          <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em">Why hydrogen</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(237,227,211,0.72)">Molecular hydrogen is H&#8322;, the smallest molecule there is, dissolved into the water as a gas. It is not alkaline water, not a tablet, not a machine. Hydrogen is what makes this different, and holding it in the can is the hard part.</p>
+        </div>
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 26px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 13px; color: #C8A44A; margin-bottom: 14px; letter-spacing: 0.12em; text-transform: uppercase">03</div>
+          <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em">How to drink it</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(237,227,211,0.72)">One can a day, cold, in the morning. Open it and drink it within about 30 minutes, the way you would with anything carbonated. Thirty cans is a month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 8vw, 92px) 22px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 56px); align-items: start">
+      <h2 style="font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin: 0; text-wrap: pretty">Your stack is dialed in. Your water is the one thing you never changed.</h2>
+      <div>
+        <p style="font-size: 17px; line-height: 1.62; color: rgba(237,227,211,0.78); margin: 0 0 16px">You read labels. You track sleep. You spend real money on training, supplements and skincare, and you check the sourcing before you buy. Then you drink whatever water is closest.</p>
+        <p style="font-size: 17px; line-height: 1.62; color: rgba(237,227,211,0.78); margin: 0">That is not a failure of discipline. Until now there was nothing to choose. Hydrogen water existed as tablets you drop in a glass, machines on a counter, and pouches that lose their hydrogen on the shelf. None of that fits a morning. A sealed can does.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #F7F3EC; color: #14161C">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) 22px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 60px)">
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A7A55; margin-bottom: 18px">The science, stated plainly</div>
+          <h2 style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 20px; text-wrap: pretty">What molecular hydrogen is, and what is actually known about it</h2>
+          <p style="font-size: 17px; line-height: 1.62; color: #3A3C44; margin: 0 0 14px">Hydrogen gas, H&#8322;, is two hydrogen atoms bound together. It is the smallest and lightest molecule in existence. Dissolve it into water under pressure and you get hydrogen water. The water itself does not change. What changes is that a measurable amount of hydrogen gas is now in it.</p>
+          <p style="font-size: 17px; line-height: 1.62; color: #3A3C44; margin: 0 0 14px">Hydrogen is volatile and leaves quickly. Plastic will not hold it. That is why this comes in an aluminum can, sealed, and why we print a tested concentration on the page instead of a marketing number.</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #5A5C64; margin: 0">Read the literature yourself. Start with <a href="https://pubmed.ncbi.nlm.nih.gov/?term=molecular+hydrogen+water" style="color: #7A6426; border-bottom-color: rgba(122,100,38,0.4)">PubMed on molecular hydrogen water</a>.</p>
+        </div>
+        <div style="display: grid; gap: 14px; align-content: start">
+          <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 20px; background: #FFFDF8">
+            <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #2F7A56; margin-bottom: 8px">What is known</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.58; color: #3A3C44">Hydrogen can be dissolved in water and measured. Concentration is testable, it degrades over time, and packaging determines whether any of it reaches you. Ours is independently tested at a minimum of 2.2 ppm.</p>
+          </div>
+          <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 20px; background: #FFFDF8">
+            <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A6A20; margin-bottom: 8px">What is being studied</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.58; color: #3A3C44">Molecular hydrogen has been the subject of a few hundred published papers, most of them small and early. Researchers are still working out what it does in people, at what dose, and over what timeframe.</p>
+          </div>
+          <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 20px; background: #FFFDF8">
+            <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #6A6C74; margin-bottom: 8px">What we will not say</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.58; color: #3A3C44">We are not going to tell you this fixes anything. When our own results are in and reviewed, they go on this page with the methodology attached. Until then you get composition, a test number, and plain description.</p>
+          </div>
+          <div style="border: 1px dashed rgba(122,100,38,0.5); border-radius: 14px; padding: 18px; background: rgba(200,164,74,0.08); font-size: 14px; line-height: 1.55; color: #4A4436">{{ scienceClaim }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #0A0E18; border-bottom: 1px solid rgba(237,227,211,0.09)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) 22px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(24px, 4vw, 48px); align-items: end; margin-bottom: 30px">
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 16px">The ritual</div>
+          <h2 style="font-size: clamp(28px, 3.8vw, 46px); line-height: 1.06; font-weight: 800; letter-spacing: -0.025em; margin: 0; text-wrap: pretty">An apple a day was never about the apple. It was about the day.</h2>
+        </div>
+        <p style="font-size: 17px; line-height: 1.6; color: rgba(237,227,211,0.75); margin: 0">Thirty cans is not a case in the garage. It is a month of mornings. One can with breakfast, one before the gym bag goes out the door, one on the desk at nine. The 30-pack exists so the decision gets made once.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+        <div style="grid-column: 1 / -1; min-width: 0; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 1px solid rgba(237,227,211,0.12)">
+          <image-slot id="ss-ritual-1" shape="rect" fit="cover" placeholder="Morning light, kitchen counter, woman opening a can"></image-slot>
+        </div>
+        <div style="min-width: 0; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; border: 1px solid rgba(237,227,211,0.12)">
+          <image-slot id="ss-ritual-2" shape="rect" fit="cover" placeholder="Gym bag, can in the side pocket"></image-slot>
+        </div>
+        <div style="min-width: 0; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; border: 1px solid rgba(237,227,211,0.12)">
+          <image-slot id="ss-ritual-3" shape="rect" fit="cover" placeholder="Desk at nine, can beside a notebook"></image-slot>
+        </div>
+      </div>
+
+      <div style="margin-top: 26px; border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; align-items: center; background: rgba(237,227,211,0.03)">
+        <div>
+          <div style="font-size: 19px; font-weight: 700; margin-bottom: 8px">Thirty cans, thirty mornings</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.58; color: rgba(237,227,211,0.7)">One box arrives. You finish it in a month. The next one shows up before you run out.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 7px; min-width: 0">
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(200,164,74,0.85)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+          <div style="aspect-ratio: 1 / 1; border-radius: 50%; background: rgba(237,227,211,0.16)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 8vw, 92px) 22px">
+    <div style="text-align: center; margin-bottom: 34px">
+      <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 14px">Choose how it arrives</div>
+      <h2 style="font-size: clamp(30px, 4vw, 48px); line-height: 1.06; font-weight: 800; letter-spacing: -0.025em; margin: 0 auto; max-width: 20ch; text-wrap: pretty">One product. Two ways to get it.</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; align-items: stretch">
+      <div onClick="{{ pickSub }}" role="button" tabindex="0" style="{{ subCardStyle }}">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 18px">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <div style="{{ subDotStyle }}"></div>
+            <div style="font-size: 20px; font-weight: 700">Subscribe monthly</div>
+          </div>
+          <div style="padding: 6px 11px; border-radius: 999px; background: #C8A44A; color: #0A0D14; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Best value</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 6px">
+          <div style="font-size: clamp(30px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.02em">$95.76</div>
+          <div style="font-size: 15px; color: #C8A44A">$3.19 per can</div>
+        </div>
+        <div style="font-size: 13px; color: rgba(237,227,211,0.6); margin-bottom: 18px">Renews every 30 days. Free shipping.</div>
+        <div style="display: grid; gap: 9px; font-size: 14.5px; color: rgba(237,227,211,0.82)">
+          <div style="display: flex; gap: 10px"><span style="color: #C8A44A">&#10003;</span>Free shipping, every order</div>
+          <div style="display: flex; gap: 10px"><span style="color: #C8A44A">&#10003;</span>Skip or pause anytime</div>
+          <div style="display: flex; gap: 10px"><span style="color: #C8A44A">&#10003;</span>Cancel in two clicks</div>
+          <div style="display: flex; gap: 10px"><span style="color: #C8A44A">&#10003;</span>$23.94 less than buying once, $33.94 less with shipping</div>
+        </div>
+        <div style="margin-top: 20px; padding: 18px; border-radius: 12px; background: rgba(200,164,74,0.09); border: 1px solid rgba(200,164,74,0.3)">
+          <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #C8A44A; margin-bottom: 10px">Founding member</div>
+          <div style="display: grid; gap: 7px; font-size: 14px; line-height: 1.45; color: rgba(237,227,211,0.85)">
+            <div>Your price locked for 12 months</div>
+            <div>First shipment comes from Batch 001, numbered</div>
+            <div>First access to whatever we make next</div>
+          </div>
+        </div>
+      </div>
+
+      <div onClick="{{ pickOnce }}" role="button" tabindex="0" style="{{ onceCardStyle }}">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px">
+          <div style="{{ onceDotStyle }}"></div>
+          <div style="font-size: 20px; font-weight: 700">Buy once</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 6px">
+          <div style="font-size: clamp(30px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.02em">$119.70</div>
+          <div style="font-size: 15px; color: rgba(237,227,211,0.75)">$3.99 per can</div>
+        </div>
+        <div style="font-size: 13px; color: rgba(237,227,211,0.6); margin-bottom: 18px">One 30-pack. Shipping $10.</div>
+        <div style="display: grid; gap: 9px; font-size: 14.5px; color: rgba(237,227,211,0.72)">
+          <div style="display: flex; gap: 10px"><span style="opacity: 0.5">&#10003;</span>One 30-pack, no renewal</div>
+          <div style="display: flex; gap: 10px"><span style="opacity: 0.5">&#10003;</span>$10 shipping, $129.70 total</div>
+          <div style="display: flex; gap: 10px"><span style="opacity: 0.35">&#10005;</span>No locked price</div>
+          <div style="display: flex; gap: 10px"><span style="opacity: 0.35">&#10005;</span>No founding member batch number</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 560px; margin: 26px auto 0">
+      <button type="button" onClick="{{ pickSub }}" style="width: 100%; padding: 19px 22px; border-radius: 12px; background: #C8A44A; color: #0A0D14; border: 0; font-family: Syne, sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.03em; cursor: pointer" style-hover="background: #E4C679">{{ ctaLabel }}</button>
+      <div style="text-align: center; margin-top: 14px; font-size: 13.5px; color: rgba(237,227,211,0.6); line-height: 1.5">Cancel anytime in two clicks. Cans cannot be returned once shipped, so the first box is the only commitment.</div>
+    </div>
+  </section>
+
+  <section style="background: #0A0E18; border-top: 1px solid rgba(237,227,211,0.09); border-bottom: 1px solid rgba(237,227,211,0.09)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) 22px">
+      <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 28px">From run one</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 34px">
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 24px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A44A; margin-bottom: 12px">Placeholder, swap for real run one review</div>
+          <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.55">Cold out of the fridge it tastes like nothing at all, which is exactly what I wanted from water.</p>
+          <div style="font-size: 13px; color: rgba(237,227,211,0.6)">Real name, real city, real date</div>
+        </div>
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 24px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A44A; margin-bottom: 12px">Placeholder, swap for real run one review</div>
+          <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.55">The box on the counter is what made it stick. One can with breakfast and I stopped thinking about it.</p>
+          <div style="font-size: 13px; color: rgba(237,227,211,0.6)">Real name, real city, real date</div>
+        </div>
+        <div style="border: 1px solid rgba(237,227,211,0.12); border-radius: 16px; padding: 24px; background: rgba(237,227,211,0.03)">
+          <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A44A; margin-bottom: 12px">Placeholder, swap for real run one review</div>
+          <p style="margin: 0 0 16px; font-size: 16px; line-height: 1.55">I bought it because the can was the only version of this I could see myself actually drinking daily.</p>
+          <div style="font-size: 13px; color: rgba(237,227,211,0.6)">Real name, real city, real date</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 4vw, 48px); align-items: start">
+        <div style="border-left: 1px solid rgba(200,164,74,0.4); padding-left: 22px">
+          <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #C8A44A; margin-bottom: 14px">A note from Mark, founder</div>
+          <p style="font-size: 16.5px; line-height: 1.62; color: rgba(237,227,211,0.82); margin: 0 0 14px">I had a version of this on the market before. The copacker could not hold the hydrogen in the can, and shipping water that had already lost the one thing it was sold for was not something I could keep doing. So I stopped.</p>
+          <p style="font-size: 16.5px; line-height: 1.62; color: rgba(237,227,211,0.82); margin: 0 0 14px">Batch 001 is the restart. Ten thousand cans, tested before they ship, with the number printed where you can see it. If it tests low, it does not go out. That is the whole standard.</p>
+          <p style="font-size: 14px; color: rgba(237,227,211,0.55); margin: 0">Mark Ragno, founder, Star Sweat</p>
+        </div>
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 16px">Press and partners</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px">
+            <div style="height: 64px; border: 1px dashed rgba(237,227,211,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.45)">Logo</div>
+            <div style="height: 64px; border: 1px dashed rgba(237,227,211,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.45)">Logo</div>
+            <div style="height: 64px; border: 1px dashed rgba(237,227,211,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.45)">Logo</div>
+            <div style="height: 64px; border: 1px dashed rgba(237,227,211,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,227,211,0.45)">Logo</div>
+          </div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: rgba(237,227,211,0.55); margin: 14px 0 0">Copacker and testing facts drop in here once authorized. Nothing on this page is a testimonial presented as general proof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #F7F3EC; color: #14161C">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) 22px">
+      <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A7A55; margin-bottom: 18px">Subscription mechanics</div>
+      <h2 style="font-size: clamp(26px, 3.4vw, 40px); line-height: 1.08; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 30px; max-width: 26ch; text-wrap: pretty">Exactly how it ships, renews and stops</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px">
+        <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 22px; background: #FFFDF8">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7A55; margin-bottom: 10px">Ships</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A3C44">One 30-pack per month, shipping free. You get a tracking email the day it leaves.</p>
+        </div>
+        <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 22px; background: #FFFDF8">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7A55; margin-bottom: 10px">Renews</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A3C44">Every 30 days at $95.76. We email three days before the charge, so nothing is a surprise.</p>
+        </div>
+        <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 22px; background: #FFFDF8">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7A55; margin-bottom: 10px">Skip or pause</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A3C44">Still have cans left? Skip the next one from your account and the schedule shifts with you.</p>
+        </div>
+        <div style="border: 1px solid rgba(20,22,28,0.14); border-radius: 14px; padding: 22px; background: #FFFDF8">
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7A55; margin-bottom: 10px">Cancel</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A3C44">Two clicks in your account, no email, no phone call. Cans already shipped cannot be returned.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px; border: 1px solid rgba(20,22,28,0.14); border-radius: 16px; background: #FFFDF8; overflow: hidden">
+        <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #EFE9DC; border-bottom: 1px solid rgba(20,22,28,0.1)">
+          <div style="width: 9px; height: 9px; border-radius: 50%; background: #C9C2B2"></div>
+          <div style="width: 9px; height: 9px; border-radius: 50%; background: #C9C2B2"></div>
+          <div style="width: 9px; height: 9px; border-radius: 50%; background: #C9C2B2"></div>
+          <div style="margin-left: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #6A6C74">Your account, subscription</div>
+        </div>
+        <div style="padding: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; align-items: center">
+          <div>
+            <div style="font-size: 13px; color: #6A6C74; margin-bottom: 6px">Elemental Water, 30-pack</div>
+            <div style="font-size: 22px; font-weight: 700; margin-bottom: 4px">$95.76 every 30 days</div>
+            <div style="font-size: 13px; color: #6A6C74">Next shipment October 11. Free shipping.</div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <div style="padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(20,22,28,0.2); font-size: 14px; font-weight: 600">Skip next</div>
+            <div style="padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(20,22,28,0.2); font-size: 14px; font-weight: 600">Pause</div>
+            <div style="padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(20,22,28,0.2); font-size: 14px; font-weight: 600">Change frequency</div>
+            <div style="padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(20,22,28,0.2); font-size: 14px; font-weight: 600; color: #8A3A3A">Cancel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 900px; margin: 0 auto; padding: clamp(52px, 8vw, 92px) 22px">
+    <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(237,227,211,0.5); margin-bottom: 24px">Questions people actually ask</div>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">Does it taste different?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">Barely. Hydrogen has no taste. Cold, it drinks like clean water with a very light crispness from the dissolved gas. Magnesium is the only thing you might notice, and only faintly.</p>
+    </details>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">Does the hydrogen stay in the can?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">That is the entire engineering problem, and it is why this is aluminum and not plastic. Sealed cans are tested at a minimum of 2.2 ppm dissolved hydrogen. Once you open one, drink it within about 30 minutes.</p>
+    </details>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">Is this water or a supplement?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">It is a functional beverage. Water is the base, and hydrogen, magnesium and trace gold and platinum are what make it functional. You drink it like water, one can a day, not like a capsule.</p>
+    </details>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">When does it ship, and what does shipping cost?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">Subscriptions ship free, every order. One-time orders pay $10. Batch 001 orders ship in the order they come in, and you get tracking the day the box leaves.</p>
+    </details>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">How do I cancel?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">Two clicks in your account, anytime, including before your second box. Cans that have already shipped cannot be returned, which is why the first month is the only thing you are committing to.</p>
+    </details>
+    <details style="border-top: 1px solid rgba(237,227,211,0.14); border-bottom: 1px solid rgba(237,227,211,0.14)">
+      <summary style="display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-size: 18px; font-weight: 600">Where is it made?<span class="faqPlus" style="color: #C8A44A; font-size: 22px; transition: transform 0.2s">+</span></summary>
+      <p style="margin: 0 0 22px; font-size: 15.5px; line-height: 1.6; color: rgba(237,227,211,0.75)">In the United States, with a copacker chosen specifically for hydrogen retention. Facility and water sourcing details go here once we are cleared to name them.</p>
+    </details>
+  </section>
+
+  <section style="background: #0A0E18; border-top: 1px solid rgba(237,227,211,0.09)">
+    <div style="max-width: 900px; margin: 0 auto; padding: clamp(52px, 7vw, 84px) 22px; text-align: center">
+      <h2 style="font-size: clamp(28px, 4vw, 46px); line-height: 1.06; font-weight: 800; letter-spacing: -0.025em; margin: 0 auto 16px; max-width: 22ch; text-wrap: pretty">Batch 001 is ten thousand cans</h2>
+      <p style="font-size: 16.5px; line-height: 1.6; color: rgba(237,227,211,0.75); margin: 0 auto 30px; max-width: 52ch">When Batch 001 is gone, the next run is about three weeks out. No timer, no countdown, just how long it takes to make more.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; max-width: 620px; margin: 0 auto 22px; text-align: left">
+        <div onClick="{{ pickSub }}" role="button" tabindex="0" style="{{ miniSubStyle }}">
+          <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A44A; margin-bottom: 8px">Subscribe</div>
+          <div style="font-size: 24px; font-weight: 800">$95.76</div>
+          <div style="font-size: 13.5px; color: rgba(237,227,211,0.7)">$3.19 per can, free shipping</div>
+        </div>
+        <div onClick="{{ pickOnce }}" role="button" tabindex="0" style="{{ miniOnceStyle }}">
+          <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237,227,211,0.6); margin-bottom: 8px">Buy once</div>
+          <div style="font-size: 24px; font-weight: 800">$119.70</div>
+          <div style="font-size: 13.5px; color: rgba(237,227,211,0.7)">$3.99 per can, $10 shipping</div>
+        </div>
+      </div>
+      <button type="button" style="width: 100%; max-width: 620px; padding: 19px 22px; border-radius: 12px; background: #C8A44A; color: #0A0D14; border: 0; font-family: Syne, sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.03em; cursor: pointer" style-hover="background: #E4C679">{{ ctaLabel }}</button>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(237,227,211,0.09); padding: 34px 22px 44px">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: start">
+      <div style="font-size: 17px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase">Star Sweat</div>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: rgba(237,227,211,0.45)">Star Sweat, LLC. Elemental Water is a functional beverage. Statements on this page describe composition and independently tested hydrogen concentration only. Cans cannot be returned once shipped. Subscriptions renew every 30 days and can be skipped, paused or cancelled from your account at any time.</p>
+    </div>
+  </footer>
+
+  <div style="{{ stickyStyle }}">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 14px">
+      <div style="min-width: 0; flex: 1">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237,227,211,0.55)">{{ stickyLabel }}</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; white-space: nowrap">
+          <span style="font-size: 19px; font-weight: 800">{{ stickyPrice }}</span>
+          <span style="font-size: 13px; color: #C8A44A">{{ stickyPerCan }}</span>
+        </div>
+      </div>
+      <a href="#offer" style="padding: 14px 20px; border-radius: 10px; background: #C8A44A; color: #0A0D14; font-size: 14.5px; font-weight: 700; letter-spacing: 0.03em; white-space: nowrap; border-bottom: 0" style-hover="background: #E4C679">{{ stickyCta }}</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;headlineVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;\&quot;A\&quot; | \&quot;B\&quot;&quot;,&quot;section&quot;:&quot;Testing&quot;},&quot;heroClaimLine&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cleared claims&quot;},&quot;scienceClaimLine&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cleared claims&quot;}}">
+class Component extends DCLogic {
+  state = { plan: "sub", narrow: false };
+
+  componentDidMount() {
+    try {
+      const saved = localStorage.getItem("ss-plan");
+      if (saved === "sub" || saved === "once") this.setState({ plan: saved });
+    } catch (e) {}
+    this._fit = () => this.setState({ narrow: window.innerWidth < 900 });
+    this._fit();
+    window.addEventListener("resize", this._fit);
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this._fit); }
+
+  pick(plan) {
+    this.setState({ plan });
+    try { localStorage.setItem("ss-plan", plan); } catch (e) {}
+  }
+
+  card(on) {
+    return [
+      "border-radius:18px", "padding:26px", "cursor:pointer", "min-width:0",
+      "transition:border-color .18s, background .18s, box-shadow .18s",
+      on ? "border:1.5px solid #C8A44A" : "border:1.5px solid rgba(237,227,211,0.14)",
+      on ? "background:linear-gradient(180deg, rgba(200,164,74,0.10), rgba(200,164,74,0.02))" : "background:rgba(237,227,211,0.025)",
+      on ? "box-shadow:0 0 0 4px rgba(200,164,74,0.10)" : "box-shadow:none"
+    ].join(";");
+  }
+  dot(on) {
+    return [
+      "width:20px", "height:20px", "border-radius:50%", "flex:0 0 auto",
+      on ? "border:6px solid #C8A44A" : "border:2px solid rgba(237,227,211,0.35)",
+      "background:transparent"
+    ].join(";");
+  }
+  mini(on) {
+    return [
+      "border-radius:14px", "padding:18px", "cursor:pointer", "min-width:0",
+      on ? "border:1.5px solid #C8A44A" : "border:1.5px solid rgba(237,227,211,0.14)",
+      on ? "background:rgba(200,164,74,0.08)" : "background:rgba(237,227,211,0.025)"
+    ].join(";");
+  }
+
+  renderVals() {
+    const sub = this.state.plan === "sub";
+    const variant = this.props.headlineVariant || "A";
+    return {
+      headline: variant === "B"
+        ? "Your wellness stack skipped the water"
+        : "The water of the future, one can a day",
+      heroClaim: this.props.heroClaimLine ||
+        "Cleared claim language drops in here. Until legal signs off, this slot stays factual and the layout does not move.",
+      scienceClaim: this.props.scienceClaimLine ||
+        "Cleared claim language drops in here, with the study or test it comes from cited directly underneath.",
+      pickSub: () => this.pick("sub"),
+      pickOnce: () => this.pick("once"),
+      subCardStyle: this.card(sub),
+      onceCardStyle: this.card(!sub),
+      subDotStyle: this.dot(sub),
+      onceDotStyle: this.dot(!sub),
+      miniSubStyle: this.mini(sub),
+      miniOnceStyle: this.mini(!sub),
+      ctaLabel: sub ? "Subscribe and Save, $95.76 per month" : "Buy one 30-pack, $119.70",
+      stickyLabel: sub ? "Monthly subscription" : "One-time 30-pack",
+      stickyPrice: sub ? "$95.76" : "$119.70",
+      stickyPerCan: sub ? "$3.19 per can" : "$3.99 per can",
+      stickyCta: sub ? "Subscribe" : "Buy once",
+      stickyStyle: [
+        "position:fixed", "left:0", "right:0", "bottom:0", "z-index:40",
+        "padding:12px 18px", "background:rgba(8,11,19,0.94)",
+        "backdrop-filter:blur(14px)", "-webkit-backdrop-filter:blur(14px)",
+        "border-top:1px solid rgba(237,227,211,0.14)",
+        this.state.narrow ? "display:block" : "display:none"
+      ].join(";")
+    };
+  }
+}
+</script>
+</body>
+</html>

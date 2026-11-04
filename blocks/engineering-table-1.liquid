@@ -1,0 +1,41 @@
+<div class="engineering-tale-1-row engineering-tale-1-title">
+    <div class="engineering-tale-1-col"></div>
+  <div class="engineering-tale-1-col h4">
+    {{ block.settings.head_col_1 }}
+  </div>
+  <div class="engineering-tale-1-col h4">
+    {{ block.settings.head_col_2 }}
+  </div>
+</div>
+
+{% content_for 'blocks' %}
+
+{% schema %}
+
+  {
+    "name": "Engineering table 1",
+    "class": "engineering-tale-1",
+    "settings": [
+      {
+        "type": "text",
+        "id": "head_col_1",
+        "label": "Header title 1"
+      }, {
+        "type": "text",
+        "id": "head_col_2",
+        "label": "Header title 2"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "engineering-row-style-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Engineering table 1"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -1,0 +1,190 @@
+{% stylesheet %}
+  .ssland-benefits {
+    position: relative;
+    border-top: 1px solid var(--ssl-border-soft);
+  }
+  .ssland-benefits-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(50% 60% at 80% 20%, rgba(185, 194, 206, 0.08), rgba(5, 7, 13, 0) 70%);
+    pointer-events: none;
+  }
+  .ssland-benefits-inner {
+    position: relative;
+  }
+  .ssland-benefits-head {
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .ssland-benefits-heading {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .ssland-benefits-subcopy {
+    margin: 0;
+    font-size: 16.5px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-benefits-subcopy p {
+    margin: 0;
+  }
+  .ssland-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1px;
+    background: var(--ssl-border);
+    border: 1px solid var(--ssl-border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .ssland-benefit-card {
+    padding: 30px 26px;
+    background: var(--ssl-bg-deep);
+    min-width: 0;
+  }
+  .ssland-benefit-num {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: rgba(131, 69, 255, 0.9);
+    margin-bottom: 18px;
+  }
+  .ssland-benefit-title {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+  .ssland-benefit-body {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-benefit-body p {
+    margin: 0;
+  }
+  .ssland-benefits-disclaimer {
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: rgba(155, 160, 170, 1);
+    max-width: 76ch;
+  }
+{% endstylesheet %}
+
+<section class="ssland-benefits section-{{ section.id }}">
+  <div class="ssland-benefits-glow"></div>
+  <div class="ssland-section-inner ssland-benefits-inner">
+
+    <div class="ssland-benefits-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="ssland-benefits-heading ssland-font-display">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subcopy != blank -%}
+        <div class="ssland-benefits-subcopy">{{ section.settings.subcopy }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ssland-benefits-grid">
+        {%- for block in section.blocks -%}
+          <div class="ssland-benefit-card" {{ block.shopify_attributes }}>
+            <div class="ssland-benefit-num ssland-font-display">{{ block.settings.number }}</div>
+            <h3 class="ssland-benefit-title ssland-font-display">{{ block.settings.title }}</h3>
+            <div class="ssland-benefit-body">{{ block.settings.body }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="ssland-benefits-disclaimer">{{ section.settings.disclaimer }}</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Benefits",
+    "class": "section-ssland-benefits",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "Why Star Sweat"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Hydration, evolved."
+      },
+      {
+        "type": "richtext",
+        "id": "subcopy",
+        "label": "Subcopy",
+        "default": "<p>Water gets you to baseline. Elemental Water is built for the body you're building — molecular hydrogen small enough to move where water alone can't, magnesium, and trace precious elements.</p>"
+      },
+      {
+        "type": "text",
+        "id": "disclaimer",
+        "label": "Disclaimer",
+        "default": "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "benefit",
+        "name": "Benefit",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number",
+            "label": "Number",
+            "default": "01"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Cellular-level hydration"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>H₂ is the smallest molecule in existence. It goes where bulk water stops — reaching cells that ordinary water never touches.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Benefits",
+        "blocks": [
+          { "type": "benefit", "settings": { "number": "01", "title": "Cellular-level hydration", "body": "<p>H₂ is the smallest molecule in existence. It goes where bulk water stops — reaching cells that ordinary water never touches.</p>" } },
+          { "type": "benefit", "settings": { "number": "02", "title": "Energy + focus", "body": "<p>No caffeine, no sugar, no crash. Magnesium and molecular hydrogen, clean and cold.</p>" } },
+          { "type": "benefit", "settings": { "number": "03", "title": "Recovery support", "body": "<p>The can you reach for after training, not another thing to mix. One daily ritual.</p>" } },
+          { "type": "benefit", "settings": { "number": "04", "title": "Longevity thinking", "body": "<p>The one input you take every single day — water — upgraded once and done.</p>" } },
+          { "type": "benefit", "settings": { "number": "05", "title": "Antioxidant support", "body": "<p>Molecular hydrogen selectively targets harmful free radicals, turning oxidative stress into water.</p>" } },
+          { "type": "benefit", "settings": { "number": "06", "title": "Deep vitality", "body": "<p>Gold and platinum trace elements — rare, elemental, part of the larger formula for human performance.</p>" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

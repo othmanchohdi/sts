@@ -1,0 +1,130 @@
+{% stylesheet %}
+  .ssland-founder {
+    position: relative;
+    overflow: clip;
+    border-top: 1px solid var(--ssl-border-soft);
+  }
+  .ssland-founder-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 55% at 50% 110%, rgba(131, 69, 255, 0.18), rgba(5, 7, 13, 0) 70%);
+    pointer-events: none;
+  }
+  .ssland-founder-inner {
+    position: relative;
+  }
+  .ssland-founder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(26px, 4vw, 56px);
+    align-items: center;
+  }
+  .ssland-founder-heading {
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .ssland-founder-body p {
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-founder-signature {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-founder-media {
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--ssl-border);
+  }
+  .ssland-founder-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+{% endstylesheet %}
+
+<section class="ssland-founder section-{{ section.id }}">
+  <div class="ssland-founder-glow"></div>
+  <div class="ssland-section-inner ssland-founder-inner">
+    <div class="ssland-founder-grid">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="ssland-founder-heading ssland-font-display">{{ section.settings.heading }}</h2>
+        <div class="ssland-founder-body">{{ section.settings.body }}</div>
+        {%- if section.settings.signature != blank -%}
+          <div class="ssland-founder-signature ssland-font-display">{{ section.settings.signature }}</div>
+        {%- endif -%}
+      </div>
+      <div class="ssland-founder-media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag: loading: 'lazy', widths: '400, 600, 900, 1200', alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          {{ 'lifestyle-3' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Founder story",
+    "class": "section-ssland-founder",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "From Earth to Mars"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "We're made of the same elements as everything out there."
+      },
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Body",
+        "default": "<p>Star Sweat exists because the one thing every human takes in every single day — water — is the one thing nobody had bothered to engineer. Wherever people go next, they carry that problem with them.</p><p>I had a version of this on the market before. The copacker couldn't hold the hydrogen in the can, and shipping water that had already lost the one thing it was sold for wasn't something I could keep doing. So I stopped.</p><p>This is the restart. Tested before it ships, with the number printed where you can see it. If it tests low, it doesn't go out. That's the whole standard.</p>"
+      },
+      {
+        "type": "text",
+        "id": "signature",
+        "label": "Signature line",
+        "default": "Mark Ragno — Founder, Star Sweat"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Founder story"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

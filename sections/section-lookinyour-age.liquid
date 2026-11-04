@@ -1,0 +1,216 @@
+{% style %}
+    .lookinyourage-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:30px;
+    }
+    .lookinyourage-column-text{ 
+        padding:50px;
+        border-radius: 30px;
+        background-color:var(--grey-80); 
+    }
+    .lookinyourage-title{
+        line-height: 41px;
+        margin-bottom:16px;
+    }
+    .lookinyourage-text {
+        padding-bottom:40px;
+        margin-bottom:40px;
+        border-bottom:1px solid rgba(255,255,255,.2);
+    }
+    .lookinyourage-text p{
+        color:var(--grey-20);
+        line-height: 1.6;
+        margin:0;
+    }
+    .lookinyourage-text-bottom{
+        margin-top:20px;
+    }
+    .lookinyourage-text-bottom p{
+        color:var(--grey-20);
+        line-height: 25px;
+        margin:0;
+    }
+    .lookinyourage-text-bottom strong{
+        color:var(--violet);
+    }
+    .lookinyourage-text-bottom p a{
+        color:var(--violet);
+    }
+    .lookinyourage-img{
+        position:relative;
+    }
+    .lookinyourage-img:after{
+        content:'';
+        display:block;
+        padding-top:calc(100% / (1));
+    }
+     .lookinyourage-img img{
+        border-radius: 30px;
+        position:absolute;
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+     }
+     @media(max-width:1024px){
+        .lookinyourage-grid {
+            gap: 15px;
+        }
+        .lookinyourage-column-text{
+            padding:30px;
+        }
+     }
+     @media(max-width:991px){
+        .lookinyourage-grid{
+            grid-template-columns:1fr;
+        }
+        .lookinyourage-text p, .lookinyourage-text-bottom p{
+            font-size:15px;
+        }
+     }
+      @media(max-width:768px){
+        .lookinyourage-column-text{ 
+            padding:20px 15px;
+        }
+       .lookinyourage-text {
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+         .lookinyourage-title{
+            margin-bottom:10px;
+        }
+        .lookinyourage-text-bottom{
+            margin-top:12px;
+        }
+     }
+ 
+{% endstyle %}
+
+<section class="lookinyourage-wrp section-{{ section.id }}">
+    <div class="container">
+      
+        <div class="lookinyourage-grid">
+
+            <div class="lookinyourage-img">
+
+                {% if section.settings.image != blank %}
+                    {{
+                        section.settings.image
+                        | image_url: width: 1946
+                        | image_tag:
+                        loading: loading,
+                        sizes: '100vw',
+                        widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                        alt: section.settings.image.alt,
+                        class: "lookinyourage-planet-img"
+                    }}
+                {% endif %}
+            </div> 
+            <div class="lookinyourage-column-text">
+
+                {% if section.settings.label != blank %}
+
+                    <div class="caps small color-violet weight_700 lookinyourage-label overflow-hidden">{{section.settings.label}}</div>
+                
+                {% endif %}
+
+                {% if section.settings.title != blank %}
+
+                    <div class="h3 lookinyourage-title overflow-hidden">{{section.settings.title}}</div>
+                
+                {% endif %}
+            
+                {% if section.settings.text != blank %}
+                    <div class="lookinyourage-text"> 
+                        {{section.settings.text}}
+                    </div>
+                {% endif %}
+                {% if section.settings.button_label != blank %}
+                    <div class="lookinyourage-btn ">
+                        <a href="{{section.settings.url | default: '#'}}" 
+                        class="overflow-hidden weight-700 h6 c-btn c-btn-icon c-btn--hollow">
+                            {{ section.settings.button_label }}
+                              {% render 'icon' with 'starship-violet' %}
+                        </a>
+                    </div>
+                {% endif %}
+                {% if section.settings.text_bottom != blank %}
+                    <div class="lookinyourage-text-bottom"> 
+                        {{section.settings.text_bottom}}
+                    </div>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+
+    
+
+{% schema %}
+{
+  "name": "Look in your age",
+  "class": "section-lookinyourage",
+  "settings": [
+        {   
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+         {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+        },
+         {
+            "type": "richtext",
+            "id": "text_bottom",
+            "label": "Text in the bottom"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Look in your age",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{% stylesheet %}
+
+  page-preloader {
+    position: fixed;
+    flex-direction: column;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transform: scale(1, 1);
+    transition: transform 0.3s ease-in-out;
+  }
+  page-preloader.hide {
+    border: 5px solid var(--violet);
+    transform: scale(0, 0);
+    transition: transform 0.3s ease-in-out;
+  }
+  .preload-img {
+    display: block;
+    max-width: 100%;
+    transform: scale(1, 1);
+    transition: transform 0.2s ease-in-out;
+  }
+  .preload-img.hide {
+    transform: scale(0, 0);
+    transition: transform 0.5s ease-in-out;
+  }
+{% endstylesheet %}
+
+
+{% if settings.on_preloader %}
+
+  <page-preloader>
+    {% render 'stars-shower'
+      , count: 50 %}
+    {% if settings.img_preloader_icon != blank %}
+      <img
+        src="{{settings.img_preloader_icon | img_url : 'x50'}}"
+        class="preload-icon-img"
+        alt="{{settings.img_preloader.alt}}">
+    {% endif %}
+    {% if settings.img_preloader != blank %}
+      <img
+        src="{{settings.img_preloader | img_url : 'master'}}"
+        class="preload-img"
+        alt="{{settings.img_preloader.alt}}">
+    {% endif %}
+  </page-preloader>
+
+
+  <script>
+
+              class PagePreloader extends HTMLElement {
+
+                  connectedCallback() { 
+
+                      const showUrls = `{{settings.preloader_show}}`;
+                      const arrayUrls = showUrls.split(',').map(item => item.trim());
+                      const currentUrlPath = window.location.pathname
+     
+                      if(arrayUrls.length && arrayUrls[0] != ''){
+                        if(arrayUrls.find(url => currentUrlPath == url)){
+                          this.startPreloader()
+                        }else{
+                          this.remove() 
+                        }
+                      }else{
+                        this.startPreloader()
+                      }
+                      
+                      
+                  }
+
+                  startPreloader(){
+                    window.addEventListener('load', () => {
+
+                       document.querySelector('.preload-img').classList.add('hide')
+
+                          setTimeout(() => {
+                              this.classList.add('hide');
+                          },300)
+                          setTimeout(() => {
+                              this.remove()
+                          },700)
+
+                    });
+                }
+              }
+
+
+              if (!customElements.get('page-preloader')) {
+                customElements.define('page-preloader', PagePreloader);
+              }
+  </script>
+
+{% endif %}

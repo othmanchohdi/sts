@@ -1,0 +1,87 @@
+{% stylesheet %}
+  .ssland-faq-section {
+    border-top: 1px solid var(--ssl-border-soft);
+    background: linear-gradient(180deg, var(--ssl-bg-navy), var(--ssl-bg-deep));
+  }
+  .ssland-faq-inner {
+    max-width: 920px;
+  }
+  .ssland-faq-heading {
+    font-size: clamp(28px, 3.6vw, 46px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 30px;
+  }
+{% endstylesheet %}
+
+<section class="ssland-faq-section section-{{ section.id }}">
+  <div class="ssland-section-inner ssland-faq-inner">
+
+    <h2 class="ssland-faq-heading ssland-font-display">{{ section.settings.heading }}</h2>
+
+    {%- for block in section.blocks -%}
+      <details class="ssland-faq-item" {{ block.shopify_attributes }}>
+        <summary class="ssland-faq-summary ssland-font-display">
+          {{ block.settings.question }}
+          <span class="ssland-faq-icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="ssland-faq-body">{{ block.settings.answer }}</p>
+      </details>
+    {%- endfor -%}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: FAQ",
+    "class": "section-ssland-faq",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Questions, answered"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "What is Elemental Water?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>A functional beverage: purified water as the base, with molecular hydrogen at 2.2 ppm minimum, magnesium, and trace colloidal gold and platinum.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: FAQ",
+        "blocks": [
+          { "type": "faq", "settings": { "question": "What is Elemental Water?", "answer": "<p>A functional beverage: purified water as the base, with molecular hydrogen at 2.2 ppm minimum, magnesium, and trace colloidal gold and platinum. Five things, in a sealed 12 oz can.</p>" } },
+          { "type": "faq", "settings": { "question": "How is it different from other hydrogen water?", "answer": "<p>Most hydrogen water is a tablet you drop in a glass, a machine on a counter, or a pouch that's lost its hydrogen by the time you open it. Ours is sealed in aluminum, tested per run, and publishes the concentration. It also adds magnesium and trace gold and platinum, which plain hydrogen water doesn't.</p>" } },
+          { "type": "faq", "settings": { "question": "How much hydrogen is in each can?", "answer": "<p>A minimum of 2.2 ppm dissolved H₂, independently tested. If a run tests under that, it doesn't ship.</p>" } },
+          { "type": "faq", "settings": { "question": "Does it taste different?", "answer": "<p>Barely. Hydrogen has no taste. Cold, it drinks like clean water with a light crispness from the dissolved gas. Magnesium is the only thing you might notice, faintly.</p>" } },
+          { "type": "faq", "settings": { "question": "How should I drink and store it?", "answer": "<p>One can a day, cold. Store sealed cans cool and out of direct sun. Once open, finish within about 30 minutes — hydrogen leaves an open can the way carbonation does.</p>" } },
+          { "type": "faq", "settings": { "question": "How does the subscription work?", "answer": "<p>One 30-pack ships monthly at $95.76 with free shipping, renewing every 30 days. Skip, pause or change frequency from your account. We email before each charge.</p>" } },
+          { "type": "faq", "settings": { "question": "Can I cancel anytime?", "answer": "<p>Yes — two clicks in your account, including before your second box. No email, no phone call. Cans already shipped can't be returned.</p>" } },
+          { "type": "faq", "settings": { "question": "What does shipping cost, and where is it made?", "answer": "<p>Subscriptions ship free, every order. One-time orders are $10. Made in the United States with a copacker chosen for hydrogen retention.</p>" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

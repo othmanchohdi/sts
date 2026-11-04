@@ -1,0 +1,301 @@
+
+{% stylesheet %}
+     .aboutpage-wrp{
+        position:relative;
+        padding-bottom:110px;
+        overflow: hidden;
+    }
+    .aboutpage-image{
+        position: relative;
+        max-width: 67%;
+        width: 100%;
+    }
+     .aboutpage-image:after{
+        content:'';
+        position:relative;
+        display:block;
+        padding-top:650px;
+    }
+    .aboutpage-main-img{
+       position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:20px; 
+    }
+     .aboutpage-title{
+        margin: 0 0 10px 0;
+        line-height: 1.3;
+    }
+    .aboutpage-grid-description p{
+        color: var(--grey-20);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28px;
+        margin:0;
+    }
+     /* stars animation */
+    .aboutpage-wrp .star-1,
+    .aboutpage-wrp .star-2 {
+        position: absolute;
+        left: 0;
+        top: 30%;
+        width: 20px;
+        height: 20px;
+        animation: brightness 3s linear infinite;
+    }
+    .aboutpage-wrp .star-1 {
+        top: 5%;
+        left: 10%;
+        width: 20px;
+        height: 20px;
+    }
+    .aboutpage-wrp .star-2 {
+        position: absolute;
+        left: auto;
+        top: 11%;
+        left: 15%;
+        width: 10px;
+        height: 10px;
+        animation: brightness 5s linear infinite;
+    }
+{% endstylesheet %}
+
+{% style %}
+   
+    .section-{{ section.id }} .aboutpage-text-block{
+        position: relative;
+        display: flex;
+        {% if section.settings.reverse %}
+            justify-content: flex-start;
+        {% else %}
+            justify-content: flex-end;
+        {% endif %}
+        align-items: center;
+    }
+    
+    .section-{{ section.id }} .aboutpage-grid-text{
+        position: absolute;
+        padding:60px;
+        max-width:547px; 
+         {% if section.settings.reverse %}
+            right: 0;
+        {% else %}
+            left: 0;
+        {% endif %}
+        border-radius: 20px;
+        border: 1px solid #272834;
+        background: rgba(35, 35, 46, 0.30);
+        backdrop-filter: blur(15px);
+        z-index: 1;
+    }
+    .section-{{ section.id }} .aboutpage-img_rock{ 
+        position:absolute;
+         {% if section.settings.reverse %}
+            right: 0;
+        {% else %}
+            left: 0;
+        {% endif %}
+        bottom:-{{section.settings.offset_top}}px;
+        max-width:{{section.settings.rock_width}}px;
+        animation: rotating-2 15s linear infinite;
+    }
+   
+    .section-{{ section.id }} .stars-shower{
+        z-index:1;
+    }
+    
+    @media(max-width:600px){
+        .section-{{ section.id }} .aboutpage-text-block{
+            flex-direction:column;
+        }
+        .aboutpage-image{
+            order:1;
+            max-width:100%;
+        }
+        .aboutpage-image:after{
+            padding-top:calc(100%/(1.5));
+        }
+        .section-{{ section.id }} .aboutpage-grid-text{
+            order:2;
+            position:static;
+            padding:20px;
+            margin-top: -50px;
+        }
+        .section-{{ section.id }} .aboutpage-img_rock{
+             bottom:-{{section.settings.offset_top_mob}}px;
+            max-width:{{section.settings.rock_width_mob}}px;
+        }
+    }
+{% endstyle %}
+
+<section class="aboutpage-wrp section-{{ section.id }}" 
+{% if section.settings.padding_bottom_off %}style="padding-bottom:0;"{% endif %}>
+    {% if section.settings.stars %}
+        {% render 'stars-shower'
+            , count: 10 %}
+    {% endif %}
+
+    <div class="star-css star-1"></div>
+    <div class="star-css star-css-2 star-2"></div>
+
+
+    <div class="container">
+
+
+        <div class="aboutpage-text-block">
+
+            <div class="aboutpage-grid-text">
+                {% if section.settings.title != blank %}
+                    <div class="h2 aboutpage-title overflow-hidden">{{section.settings.title}}</div>
+                {% endif %}
+                {% if section.settings.text != blank %}
+                    <div class="aboutpage-grid-description">
+                        {{ section.settings.text }}
+                    </div>
+                {% endif %}
+                
+            </div>
+  
+ 
+            <div class="aboutpage-image">
+                {% if section.settings.image != blank %}
+                    {{
+                        section.settings.image | image_url: width: 1946 | image_tag: loading: loading,
+                        sizes: '(max-width: 500px) 500px, (max-width: 700px) 700px,  (max-width: 900px) 1000px, (max-width: 2000px) 1000px, 1000px', 
+                        widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946', 
+                        alt: section.settings.image.alt, 
+                        class: "aboutpage-main-img"
+                    }}
+                    {% endif %}
+            </div>
+            
+            {% if section.settings.image_rock != blank %}
+                    {{
+                        section.settings.image_rock | image_url: width: 500 | image_tag: loading: loading,
+                        sizes: '200px', 
+                        widths: '246, 493', 
+                        alt: section.settings.image_rock.alt, 
+                        class: "aboutpage-img_rock"
+                    }}
+                    {% endif %}
+
+            
+        </div>
+
+         
+       
+
+    </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "About paget",
+  "class": "section-aboutpage",
+  "settings": [
+        {
+            "type": "checkbox",
+            "id": "reverse",
+            "label": "Reverse",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "stars",
+            "label": "Stars",
+            "default": true
+        },
+         {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_rock",
+            "label": "Image rock"
+        },
+        {
+            "type": "range",
+            "id": "rock_width",
+            "min": 50,
+            "max": 550,
+            "step": 5,
+            "unit": "px",
+            "label": "Width",
+            "default": 50
+        },
+        {
+            "type": "range",
+            "id": "offset_top",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Offset top",
+            "default": 0
+        },
+         {
+            "type": "range",
+            "id": "rock_width_mob",
+            "min": 50,
+            "max": 550,
+            "step": 5,
+            "unit": "px",
+            "label": "Width mobile",
+            "default": 50
+        },
+        {
+            "type": "range",
+            "id": "offset_top_mob",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Offset top mobile",
+            "default": 0
+        },
+         {
+            "type": "checkbox",
+            "id": "padding_bottom_off",
+            "label": "Padding bottom off",
+            "default": false
+        }
+  ],
+  "presets": [
+    {
+      "name": "About page",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

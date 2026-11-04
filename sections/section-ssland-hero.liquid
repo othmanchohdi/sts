@@ -1,0 +1,423 @@
+{% stylesheet %}
+  .ssland-hero {
+    position: relative;
+    overflow: clip;
+  }
+  .ssland-hero-glow {
+    position: absolute;
+    inset: -20% -10% 10% -10%;
+    background:
+      radial-gradient(46% 40% at 62% 30%, rgba(185, 194, 206, 0.14), rgba(5, 7, 13, 0) 72%),
+      radial-gradient(52% 46% at 30% 62%, rgba(131, 69, 255, 0.12), rgba(5, 7, 13, 0) 74%);
+    pointer-events: none;
+  }
+  .ssland-hero-inner {
+    position: relative;
+    padding-top: clamp(14px, 3vw, 34px);
+    padding-bottom: clamp(48px, 7vw, 86px);
+  }
+  .ssland-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(30px, 4.5vw, 64px);
+    align-items: center;
+  }
+  .ssland-hero-copy {
+    min-width: 0;
+  }
+  .ssland-hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(185, 194, 206, 0.32);
+    background: rgba(185, 194, 206, 0.07);
+    margin-bottom: 22px;
+  }
+  .ssland-hero-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ssl-accent);
+    flex-shrink: 0;
+  }
+  .ssland-hero-pill-text {
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 234, 0.82);
+  }
+  .ssland-hero-headline {
+    font-size: clamp(42px, 5.4vw, 78px);
+    line-height: 0.96;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  .ssland-hero-subcopy {
+    font-size: clamp(16px, 1.35vw, 19px);
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+    margin: 0 0 28px;
+    max-width: 44ch;
+    text-wrap: pretty;
+  }
+  .ssland-hero-subcopy p {
+    margin: 0;
+  }
+  .ssland-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .ssland-hero-priceblock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px 30px;
+    padding: 20px 0;
+    border-top: 1px solid var(--ssl-border);
+    border-bottom: 1px solid var(--ssl-border);
+    margin-bottom: 22px;
+  }
+  .ssland-hero-price-label {
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ssl-text-tertiary);
+    margin-bottom: 7px;
+  }
+  .ssland-hero-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .ssland-hero-price {
+    font-size: clamp(32px, 3.6vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .ssland-hero-price-percan {
+    font-size: 14px;
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-hero-compare {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ssl-text-tertiary);
+  }
+  .ssland-hero-compare-price {
+    text-decoration: line-through;
+  }
+  .ssland-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ssland-hero-ctas .ssland-btn-gold {
+    flex: 1 1 240px;
+  }
+  .ssland-hero-ctas .ssland-btn-outline {
+    flex: 0 1 auto;
+  }
+  .ssland-hero-media {
+    position: relative;
+    min-width: 0;
+  }
+  .ssland-hero-media-orb {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    width: 76%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(131, 69, 255, 0.28), rgba(5, 7, 13, 0) 70%);
+    pointer-events: none;
+  }
+  .ssland-hero-media-main {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--ssl-border);
+    background: linear-gradient(180deg, rgba(185, 194, 206, 0.08), rgba(5, 7, 13, 0.4));
+  }
+  .ssland-hero-media-main img,
+  .ssland-hero-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ssland-hero-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .ssland-hero-thumb {
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--ssl-border);
+  }
+{% endstylesheet %}
+
+<section class="ssland-hero section-{{ section.id }}">
+  <div class="ssland-hero-glow ssland-animate-glow"></div>
+  <div class="ssland-grid-overlay"></div>
+
+  <div class="ssland-section-inner ssland-hero-inner">
+    <div class="ssland-hero-grid">
+
+      <div class="ssland-hero-copy ssland-animate-rise">
+        {%- if section.settings.pill_text != blank -%}
+          <div class="ssland-hero-pill">
+            <span class="ssland-hero-pill-dot"></span>
+            <span class="ssland-hero-pill-text">{{ section.settings.pill_text }}</span>
+          </div>
+        {%- endif -%}
+
+        <h1 class="ssland-hero-headline ssland-font-display">{{ section.settings.headline }}</h1>
+
+        {%- if section.settings.subcopy != blank -%}
+          <div class="ssland-hero-subcopy">{{ section.settings.subcopy }}</div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="ssland-hero-badges">
+            {%- for block in section.blocks -%}
+              <span class="ssland-badge ssland-badge--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+                {{- block.settings.text -}}
+              </span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="ssland-hero-priceblock">
+          <div>
+            <div class="ssland-hero-price-label">{{ section.settings.price_label }}</div>
+            <div class="ssland-hero-price-row">
+              <span class="ssland-hero-price ssland-font-display">{{ section.settings.price }}</span>
+              <span class="ssland-hero-price-percan">{{ section.settings.price_per_can }}</span>
+            </div>
+          </div>
+          <div class="ssland-hero-compare">
+            <div class="ssland-hero-compare-price">{{ section.settings.compare_price }}</div>
+            <div>{{ section.settings.note_text }}</div>
+          </div>
+        </div>
+
+        <div class="ssland-hero-ctas">
+          {%- if section.settings.primary_cta_label != blank -%}
+            <a href="{{ section.settings.primary_cta_url | default: '#offer' }}" class="ssland-btn-gold">
+              {{- section.settings.primary_cta_label -}}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.secondary_cta_label != blank -%}
+            <a href="{{ section.settings.secondary_cta_url | default: '#different' }}" class="ssland-btn-outline">
+              {{- section.settings.secondary_cta_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="ssland-hero-media">
+        <div class="ssland-hero-media-orb"></div>
+        <div class="ssland-hero-media-main">
+          {%- if section.settings.main_image != blank -%}
+            {{
+              section.settings.main_image
+              | image_url: width: 1200
+              | image_tag: loading: 'eager', widths: '400, 600, 800, 1000, 1200', alt: section.settings.main_image.alt
+            }}
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="ssland-hero-thumbs">
+          {%- for i in (1..3) -%}
+            {%- liquid
+              case i
+                when 1
+                  assign thumb_image = section.settings.thumb_image_1
+                when 2
+                  assign thumb_image = section.settings.thumb_image_2
+                when 3
+                  assign thumb_image = section.settings.thumb_image_3
+              endcase
+            -%}
+            <div class="ssland-hero-thumb">
+              {%- if thumb_image != blank -%}
+                {{
+                  thumb_image
+                  | image_url: width: 400
+                  | image_tag: loading: 'lazy', widths: '150, 250, 400', alt: thumb_image.alt
+                }}
+              {%- else -%}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Hero",
+    "class": "section-ssland-hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "pill_text",
+        "label": "Eyebrow pill text",
+        "default": "Introducing Elemental Water"
+      },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headline",
+        "default": "Drink the Water of the Future."
+      },
+      {
+        "type": "richtext",
+        "id": "subcopy",
+        "label": "Subcopy",
+        "default": "<p>Molecular hydrogen, magnesium, and trace gold and platinum, sealed in a 12 oz can. Independently tested at a minimum of 2.2 ppm dissolved H₂. One can a day.</p>"
+      },
+      {
+        "type": "header",
+        "content": "Price block"
+      },
+      {
+        "type": "text",
+        "id": "price_label",
+        "label": "Price label",
+        "default": "30-pack, subscribe"
+      },
+      {
+        "type": "text",
+        "id": "price",
+        "label": "Price",
+        "default": "$95.76"
+      },
+      {
+        "type": "text",
+        "id": "price_per_can",
+        "label": "Price per can",
+        "default": "$3.19 / can"
+      },
+      {
+        "type": "text",
+        "id": "compare_price",
+        "label": "Compare-at price text",
+        "default": "$119.70 one-time"
+      },
+      {
+        "type": "text",
+        "id": "note_text",
+        "label": "Note under compare price",
+        "default": "Free shipping · skip or cancel anytime"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "primary_cta_label",
+        "label": "Primary button label",
+        "default": "Get Star Sweat"
+      },
+      {
+        "type": "url",
+        "id": "primary_cta_url",
+        "label": "Primary button link",
+        "default": "#offer"
+      },
+      {
+        "type": "text",
+        "id": "secondary_cta_label",
+        "label": "Secondary button label",
+        "default": "See why"
+      },
+      {
+        "type": "url",
+        "id": "secondary_cta_url",
+        "label": "Secondary button link",
+        "default": "#different"
+      },
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Main product image"
+      },
+      {
+        "type": "image_picker",
+        "id": "thumb_image_1",
+        "label": "Thumbnail 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "thumb_image_2",
+        "label": "Thumbnail 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "thumb_image_3",
+        "label": "Thumbnail 3"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "badge",
+        "name": "Badge",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "H₂ 2.2 ppm"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "Style",
+            "options": [
+              { "value": "accent", "label": "Accent (purple)" },
+              { "value": "secondary", "label": "Secondary (outline)" },
+              { "value": "default", "label": "Default (muted)" }
+            ],
+            "default": "accent"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Hero",
+        "blocks": [
+          { "type": "badge", "settings": { "text": "H₂ 2.2 ppm", "style": "accent" } },
+          { "type": "badge", "settings": { "text": "Gold + Platinum", "style": "secondary" } },
+          { "type": "badge", "settings": { "text": "Zero sugar", "style": "default" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

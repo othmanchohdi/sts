@@ -1,0 +1,185 @@
+{% stylesheet %}
+    .followus-list{
+        padding-bottom:50px;
+    }
+    .followus-list-title{
+        text-align:center;
+        margin-bottom:3px;
+        line-height: 1.4;
+    }
+    .boxes-follow-imgs{
+        display:grid;
+        grid-template-columns:repeat(6, 1fr);
+        gap:30px;
+    }
+    .box-follow-img a{
+        position:relative;
+        display:block;
+        border-radius:16px;
+        overflow:hidden;
+    }
+    .box-follow-img a:after{
+        content:'';
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        opacity:0;
+        background: rgba(35, 35, 46, 0.30);
+        backdrop-filter: blur(3px);
+        background-size:0px;
+    }
+    .box-follow-img a img{
+        display:block;
+        width:100%;
+    }
+    .box-follow-img a:hover:after{
+        opacity:1;
+        background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16.0063 8.8127C12.0313 8.8127 8.82505 12.0189 8.82505 15.9939C8.82505 19.9689 12.0313 23.1752 16.0063 23.1752C19.9813 23.1752 23.1875 19.9689 23.1875 15.9939C23.1875 12.0189 19.9813 8.8127 16.0063 8.8127ZM16.0063 20.6627C13.4375 20.6627 11.3375 18.5689 11.3375 15.9939C11.3375 13.4189 13.4313 11.3252 16.0063 11.3252C18.5813 11.3252 20.675 13.4189 20.675 15.9939C20.675 18.5689 18.575 20.6627 16.0063 20.6627ZM25.1563 8.51895C25.1563 9.4502 24.4063 10.1939 23.4813 10.1939C22.5501 10.1939 21.8063 9.44395 21.8063 8.51895C21.8063 7.59395 22.5563 6.84395 23.4813 6.84395C24.4063 6.84395 25.1563 7.59395 25.1563 8.51895ZM29.9125 10.2189C29.8063 7.9752 29.2938 5.9877 27.65 4.3502C26.0125 2.7127 24.025 2.2002 21.7813 2.0877C19.4688 1.95645 12.5375 1.95645 10.225 2.0877C7.98755 2.19395 6.00005 2.70645 4.3563 4.34395C2.71255 5.98145 2.2063 7.96895 2.0938 10.2127C1.96255 12.5252 1.96255 19.4564 2.0938 21.7689C2.20005 24.0127 2.71255 26.0002 4.3563 27.6377C6.00005 29.2752 7.9813 29.7877 10.225 29.9002C12.5375 30.0314 19.4688 30.0314 21.7813 29.9002C24.025 29.7939 26.0125 29.2814 27.65 27.6377C29.2875 26.0002 29.8001 24.0127 29.9125 21.7689C30.0438 19.4564 30.0438 12.5314 29.9125 10.2189ZM26.925 24.2502C26.4375 25.4752 25.4938 26.4189 24.2626 26.9127C22.4188 27.6439 18.0438 27.4752 16.0063 27.4752C13.9688 27.4752 9.58755 27.6377 7.75005 26.9127C6.52505 26.4252 5.5813 25.4814 5.08755 24.2502C4.3563 22.4064 4.52505 18.0314 4.52505 15.9939C4.52505 13.9564 4.36255 9.5752 5.08755 7.7377C5.57505 6.5127 6.5188 5.56895 7.75005 5.0752C9.5938 4.34395 13.9688 4.5127 16.0063 4.5127C18.0438 4.5127 22.4251 4.35019 24.2626 5.0752C25.4876 5.5627 26.4313 6.50644 26.925 7.7377C27.6563 9.58145 27.4875 13.9564 27.4875 15.9939C27.4875 18.0314 27.6563 22.4127 26.925 24.2502Z" fill="white"/></svg>');
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:32px;
+    }
+    .followus-btn{
+         text-align:center;
+         margin-bottom:3px;
+         margin-bottom:50px;
+    }
+    .followus-btn-link{
+        display:inline-flex;
+        gap:10px;
+        font-size:16px;
+        margin:0;
+    }   
+    .followus-btn-link:hover{
+        opacity:1;
+    }
+      .followus-btn-link svg{
+      transition:fill .2s;
+    }   
+    .followus-btn-link:hover svg{
+      fill: #5E2CFF;
+      transition:fill .2s;
+    }   
+    @media(max-width:1024px){
+        .boxes-follow-imgs{
+            grid-template-columns:repeat(3, 1fr);
+            gap:16px;
+        }
+    }
+    @media(max-width:500px){
+        .followus-list{
+            padding-bottom:20px;
+        }
+        .box-follow-img a img {
+            height: 120px;
+            object-fit: cover;
+        }
+        .followus-list-title{
+            font-size:21px;
+            margin-bottom:10px;
+        }
+         .followus-btn{
+            margin-bottom:0px;
+            margin-bottom:20px;
+        }
+    }
+{% endstylesheet %}
+
+<section class="followus-list section-{{ section.id }}">
+    <div class="container">
+        {% if section.settings.title != blank %}
+            <div class="h3 followus-list-title center">{{ section.settings.title }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+            <div class="followus-btn">
+                <a href="{{section.settings.url | default: '#'}}" target="_blank" class="weight-700 h6 followus-btn-link">
+                    {{ section.settings.button_label }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect x="0.5" y="0.5" width="31" height="31" rx="15.5" stroke="#8345FF"/>
+                        <path d="M13 10L19 16L13 22" stroke="#F7F7F8" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                </a>
+            </div>
+        {% endif %}
+        <div class="boxes-follow-imgs">
+            {% for block in section.blocks %}
+                <div class="box-follow-img">
+                    {% if block.settings.image != blank %}
+                        <a href="{{block.settings.url | default: '#'}}" target="_blank">
+                            <img src="{{block.settings.image | img_url : '200x250', crop: 'center'}}" alt="{{block.settings.image.alt}}">
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+
+
+    
+
+{% schema %}
+{
+  "name": "Follow us",
+  "class": "section-followus",
+  "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+        }
+  ],
+  "blocks": [
+     {
+        "type": "column",
+        "name": "Image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Icon"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Url"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Follow us",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

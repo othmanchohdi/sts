@@ -1,0 +1,85 @@
+{% comment %}
+  Standalone landing-page layout: no site header-group / footer-group / popup-group.
+  Used by templates that set "layout": "landing" (e.g. templates/page.star-sweat-landing.json).
+  Pages using this layout render their own header/nav/footer as sections instead.
+{% endcomment %}
+{% comment %}theme-check-disable NestedSnippet{% endcomment %}
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" data-ssland-plan="sub">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.color_brand }}">
+
+    {% render 'network' %}
+
+    {%- if canonical_url != blank -%}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
+
+    {% if settings.favicon != blank %}
+      <link
+        rel="shortcut icon"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+        type="image/png">
+    {% endif %}
+
+    <title>{% render 'seo-title' %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'social-meta-tags' %}
+
+    <!-- Landing-page fonts ================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
+    <!-- JS before CSSOM =================================================== -->
+    <script type="text/javascript">
+      theme = {};
+      theme.t = {};
+      theme.cart = {};
+      theme.money_format = '{{ shop.money_format }}';
+      theme.money_with_currency_format = '{{ shop.money_with_currency_format }}';
+    </script>
+    <script type="text/javascript">
+      document.documentElement.classList.replace('no-js', 'js');
+    </script>
+
+    <!-- CSS ================================================== -->
+    {% render 'css-variables' %}
+    {% render 'css-include' %}
+    {{ 'ssland.css' | asset_url | stylesheet_tag }}
+
+    <!-- JS after CSSOM=================================================== -->
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'image-skeleton.js' | asset_url }}" type="module"></script>
+    <script src="{{ 'ssland.js' | asset_url }}" defer="defer"></script>
+
+    {% render 'custom-head-includes' %}
+    {{ content_for_header }}
+  </head>
+
+  <body
+    id="{{ page_title | handle }}"
+    class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
+    data-editor-mode="{% if request.design_mode %}true{% else %}false{% endif %}">
+
+    <a class="skip-to-content-link" href="#main">{{ 'accessibility.skip_to_text' | t }}</a>
+
+    <div id="ssland-page">
+      <div class="main" id="main">
+        {{ content_for_layout }}
+      </div>
+    </div>
+
+    {%- render 'ui-templates' -%}
+  <!-- Star Sweat landing layout -->
+  </body>
+</html>

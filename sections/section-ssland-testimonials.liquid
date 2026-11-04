@@ -1,0 +1,135 @@
+{% stylesheet %}
+  .ssland-testimonials {
+    border-top: 1px solid var(--ssl-border-soft);
+    background: linear-gradient(180deg, var(--ssl-bg-deep), var(--ssl-bg-navy));
+  }
+  .ssland-testimonials-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 34px;
+  }
+  .ssland-testimonials-heading {
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .ssland-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .ssland-testimonial-card {
+    min-width: 0;
+    border-radius: 20px;
+    padding: 30px 26px;
+    border: 1px solid var(--ssl-border);
+    background: rgba(244, 241, 234, 0.025);
+  }
+  .ssland-testimonial-label {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ssl-accent-bright);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .ssland-testimonial-quote {
+    margin: 0 0 20px;
+    font-size: 19px;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .ssland-testimonial-byline {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ssl-text-tertiary);
+  }
+{% endstylesheet %}
+
+<section class="ssland-testimonials section-{{ section.id }}">
+  <div class="ssland-section-inner">
+
+    <div class="ssland-testimonials-head">
+      <h2 class="ssland-testimonials-heading ssland-font-display">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="ssland-testimonials-grid">
+      {%- for block in section.blocks -%}
+        <div class="ssland-testimonial-card" {{ block.shopify_attributes }}>
+          {%- if block.settings.label != blank -%}
+            <div class="ssland-testimonial-label ssland-font-display">{{ block.settings.label }}</div>
+          {%- endif -%}
+          <p class="ssland-testimonial-quote ssland-font-display">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <div class="ssland-testimonial-byline">{{ block.settings.name }} &middot; {{ block.settings.location }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Testimonials",
+    "class": "section-ssland-testimonials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "What early drinkers say"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Early drinker"
+          },
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote",
+            "default": "Cold out of the fridge it tastes like nothing at all, which is exactly what I wanted from water."
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name",
+            "default": "Jordan L."
+          },
+          {
+            "type": "text",
+            "id": "location",
+            "label": "Location",
+            "default": "Austin, TX"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Testimonials",
+        "blocks": [
+          { "type": "testimonial", "settings": { "label": "Early drinker", "quote": "Cold out of the fridge it tastes like nothing at all, which is exactly what I wanted from water.", "name": "Jordan L.", "location": "Austin, TX" } },
+          { "type": "testimonial", "settings": { "label": "Founding member", "quote": "The box on the counter is what made it stick. One can with breakfast and I stopped thinking about it.", "name": "Maya R.", "location": "Los Angeles, CA" } },
+          { "type": "testimonial", "settings": { "label": "Subscriber", "quote": "I bought it because the can was the only version of this I could see myself drinking every day.", "name": "Chris T.", "location": "New York, NY" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

@@ -1,0 +1,411 @@
+/* ==========================================================================
+   Star Sweat Landing — shared design tokens & utilities
+   Loaded only by layout/landing.liquid. Scoped to pages using that layout;
+   does not affect the rest of the theme.
+   ========================================================================== */
+
+:root {
+  /* Brand accent (Star Sweat purple, per brand site) */
+  --ssl-accent: #8345ff;
+  --ssl-accent-light: #9e6eff;
+  --ssl-accent-bright: #b490ff;
+  --ssl-accent-dark: #6a2fdb;
+  --ssl-accent-gradient: linear-gradient(100deg, #9e6eff, #6a2fdb);
+  --ssl-accent-gradient-hover: linear-gradient(100deg, #b490ff, #8345ff);
+  --ssl-accent-glow: rgba(131, 69, 255, 0.6);
+
+  /* Neutrals */
+  --ssl-silver: #b9c2ce;
+  --ssl-cream: #f4f1ea;
+  --ssl-ink: #0a0d14;
+
+  /* Surfaces (dark) */
+  --ssl-bg-base: #05070d;
+  --ssl-bg-deep: #070a12;
+  --ssl-bg-navy: #0b1220;
+
+  /* Surfaces (light sections) */
+  --ssl-cream-surface: #f4f1ea;
+  --ssl-cream-card: #eae5da;
+  --ssl-cream-card-alt: #efeae0;
+
+  /* Text */
+  --ssl-text-primary: var(--ssl-cream);
+  --ssl-text-secondary: rgba(244, 241, 234, 0.72);
+  --ssl-text-tertiary: rgba(244, 241, 234, 0.45);
+
+  /* Borders */
+  --ssl-border: rgba(244, 241, 234, 0.14);
+  --ssl-border-soft: rgba(244, 241, 234, 0.08);
+
+  /* Type */
+  --ssl-font-display: 'Syne', system-ui, sans-serif;
+  --ssl-font-body: 'Sora', system-ui, sans-serif;
+
+  /* Radius */
+  --ssl-radius-sm: 8px;
+  --ssl-radius-md: 14px;
+  --ssl-radius-lg: 20px;
+  --ssl-radius-full: 9999px;
+}
+
+#ssland-page {
+  background: var(--ssl-bg-base);
+  color: var(--ssl-text-primary);
+  font-family: var(--ssl-font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  padding-bottom: 0;
+}
+
+#ssland-page * {
+  box-sizing: border-box;
+}
+
+#ssland-page a {
+  color: var(--ssl-accent);
+  text-decoration: none;
+}
+#ssland-page a:hover {
+  color: var(--ssl-accent-bright);
+}
+
+#ssland-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.ssland-font-display {
+  font-family: var(--ssl-font-display);
+}
+
+/* ── Layout ── */
+.ssland-section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(52px, 7.5vw, 100px) 22px;
+}
+
+.ssland-eyebrow {
+  font-family: var(--ssl-font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ssl-accent);
+  margin-bottom: 14px;
+}
+
+.ssland-light-section {
+  background: var(--ssl-cream-surface);
+  color: #0c1018;
+}
+.ssland-light-section .ssland-eyebrow {
+  color: #6a2fdb;
+}
+
+/* ── Keyframes ── */
+@keyframes ssland-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes ssland-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ssland-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.ssland-animate-marquee {
+  animation: ssland-marquee 34s linear infinite;
+}
+.ssland-animate-rise {
+  animation: ssland-rise 0.7s ease both;
+}
+.ssland-animate-glow {
+  animation: ssland-glow-pulse 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ssland-animate-marquee,
+  .ssland-animate-rise,
+  .ssland-animate-glow {
+    animation: none;
+  }
+}
+
+/* ── Buttons ── */
+.ssland-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 28px;
+  border-radius: var(--ssl-radius-full);
+  background: var(--ssl-accent-gradient);
+  color: #ffffff;
+  font-family: var(--ssl-font-display);
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 14px 40px -14px var(--ssl-accent-glow);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+  white-space: nowrap;
+}
+.ssland-btn-gold:hover {
+  background: var(--ssl-accent-gradient-hover);
+  box-shadow: 0 18px 50px -14px var(--ssl-accent-glow);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.ssland-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 28px;
+  border-radius: var(--ssl-radius-full);
+  background: transparent;
+  color: var(--ssl-cream);
+  font-family: var(--ssl-font-display);
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(244, 241, 234, 0.28);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.ssland-btn-outline:hover {
+  border-color: rgba(244, 241, 234, 0.65);
+}
+
+/* ── Badges / pills ── */
+.ssland-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: var(--ssl-radius-full);
+  font-family: var(--ssl-font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ssland-badge--accent {
+  border: 1px solid rgba(131, 69, 255, 0.45);
+  background: rgba(131, 69, 255, 0.1);
+  color: var(--ssl-accent-bright);
+}
+.ssland-badge--secondary {
+  border: 1px solid rgba(185, 194, 206, 0.34);
+  color: var(--ssl-silver);
+}
+.ssland-badge--default {
+  border: 1px solid rgba(244, 241, 234, 0.2);
+  color: rgba(244, 241, 234, 0.7);
+}
+
+/* ── Plan toggle (Subscribe vs Buy once) ──
+   Driven entirely by [data-ssland-plan] on <html>, set by ssland.js.
+   No per-element JS needed: these attribute selectors do the work. */
+html[data-ssland-plan='sub'] [data-ssland-show='once'] {
+  display: none !important;
+}
+html[data-ssland-plan='once'] [data-ssland-show='sub'] {
+  display: none !important;
+}
+
+.ssland-plan-card {
+  border-radius: var(--ssl-radius-lg);
+  padding: 28px;
+  cursor: pointer;
+  min-width: 0;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+  outline: none;
+  border: 1.5px solid var(--ssl-border);
+  background: rgba(244, 241, 234, 0.025);
+}
+.ssland-plan-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(131, 69, 255, 0.5);
+}
+html[data-ssland-plan='sub'] .ssland-plan-card[data-ssland-plan-option='sub'],
+html[data-ssland-plan='once'] .ssland-plan-card[data-ssland-plan-option='once'] {
+  border-color: rgba(131, 69, 255, 0.85);
+  background: linear-gradient(180deg, rgba(131, 69, 255, 0.12), rgba(131, 69, 255, 0.02));
+  box-shadow: 0 0 0 4px rgba(131, 69, 255, 0.1);
+}
+
+.ssland-plan-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: transparent;
+  border: 2px solid rgba(244, 241, 234, 0.35);
+  transition: border 0.15s ease;
+}
+html[data-ssland-plan='sub'] [data-ssland-plan-option='sub'] .ssland-plan-dot,
+html[data-ssland-plan='once'] [data-ssland-plan-option='once'] .ssland-plan-dot {
+  border: 6px solid var(--ssl-accent);
+}
+
+.ssland-mini-plan-card {
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  min-width: 0;
+  text-align: left;
+  border: 1.5px solid var(--ssl-border);
+  background: rgba(244, 241, 234, 0.025);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+  outline: none;
+}
+html[data-ssland-plan='sub'] .ssland-mini-plan-card[data-ssland-plan-option='sub'],
+html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='once'] {
+  border-color: rgba(131, 69, 255, 0.85);
+  background: rgba(131, 69, 255, 0.1);
+}
+
+.ssland-founding-badge {
+  padding: 18px;
+  border-radius: var(--ssl-radius-md);
+  border: 1px solid rgba(131, 69, 255, 0.3);
+  background: rgba(131, 69, 255, 0.08);
+}
+
+/* ── FAQ / accordion (native <details>) ── */
+.ssland-faq-item {
+  border-top: 1px solid var(--ssl-border);
+}
+.ssland-faq-item:last-child {
+  border-bottom: 1px solid var(--ssl-border);
+}
+.ssland-light-section .ssland-faq-item {
+  border-color: rgba(12, 16, 24, 0.14);
+}
+
+.ssland-faq-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  font-family: var(--ssl-font-display);
+  font-size: clamp(15px, 1.1vw, 17.5px);
+  font-weight: 700;
+  color: inherit;
+  list-style: none;
+  user-select: none;
+}
+.ssland-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.ssland-faq-icon {
+  flex-shrink: 0;
+  color: var(--ssl-accent);
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.ssland-light-section .ssland-faq-icon {
+  color: #8a7238;
+}
+.ssland-faq-item[open] .ssland-faq-icon {
+  transform: rotate(45deg);
+}
+
+.ssland-faq-body {
+  padding-bottom: 22px;
+  font-family: var(--ssl-font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--ssl-text-secondary);
+  max-width: 72ch;
+  margin: 0 0 22px;
+}
+.ssland-light-section .ssland-faq-body {
+  color: #3c4048;
+}
+
+/* ── Sticky purchase bar ── */
+.ssland-sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 12px 18px;
+  background: rgba(7, 10, 18, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(244, 241, 234, 0.12);
+  display: none;
+}
+@media (max-width: 900px) {
+  .ssland-sticky-bar {
+    display: block;
+  }
+}
+
+/* ── Decorative overlays ── */
+.ssland-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 241, 234, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 241, 234, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.ssland-orbital {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(131, 69, 255, 0.12);
+  pointer-events: none;
+}
+
+/* ── Placeholder image fallback ── */
+#ssland-page .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  background: rgba(244, 241, 234, 0.05);
+}
+#ssland-page .placeholder-svg--light {
+  background: rgba(12, 16, 24, 0.06);
+}

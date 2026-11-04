@@ -1,0 +1,268 @@
+{% comment %}
+  Each "column" block's `items` setting is a textarea, one line per item.
+  Prefix a line with "+" for a check mark, "-" for an x mark (default: check).
+  Example:
+    + Hydration, baseline
+    - No molecular hydrogen
+{% endcomment %}
+
+{% stylesheet %}
+  .ssland-comparison-head {
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+  .ssland-comparison-heading {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+    text-wrap: balance;
+    color: #0c1018;
+  }
+  .ssland-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+  }
+  .ssland-comparison-card {
+    min-width: 0;
+    border-radius: 20px;
+    padding: 30px 26px;
+    border: 1px solid rgba(12, 16, 24, 0.1);
+  }
+  .ssland-comparison-card--muted {
+    background: #eae5da;
+  }
+  .ssland-comparison-card--muted2 {
+    background: #efeae0;
+  }
+  .ssland-comparison-card--featured {
+    position: relative;
+    background: linear-gradient(170deg, #0c1018, #131b2a);
+    color: var(--ssl-cream);
+    border: 1.5px solid rgba(131, 69, 255, 0.55);
+    box-shadow: 0 26px 60px -26px rgba(12, 16, 24, 0.6);
+  }
+  .ssland-comparison-card--featured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(60% 45% at 70% 12%, rgba(131, 69, 255, 0.22), rgba(12, 16, 24, 0) 72%);
+    pointer-events: none;
+  }
+  .ssland-comparison-card-content {
+    position: relative;
+  }
+  .ssland-comparison-card-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #63666e;
+    margin-bottom: 20px;
+  }
+  .ssland-comparison-card--featured .ssland-comparison-card-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-comparison-list {
+    display: grid;
+    gap: 11px;
+    font-size: 14.5px;
+    font-weight: 300;
+    color: #4a4c54;
+  }
+  .ssland-comparison-card--muted2 .ssland-comparison-list {
+    color: #4a4c54;
+  }
+  .ssland-comparison-card--featured .ssland-comparison-list {
+    color: inherit;
+  }
+  .ssland-comparison-item {
+    display: flex;
+    gap: 10px;
+  }
+  .ssland-comparison-item--no {
+    opacity: 0.55;
+  }
+  .ssland-comparison-card--muted .ssland-comparison-item--yes span:first-child {
+    color: #9a9ca4;
+  }
+  .ssland-comparison-card--muted2 .ssland-comparison-item--yes span:first-child {
+    color: #2f7a56;
+  }
+  .ssland-comparison-card--featured .ssland-comparison-item span:first-child {
+    color: var(--ssl-accent-bright);
+    flex-shrink: 0;
+  }
+  .ssland-comparison-footnote {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(244, 241, 234, 0.14);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ssl-accent-bright);
+  }
+{% endstylesheet %}
+
+<section id="different" class="ssland-light-section section-{{ section.id }}">
+  <div class="ssland-section-inner">
+
+    <div class="ssland-comparison-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="ssland-comparison-heading ssland-font-display">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="ssland-comparison-grid">
+      {%- for block in section.blocks -%}
+        <div class="ssland-comparison-card ssland-comparison-card--{{ block.settings.style }}" {{ block.shopify_attributes }}>
+          <div class="ssland-comparison-card-content">
+            <div class="ssland-comparison-card-title ssland-font-display">
+              {{ block.settings.title }}
+              {%- if block.settings.badge != blank and block.settings.style == 'featured' -%}
+                <span class="ssland-badge ssland-badge--accent">{{ block.settings.badge }}</span>
+              {%- endif -%}
+            </div>
+            <div class="ssland-comparison-list">
+              {%- assign comparison_lines = block.settings.items | split: "\n" -%}
+              {%- for line in comparison_lines -%}
+                {%- assign line = line | strip -%}
+                {%- if line != blank -%}
+                  {%- assign first_char = line | slice: 0 -%}
+                  {%- if first_char == '-' -%}
+                    {%- assign is_ok = false -%}
+                    {%- assign label = line | slice: 1, 999 | strip -%}
+                  {%- elsif first_char == '+' -%}
+                    {%- assign is_ok = true -%}
+                    {%- assign label = line | slice: 1, 999 | strip -%}
+                  {%- else -%}
+                    {%- assign is_ok = true -%}
+                    {%- assign label = line -%}
+                  {%- endif -%}
+                  <div class="ssland-comparison-item {% if is_ok %}ssland-comparison-item--yes{% else %}ssland-comparison-item--no{% endif %}">
+                    <span>{% if is_ok %}&#10003;{% else %}&#10005;{% endif %}</span>
+                    <span>{{ label }}</span>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- if block.settings.footnote != blank -%}
+              <div class="ssland-comparison-footnote ssland-font-display">{{ block.settings.footnote }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Comparison",
+    "class": "section-ssland-comparison",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "The difference"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Three waters. One is engineered."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Comparison column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Column title",
+            "default": "Bottled Water"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "Style",
+            "options": [
+              { "value": "muted", "label": "Muted (lightest)" },
+              { "value": "muted2", "label": "Muted (light)" },
+              { "value": "featured", "label": "Featured (Star Sweat, dark)" }
+            ],
+            "default": "muted"
+          },
+          {
+            "type": "text",
+            "id": "badge",
+            "label": "Badge (featured style only)",
+            "default": ""
+          },
+          {
+            "type": "textarea",
+            "id": "items",
+            "label": "Items (one per line; start with + for check, - for cross)",
+            "default": "+ Hydration, baseline\n- No molecular hydrogen\n- No added minerals\n- No trace elements\n- Plastic, usually"
+          },
+          {
+            "type": "text",
+            "id": "footnote",
+            "label": "Footnote (featured style only)",
+            "default": ""
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Comparison",
+        "blocks": [
+          {
+            "type": "column",
+            "settings": {
+              "title": "Bottled Water",
+              "style": "muted",
+              "items": "+ Hydration, baseline\n- No molecular hydrogen\n- No added minerals\n- No trace elements\n- Plastic, usually"
+            }
+          },
+          {
+            "type": "column",
+            "settings": {
+              "title": "Hydrogen Water",
+              "style": "muted2",
+              "items": "+ Molecular hydrogen, in theory\n- Tablets, machines, pouches\n- H₂ escapes before you drink it\n- Concentration rarely published\n- No trace elements"
+            }
+          },
+          {
+            "type": "column",
+            "settings": {
+              "title": "Star Sweat",
+              "style": "featured",
+              "badge": "Elemental",
+              "items": "+ 2.2 ppm H₂, independently tested\n+ Sealed aluminum, holds the hydrogen\n+ Magnesium\n+ Trace colloidal gold + platinum\n+ Zero sugar, zero caffeine, zero calories",
+              "footnote": "H₂ + Mg + Au + Pt"
+            }
+          }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

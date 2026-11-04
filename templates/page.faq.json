@@ -1,0 +1,152 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "section_pageheader_t3z7Em": {
+      "type": "section-pageheader",
+      "name": "Page header",
+      "settings": {
+        "background_align": "center",
+        "image": "shopify://shop_images/4da8f9368778c509a0c7f1a81988db307fbbdf1c.png",
+        "title": "FAQ",
+        "text": "<p>Find everything you need to know about our products, shipping, returns,<br/> and more. Let us help you shop with confidence!</p>"
+      }
+    },
+    "section_accordion_JTgjqn": {
+      "type": "section-accordion",
+      "blocks": {
+        "row_meHBLh": {
+          "type": "row",
+          "settings": {
+            "title": "What is Elemental Water?",
+            "text": "Elemental Water is a next-generation hydration product that goes beyond hydrogen water. It’s infused with molecular hydrogen, gold, and platinum—elements that work together to maximize health benefits. This combination helps deliver more potent antioxidant and anti-inflammatory effects compared to regular hydrogen water, providing a unique wellness experience at a cellular level."
+          }
+        },
+        "row_zDJmNP": {
+          "type": "row",
+          "settings": {
+            "title": "What is the difference between Hydrogen Water and Elemental Water?",
+            "text": "While hydrogen water is infused with molecular hydrogen to provide basic antioxidant benefits, patent-pending Elemental Water elevates hydration to the next level by combining molecular hydrogen with gold and platinum. These added elements significantly boost the efficacy of hydrogen, allowing it to penetrate deeper into cells, amplify antioxidant effects, and enhance mental clarity and physical performance."
+          }
+        },
+        "row_yfCekM": {
+          "type": "row",
+          "settings": {
+            "title": "What are the benefits of drinking Elemental Water?",
+            "text": "Drinking Elemental Water offers:<ul class=\"p-rich_text_list p-rich_text_list__bullet\" data-stringify-type=\"unordered-list\" data-indent=\"0\" data-border=\"0\">\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Superior antioxidant protection and reduced oxidative stress</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Deeper cellular hydration for enhanced energy and focus</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Powerful anti-aging and anti-inflammatory effects</li>\n</ul>"
+          }
+        },
+        "row_3zmD4W": {
+          "type": "row",
+          "settings": {
+            "title": "How much Elemental Water should I drink daily?",
+            "text": "You can drink Elemental Water just like regular water, typically 2-3 liters per day for adults. It’s safe and effective, delivering benefits through its natural molecular hydrogen and elemental infusion."
+          }
+        },
+        "row_GcwqeV": {
+          "type": "row",
+          "settings": {
+            "title": "How long do the hydrogen and elements stay in the water?",
+            "text": "The stability of hydrogen and other elements in Elemental Water depends on its patent-pending formulation and packaging. When unopened, the elements maintain their efficacy for an extended period. For best results, consume the water shortly after opening."
+          }
+        },
+        "row_V8kjQE": {
+          "type": "row",
+          "settings": {
+            "title": "Is Elemental Water safe for everyone?",
+            "text": "Yes, Elemental Water is safe for most people, including children. The infusion of hydrogen, gold, and platinum elements is designed to benefit health without adverse effects. However, consult your healthcare provider if you have specific health conditions."
+          }
+        },
+        "row_XniFnG": {
+          "type": "row",
+          "settings": {
+            "title": "How is Star Sweat different from other hydrogen water brands?",
+            "text": "Star Sweat’s Elemental Water combines molecular hydrogen with gold and platinum for a uniquely potent formula. This patent-pending infusion significantly enhances the health benefits beyond what traditional hydrogen water offers, making it the most advanced hydration product on the market."
+          }
+        },
+        "row_YRDEBp": {
+          "type": "row",
+          "settings": {
+            "title": "Can Elemental Water help with athletic performance?",
+            "text": "Yes, Elemental Water can improve athletic performance by boosting cellular hydration, reducing muscle fatigue, and supporting faster recovery. It’s an ideal drink for pre- and post-workout to maximize energy and endurance."
+          }
+        },
+        "row_JCaLJL": {
+          "type": "row",
+          "settings": {
+            "title": "What makes Star Sweat’s packaging unique?",
+            "text": "Our packaging is designed to preserve the potency of the hydrogen, gold, and platinum infusion, maintaining the highest efficacy levels until consumption. This ensures that you get the full benefits of Elemental Water with every sip."
+          }
+        },
+        "row_cPbxWJ": {
+          "type": "row",
+          "settings": {
+            "title": "Can Elemental Water replace my regular water intake?",
+            "text": "Yes, Elemental Water can replace regular water and offers additional health benefits due to its enhanced properties. It’s an ideal way to stay hydrated while supporting overall wellness and vitality."
+          }
+        },
+        "row_WDQLmC": {
+          "type": "row",
+          "settings": {
+            "title": "Are there any side effects of drinking Elemental Water?",
+            "text": "There are no known adverse side effects of drinking Elemental Water. It’s a natural, safe, and effective way to optimize your health and hydration routine."
+          }
+        }
+      },
+      "block_order": [
+        "row_meHBLh",
+        "row_zDJmNP",
+        "row_yfCekM",
+        "row_3zmD4W",
+        "row_GcwqeV",
+        "row_V8kjQE",
+        "row_XniFnG",
+        "row_YRDEBp",
+        "row_JCaLJL",
+        "row_cPbxWJ",
+        "row_WDQLmC"
+      ],
+      "name": "Custom accordion",
+      "settings": {
+        "bg_img_1": "shopify://shop_images/Jupiter.png",
+        "bg_img_2": "shopify://shop_images/image_12.png"
+      }
+    },
+    "section_youcellarecalling_E4gawt": {
+      "type": "section-youcellarecalling",
+      "custom_css": [
+        ".yourcellsarecalling-wrp {padding-top: 220px;}",
+        ".img-violetbubble {top: -300px;}",
+        "@media (max-width: 768px) {.mobile-img-violetbubble {top: -500px; } .yourcellsarecalling-wrp {padding-top: 150px; }}"
+      ],
+      "settings": {
+        "title": "Still Have Questions?",
+        "text": "<p>Reach out to us via email or our contact form — we’d love to hear from you!</p>",
+        "button_label": "Contact Us",
+        "url": "/pages/contact",
+        "image": "shopify://shop_images/starmen.png",
+        "mobile_image": "shopify://shop_images/345345.png",
+        "background_image": "shopify://shop_images/violetbubble.png",
+        "mobile_background_image": "shopify://shop_images/3535632.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_pageheader_t3z7Em",
+    "section_accordion_JTgjqn",
+    "section_youcellarecalling_E4gawt"
+  ]
+}

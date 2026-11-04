@@ -1,0 +1,133 @@
+{% stylesheet %}
+  .ssland-sticky-bar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ssland-sticky-bar-info {
+    min-width: 0;
+    flex: 1;
+  }
+  .ssland-sticky-bar-label {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ssl-text-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ssland-sticky-bar-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .ssland-sticky-bar-price {
+    font-size: 19px;
+    font-weight: 800;
+  }
+  .ssland-sticky-bar-percan {
+    font-size: 12.5px;
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-sticky-bar-cta {
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+{% endstylesheet %}
+
+<div class="ssland-sticky-bar section-{{ section.id }}">
+  <div class="ssland-sticky-bar-inner">
+    <div class="ssland-sticky-bar-info">
+      <div class="ssland-sticky-bar-label">
+        <span data-ssland-show="sub">{{ section.settings.sub_label }}</span>
+        <span data-ssland-show="once">{{ section.settings.once_label }}</span>
+      </div>
+      <div class="ssland-sticky-bar-price-row">
+        <span class="ssland-sticky-bar-price ssland-font-display">
+          <span data-ssland-show="sub">{{ section.settings.sub_price }}</span>
+          <span data-ssland-show="once">{{ section.settings.once_price }}</span>
+        </span>
+        <span class="ssland-sticky-bar-percan">
+          <span data-ssland-show="sub">{{ section.settings.sub_price_per_can }}</span>
+          <span data-ssland-show="once">{{ section.settings.once_price_per_can }}</span>
+        </span>
+      </div>
+    </div>
+    <a href="{{ section.settings.cta_url | default: '#offer' }}" class="ssland-btn-gold ssland-sticky-bar-cta">
+      {{- section.settings.cta_label -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "SS Landing: Sticky bar",
+    "class": "section-ssland-sticky-bar",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Fixed purchase bar, shown on screens under 900px only. Values should match the Offer section."
+      },
+      {
+        "type": "text",
+        "id": "sub_label",
+        "label": "Subscribe label",
+        "default": "Star Sweat · 30-pack subscription"
+      },
+      {
+        "type": "text",
+        "id": "sub_price",
+        "label": "Subscribe price",
+        "default": "$95.76"
+      },
+      {
+        "type": "text",
+        "id": "sub_price_per_can",
+        "label": "Subscribe price per can",
+        "default": "$3.19 / can"
+      },
+      {
+        "type": "text",
+        "id": "once_label",
+        "label": "Buy once label",
+        "default": "Star Sweat · one-time 30-pack"
+      },
+      {
+        "type": "text",
+        "id": "once_price",
+        "label": "Buy once price",
+        "default": "$119.70"
+      },
+      {
+        "type": "text",
+        "id": "once_price_per_can",
+        "label": "Buy once price per can",
+        "default": "$3.99 / can"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "CTA label",
+        "default": "Get Star Sweat"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA link",
+        "default": "#offer"
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Sticky bar"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

@@ -1,0 +1,211 @@
+{% stylesheet %}
+  .research-box-item {
+    margin-bottom: 100px;
+  }
+  .research-box-text.bordered .research-box-item-wrp {
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #2c2c2c;
+    background-color: #090909;
+  }
+  .research-box-text p,
+  .research-box-img-text p,
+  .research-box-item-wrp li {
+    color: var(--grey-20);
+    line-height: 1.5;
+
+  }
+  .research-box-img-text strong,
+  .research-box-item-wrp strong {
+    color: #fff;
+  }
+  .research-box-item-wrp li {
+    margin-bottom: 15px;
+  }
+  .research-box-text a {
+    color: var(--violet);
+    opacity: 1;
+  }
+  .research-box-text a:hover {
+    color: #fff;
+
+  }
+  .research-box-item-title {
+    margin-bottom: 30px;
+    line-height: 1.1;
+  }
+  .research-box-img {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+  }
+  .research-box-img-wrp img {
+    display: block;
+    max-width: 60%;
+    width: 100%;
+    margin: auto;
+    animation: slideUpDown 2s ease-in-out infinite
+    , brightness 5s linear infinite;
+  }
+  .research-box-text h1,
+  .research-box-text h2,
+  .research-box-text h3,
+  .research-box-text h4,
+  .research-box-text h5,
+  .research-box-text h6 {
+    line-height: 1.3;
+  }
+  @media(max-width: 768px) {
+    .research-box-img {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .research-box-item {
+      margin-bottom: 50px;
+    }
+    .research-box-item-title {
+      margin-bottom: 15px;
+    }
+    .research-box-text.bordered .research-box-item-wrp {
+      padding: 20px;
+
+    }
+
+  }
+{% endstylesheet %}
+
+
+<section class="research-wrp section-{{ section.id }}">
+
+  <div class="container container-1165">
+
+    <div class="research-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'block_text' %}
+          <div class="research-box-item research-box-text {% if block.settings.bordered %} bordered{% endif %}">
+            <div class="research-box-item-title h2 overflow-hidden">{{ block.settings.title }}</div>
+            <div class="research-box-item-wrp">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        {% endif %}
+        {% if block.type == 'block_img' %}
+          <div class="research-box-item research-box-img">
+            <div class="research-box-img-text">
+              <div class="research-box-item-title img-2323 h2 overflow-hidden">{{ block.settings.title }}</div>
+              {{ block.settings.text }}
+            </div>
+            <div class="research-box-img-wrp">
+              <img src="{{block.settings.image | img_url : 'x300'}}" alt="{{block.settings.image.alt}}">
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+
+        // document.querySelectorAll('.research-box-item-title').forEach(title => {
+
+        //     const split = SplitText.create(title, {
+        //         type: "chars, words"
+        //     });
+
+
+        //     gsap.from(split.chars, {
+        //         y: 100,
+        //             autoAlpha: 0,
+        //             stagger: {
+        //             amount: 1,
+        //             from: 'random',
+        //             yoyo: true
+        //         },
+        //         scrollTrigger: {
+        //             trigger: title,
+        //             start: "top 90%",
+        //             end: "top 10%",
+        //             toggleActions: "play none none none",
+        //             once: true
+        //         }
+        //     });
+
+        // });
+      
+    })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Research",
+    "class": "section-research",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "block_text",
+        "name": "Text block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }, {
+            "type": "checkbox",
+            "id": "bordered",
+            "label": "In border",
+            "default": false
+          }
+        ]
+      }, {
+        "type": "block_img",
+        "name": "Text block image",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Research"
+      }
+    ],
+    "enabled_on": {
+      "templates": [
+        "404",
+        "article",
+        "blog",
+        "cart",
+        "collection",
+        "index",
+        "list-collections",
+        "page",
+        "product",
+        "search"
+      ],
+      "groups": ["footer"]
+    }
+  }
+{% endschema %}

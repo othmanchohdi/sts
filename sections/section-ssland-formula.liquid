@@ -1,0 +1,218 @@
+{% stylesheet %}
+  .ssland-formula {
+    position: relative;
+    border-top: 1px solid var(--ssl-border-soft);
+  }
+  .ssland-formula-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(46% 50% at 18% 30%, rgba(131, 69, 255, 0.1), rgba(5, 7, 13, 0) 70%);
+    pointer-events: none;
+  }
+  .ssland-formula-inner {
+    position: relative;
+  }
+  .ssland-formula-head {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+  .ssland-formula-heading {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ssland-formula-subcopy {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .ssland-formula-card {
+    min-width: 0;
+    border-radius: 18px;
+    padding: 26px 22px;
+    background: linear-gradient(180deg, rgba(185, 194, 206, 0.09), rgba(244, 241, 234, 0.02));
+    border: 1px solid var(--ssl-border);
+  }
+  .ssland-formula-card--highlight {
+    background: linear-gradient(180deg, rgba(131, 69, 255, 0.14), rgba(244, 241, 234, 0.02));
+    border: 1px solid rgba(131, 69, 255, 0.32);
+  }
+  .ssland-formula-num {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: rgba(185, 194, 206, 0.8);
+    margin-bottom: 46px;
+  }
+  .ssland-formula-card--highlight .ssland-formula-num {
+    color: rgba(131, 69, 255, 0.9);
+  }
+  .ssland-formula-symbol {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    color: var(--ssl-silver);
+  }
+  .ssland-formula-card--highlight .ssland-formula-symbol {
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-formula-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .ssland-formula-body {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-formula-body p {
+    margin: 0;
+  }
+  .ssland-formula-tag {
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ssl-silver);
+  }
+  .ssland-formula-card--highlight .ssland-formula-tag {
+    color: var(--ssl-accent-bright);
+  }
+{% endstylesheet %}
+
+<section class="ssland-formula section-{{ section.id }}">
+  <div class="ssland-formula-glow"></div>
+  <div class="ssland-section-inner ssland-formula-inner">
+
+    <div class="ssland-formula-head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <h2 class="ssland-formula-heading ssland-font-display">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if section.settings.subcopy != blank -%}
+        <p class="ssland-formula-subcopy">{{ section.settings.subcopy }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ssland-formula-grid">
+      {%- for block in section.blocks -%}
+        <div class="ssland-formula-card {% if block.settings.highlight %}ssland-formula-card--highlight{% endif %}" {{ block.shopify_attributes }}>
+          <div class="ssland-formula-num ssland-font-display">{{ block.settings.number }}</div>
+          <div class="ssland-formula-symbol ssland-font-display">{{ block.settings.symbol }}</div>
+          <h3 class="ssland-formula-name ssland-font-display">{{ block.settings.name }}</h3>
+          <div class="ssland-formula-body">{{ block.settings.body }}</div>
+          {%- if block.settings.tag != blank -%}
+            <div class="ssland-formula-tag ssland-font-display">{{ block.settings.tag }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Formula",
+    "class": "section-ssland-formula",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "The formula"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Five elements. Nothing else."
+      },
+      {
+        "type": "text",
+        "id": "subcopy",
+        "label": "Subcopy",
+        "default": "Read the whole label in ten seconds. That's the point."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "element",
+        "name": "Element card",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number",
+            "label": "Number",
+            "default": "01"
+          },
+          {
+            "type": "text",
+            "id": "symbol",
+            "label": "Symbol",
+            "default": "H₂O"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name",
+            "default": "Purified Water"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>The base, stripped clean so nothing competes with what we add back.</p>"
+          },
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag",
+            "default": "Clean slate"
+          },
+          {
+            "type": "checkbox",
+            "id": "highlight",
+            "label": "Highlight this card",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Formula",
+        "blocks": [
+          { "type": "element", "settings": { "number": "01", "symbol": "H₂O", "name": "Purified Water", "body": "<p>The base, stripped clean so nothing competes with what we add back.</p>", "tag": "Clean slate", "highlight": false } },
+          { "type": "element", "settings": { "number": "02", "symbol": "H₂", "name": "Molecular Hydrogen", "body": "<p>Dissolved under pressure. The smallest molecule in existence. 2.2 ppm, independently tested.</p>", "tag": "2.2 ppm verified", "highlight": true } },
+          { "type": "element", "settings": { "number": "03", "symbol": "Mg", "name": "Magnesium", "body": "<p>The mineral most people are short on, in the thing they drink daily.</p>", "tag": "Electrolyte", "highlight": false } },
+          { "type": "element", "settings": { "number": "04", "symbol": "Au", "name": "Colloidal Gold", "body": "<p>A trace precious element, suspended. Part of what makes this elemental.</p>", "tag": "Au, trace", "highlight": false } },
+          { "type": "element", "settings": { "number": "05", "symbol": "Pt", "name": "Colloidal Platinum", "body": "<p>Rarer than gold — the reason for the name Star Sweat.</p>", "tag": "Pt, trace", "highlight": false } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

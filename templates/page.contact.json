@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "section_liquid_EKmeJJ": {
+      "type": "section-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<h1 style=\"font-size:1px;color:transparent;\">Contact page</h1>"
+      }
+    },
+    "section_pageheader_7YknJr": {
+      "type": "section-pageheader",
+      "name": "Page header",
+      "settings": {
+        "background_align": "center",
+        "image": "shopify://shop_images/bb1d0a2f0f6d0e34cba7370ff51a39061bd14e32.png",
+        "title": "Contact Command",
+        "text": ""
+      }
+    },
+    "form": {
+      "type": "section-contact-form",
+      "blocks": {
+        "image_PXGQ3f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image.png",
+            "title": "Reach Out to Mission Control",
+            "text": "<p>Got questions, cosmic insights, or just want to chat?<br/>Our crew at Mission Control is here to guide you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_PXGQ3f"
+      ],
+      "settings": {
+        "title": "Please fill out the form",
+        "desc": "",
+        "heading_alignment": "left",
+        "section_width": "full",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "rgba(0,0,0,0)",
+        "color_default_heading": true,
+        "color_default_border": true,
+        "divider_top": false,
+        "divider_bottom": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_bottom_margin": false
+      }
+    },
+    "section_youcellarecalling_E4gawt": {
+      "type": "section-youcellarecalling",
+      "custom_css": [
+        ".img-violetbubble {top: -300px;}",
+        "@media (max-width: 768px) {.mobile-img-violetbubble {top: -500px; } .yourcellsarecalling-wrp {padding-top: 100px; }}"
+      ],
+      "settings": {
+        "title": "Got Questions?<br>\nWe’ve Got Answers",
+        "text": "<p>Read the questions most frequently asked by our customers.</p>",
+        "button_label": "Read FAQ’s",
+        "url": "shopify://pages/faq",
+        "image": "shopify://shop_images/starmen.png",
+        "mobile_image": "shopify://shop_images/345345.png",
+        "background_image": "shopify://shop_images/violetbubble.png",
+        "mobile_background_image": "shopify://shop_images/3535632.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_liquid_EKmeJJ",
+    "section_pageheader_7YknJr",
+    "form",
+    "section_youcellarecalling_E4gawt"
+  ]
+}

@@ -1,0 +1,180 @@
+
+{% stylesheet %}
+    .stellar-ingredients-wrp{
+        padding-bottom:50px;
+    }
+    .stellar-ingredients-grid{
+        display:grid;
+        grid-template-columns:1.5fr 2fr;
+        gap:8%;
+    }
+    .stellar-ingredients-sticky{
+  
+    }
+    .stellar-ingredients-sticky-text{
+        position:sticky;
+        top:100px;
+    }
+    .stellar-ingredients-sticky-text h2, .stellar-ingredients-sticky-text h1, .stellar-ingredients-sticky-text h3, .stellar-ingredients-sticky-text h4{
+        line-height:1.2;
+    }
+    .stellar-ingredients-sticky-text p{
+        color:var(--grey-20);
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    .stellar-ingredients-block{
+        margin-bottom:30px;
+    }
+    .stellar-ingredients-block-title{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:15px;
+    }
+    .stellar-ingredients-block-num{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        padding: 5px 7px;
+        height: 29px;
+        font-weight: 400;
+        border: 1px solid var(--violet);
+        border-radius: 5px;
+        background: linear-gradient(to bottom,  rgba(131,69,255,0.48) 0%,rgba(130,68,252,0.48) 1%,rgba(0,0,0,0.65) 100%);
+    }
+    .stellar-ingredients-block-text p{
+        color:var(--grey-20);
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    .stellar-ingredients-block-img img{
+        display:block;
+        max-width: 60%;
+        width:auto;
+        animation: slideUpDown 2s ease-in-out infinite
+        , brightness 5s linear infinite;
+    }
+    .stellar-ingredients-bottom-text{
+        margin-top:50px;
+    }
+    .stellar-ingredients-bottom-text p{
+        color:var(--grey-20);
+        line-height:1.5;
+    }
+    @media(max-width:690px){
+        .stellar-ingredients-grid{
+            grid-template-columns:1fr;
+            gap:20px;
+        }
+        .stellar-ingredients-block-img img{
+            margin:auto;
+        }
+        .stellar-ingredients-bottom-text{
+            margin-top:20px;
+        }
+    }
+{% endstylesheet %} 
+
+
+
+
+<section class="stellar-ingredients-wrp section-{{ section.id }}">
+   
+
+    <div class="container">
+
+        <div class="stellar-ingredients-grid">
+            <div class="stellar-ingredients-sticky">
+                <div class="stellar-ingredients-sticky-text">
+                    {{ section.settings.sticky_text }}
+                </div>
+            </div>
+            <div class="stellar-ingredients-blocks">
+                {% for block in section.blocks %}
+                    <div class="stellar-ingredients-block">
+                        <div class="stellar-ingredients-block-title caps small color-violet weight_700">
+                <span class="stellar-ingredients-block-num">{% if  forloop.index < 10 %}0{% endif %}{{forloop.index}}</span> {{ block.settings.title }}
+                        </div>
+                        <div class="stellar-ingredients-block-text">{{ block.settings.text }}</div>
+                        {% if block.settings.image != blank %}
+                            <div class="stellar-ingredients-block-img">
+                                <img src="{{ block.settings.image | img_url: 'x500' }}" alt="{{block.settings.image.alt}}">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if section.settings.bottom_text != blank %}
+            <div class="stellar-ingredients-bottom-text">{{ section.settings.bottom_text }}</div>
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Stellar ingredients",
+  "class": "section-stellar-ingredients",
+  "settings": [
+        {
+            "type": "richtext",
+            "id": "sticky_text",
+            "label": "Sticky text"
+        },
+        {
+            "type": "richtext",
+            "id": "bottom_text",
+            "label": "Bottom text"
+        }
+  ],
+   "blocks": [
+      {
+        "type": "block",
+        "name": "Text block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, 
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+        ]
+      } 
+    ],
+  "presets": [
+    {
+      "name": "Stellar ingredients",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

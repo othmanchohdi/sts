@@ -1,0 +1,187 @@
+{% stylesheet %}
+  .ssland-science-inner {
+    max-width: 1000px;
+  }
+  .ssland-science-head {
+    max-width: 640px;
+    margin-bottom: 34px;
+  }
+  .ssland-science-heading {
+    font-size: clamp(28px, 3.6vw, 46px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+    color: #0c1018;
+  }
+  .ssland-science-subcopy {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: #3c4048;
+  }
+  .ssland-science-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .ssland-stat-card {
+    padding: 24px 22px;
+    border-radius: 16px;
+    background: #fffdf8;
+    border: 1px solid rgba(12, 16, 24, 0.1);
+  }
+  .ssland-stat-value {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: #0c1018;
+  }
+  .ssland-stat-label {
+    font-size: 13.5px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #4a4e56;
+  }
+  .ssland-science-disclaimer {
+    margin: 22px 0 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #5f636b;
+  }
+{% endstylesheet %}
+
+<section class="ssland-light-section section-{{ section.id }}">
+  <div class="ssland-section-inner ssland-science-inner">
+
+    <div class="ssland-science-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="ssland-science-heading ssland-font-display">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subcopy != blank -%}
+        <p class="ssland-science-subcopy">{{ section.settings.subcopy }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ssland-science-stats">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+          <div class="ssland-stat-card" {{ block.shopify_attributes }}>
+            <div class="ssland-stat-value ssland-font-display">{{ block.settings.value }}</div>
+            <div class="ssland-stat-label">{{ block.settings.label }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'qa' -%}
+        <details class="ssland-faq-item" {{ block.shopify_attributes }}>
+          <summary class="ssland-faq-summary ssland-font-display">
+            {{ block.settings.question }}
+            <span class="ssland-faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <p class="ssland-faq-body">{{ block.settings.answer }}</p>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="ssland-science-disclaimer">{{ section.settings.disclaimer }}</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: Science",
+    "class": "section-ssland-science",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "Credibility"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Is it actually backed by anything?"
+      },
+      {
+        "type": "richtext",
+        "id": "subcopy",
+        "label": "Subcopy",
+        "default": "<p>Short answer: the composition and the hydrogen concentration are measured facts. The biology is an active research area, and we'd rather say that than overstate it.</p>"
+      },
+      {
+        "type": "text",
+        "id": "disclaimer",
+        "label": "Disclaimer",
+        "default": "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "stat",
+        "name": "Stat tile",
+        "settings": [
+          {
+            "type": "text",
+            "id": "value",
+            "label": "Value",
+            "default": "2.2 ppm"
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Minimum dissolved H₂, independently tested per run"
+          }
+        ]
+      },
+      {
+        "type": "qa",
+        "name": "Accordion item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "What molecular hydrogen actually is"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>H₂ is two hydrogen atoms bound together — the smallest, lightest molecule in existence.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Science",
+        "blocks": [
+          { "type": "stat", "settings": { "value": "2.2 ppm", "label": "Minimum dissolved H₂, independently tested per run" } },
+          { "type": "stat", "settings": { "value": "Aluminum", "label": "The only packaging that holds hydrogen to the shelf" } },
+          { "type": "stat", "settings": { "value": "USA", "label": "Copacked domestically, chosen for H₂ retention" } },
+          { "type": "qa", "settings": { "question": "What molecular hydrogen actually is", "answer": "<p>H₂ is two hydrogen atoms bound together — the smallest, lightest molecule in existence. Dissolve it into water under pressure and you have hydrogen water. The water doesn't change; what changes is that a measurable amount of hydrogen gas is now in it. It's volatile and escapes quickly, which is why packaging decides whether any of it reaches you.</p>" } },
+          { "type": "qa", "settings": { "question": "What the research does and doesn't show", "answer": "<p>Molecular hydrogen has been the subject of a few hundred published papers, most of them small and early. Researchers are still establishing what it does in people, at what dose, over what timeframe. We're not going to tell you it fixes anything. When our own results are in and reviewed, they go on this page with the methodology attached.</p>" } },
+          { "type": "qa", "settings": { "question": "Gold and platinum, and why they're here", "answer": "<p>Both are present as trace colloidal elements — suspended particles, not dissolved salts. They're part of the Elemental Water formulation. Specific concentrations and the sourcing detail drop in here once we're cleared to publish them.</p>" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

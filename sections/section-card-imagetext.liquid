@@ -1,0 +1,167 @@
+{% style %}
+    .card-imagetext-wrp{
+        padding:50px 0;
+    }
+    .cards-imagetext-title{
+        margin-bottom:25px;
+        line-height:1.3;
+    }
+    .card-imagetext-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        gap:30px;
+    }
+    .card-imagetext-img{
+        position:relative;
+        margin-bottom:20px;
+    }
+    .card-imagetext-img:after{
+        content:'';
+        display:block;
+        padding-bottom:calc(100% / (1.33));
+    }
+     .card-imagetext-img img{
+        border-radius: 30px;
+        position:absolute;
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+    .card-imagetext-text{
+        margin-top:7px;
+    }
+    .card-imagetext-text p{
+        color:var(--grey-20);
+        line-height: 25px;
+        margin:0;
+    }
+    @media(max-width:768px){
+ 
+        .card-imagetext-grid{
+            grid-template-columns:1fr;
+            gap:20px;
+        }
+        .card-imagetext-title {
+            margin-bottom: 0;
+        }
+        .card-imagetext-text{
+            margin-top:0px;
+        }
+        .cards-imagetext-title{
+            margin-bottom:15px;
+        }
+        .card-imagetext-img{
+            margin-bottom:15px;
+        }
+    }
+{% endstyle %}
+
+<section class="card-imagetext-wrp section-{{ section.id }}">
+    <div class="container">
+        
+        {% if section.settings.label != blank %}
+
+            <div class="caps small color-violet weight_700 center card-imagetext-label overflow-hidden">{{section.settings.label}}</div>
+        
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+
+            <div class="h2 cards-imagetext-title center overflow-hidden">{{section.settings.title}}</div>
+        
+        {% endif %}
+
+        <div class="card-imagetext-grid">
+            {% for block in section.blocks %}
+                <div class="card-imagetext-col">
+                    {% if block.settings.image != blank %}
+                        <div class="card-imagetext-img">
+                            {{
+                                block.settings.image
+                                | image_url: width: 1946
+                                | image_tag:
+                                loading: loading,
+                                sizes: '100vw',
+                                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                                alt: block.settings.image.alt
+                            }}
+                        </div>
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                        <div class="card-imagetext-title center h5">{{ block.settings.title }}</div>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                        <div class="card-imagetext-text center">{{ block.settings.text }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+
+    
+
+{% schema %}
+{
+  "name": "Card image text",
+  "class": "section-card-imagetext",
+  "settings": [
+        {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+        },
+         {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        }
+  ],
+   "blocks": [
+        {
+          "type": "block",
+          "name": "Card",
+          "settings": [
+             {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+                {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            }
+          ]
+        }
+      ],
+  "presets": [
+    {
+      "name": "Card image text",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

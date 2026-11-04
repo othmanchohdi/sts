@@ -1,0 +1,399 @@
+{% stylesheet %}
+  .subscribe-custom-widget-title {
+    margin-bottom: 5px;
+  }
+  .subscribe-custom-widget-wrp {
+    border-radius: 12px;
+    background: #181720;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .one-time-purchase,
+  .subscribe-save {
+    position: relative;
+  }
+  .one-time-purchase {
+    cursor: pointer;
+    padding-left: 30px;
+  }
+  .one-time-purchase .checkbox-icon,
+  .subscribe-save .checkbox-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 7px;
+    border: 2px solid #767676;
+    border-radius: 100px;
+  }
+  .one-time-purchase .checkbox-icon:after,
+  .subscribe-save .checkbox-icon:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 3px;
+    top: 3px;
+    opacity: 0;
+    border-radius: 100px;
+    background-color: var(--violet);
+  }
+  input[name="purchase_option"]:checked + label .checkbox-icon {
+    border: 2px solid var(--violet);
+  }
+  input[name="purchase_option"]:checked + label .checkbox-icon:after {
+    opacity: 1;
+  }
+
+
+  /*
+   .one-time-purchase:after,
+   .subscribe-save:after,
+   .one-time-purchase:before,
+   .subscribe-save:before {
+   position: absolute;
+   content: '';
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 7px;
+   border: 2px solid #767676;
+   border-radius: 100px;
+   }
+*/
+
+
+  /*
+   .one-time-purchase:after,
+   .subscribe-save:after {
+   width: 10px;
+   height: 10px;
+   left: 5px;
+   top: 12px;
+   opacity: 0;
+   background-color: var(--violet);
+   }
+*/
+
+
+  /*
+   input[name="purchase_option"]:checked + label:before {
+   border: 2px solid var(--violet);
+   }
+   input[name="purchase_option"]:checked + label:after {
+   opacity: 1;
+   }
+*/
+  .subscribe-custom-onetime input,
+  .subscribe-custom-options > input:first-child {
+    display: none;
+  }
+  .subscribe-custom-onetime label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 9px;
+    color: rgba(255, 255, 255, 0.60);
+  }
+  .subscribe-save-label {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    font-size: 18px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    color: rgba(255, 255, 255, 0.60);
+  }
+  input[name="purchase_option"]:checked + label,
+  input[name="purchase_option"]:checked + label .subscribe-save-label {
+    color: #fff !important;
+  }
+  .discount-label {
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 9px;
+    margin-left: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    line-height: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    background: var(--violet);
+  }
+  .subscribe-custom-options-list {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    margin-top: 9px;
+  }
+  input[name="purchase_option"]:checked + label .subscribe-custom-options-list {
+    display: flex;
+  }
+  .subscribe-custom-options-list input {
+    display: none;
+  }
+  .custom-plan-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+    min-height: 55px;
+    border-radius: 5px;
+    background-color: #090813;
+    transition: all 0.3s;
+  }
+  input[name="plan"]:checked + .custom-plan-label,
+  .custom-plan-label:hover {
+    background-color: var(--violet);
+    transition: all 0.3s;
+  }
+  .one-time-purchase-price,
+  .subscription-purchase-price {
+    font-weight: 700;
+    line-height: 25px;
+  }
+  @media(max-width: 768px) {
+    .subscribe-custom-widget-wrp {
+      padding: 15px;
+    }
+    .one-time-purchase-price,
+    .subscription-purchase-price {
+      font-size: 16px;
+    }
+    .discount-label {
+      margin-left: 5px;
+    }
+    .subscribe-custom-widget-wrp {
+      margin-bottom: 10px;
+    }
+    .subscribe-save-label {
+      font-size: 17px;
+    }
+    .discount-label {
+      font-size: 12px;
+    }
+  }
+{% endstylesheet %}
+
+
+<subscribe-custom-widget data-url="{{product.url}}.js">
+  <div class="subscribe-custom-widget-title">Purchase options:</div>
+  <div class="subscribe-custom-widget-wrp">
+    <div class="subscribe-custom-onetime">
+      <input
+        type="radio"
+        name="purchase_option"
+        id="subscribe-custom-onetime"
+        value="onetime"
+        >
+      <label class="one-time-purchase" for="subscribe-custom-onetime">
+        <span class="checkbox-icon"></span>
+        One Time Purchase
+        <span class="js-one-time-purchase-price one-time-purchase-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+      </label>
+    </div>
+    <div class="subscribe-custom-options">
+      <input
+        type="radio"
+        name="purchase_option"
+        id="subscribe-custom-options"
+        value="subscription"
+        checked
+        >
+      <label class="subscribe-save" for="subscribe-custom-options">
+        <span class="checkbox-icon"></span>
+        <span class="subscribe-save-label">
+          <span class="subscribe-save-label-text">
+            Subscribe and Save
+            <span class="js-discount-label discount-label">Save</span>
+          </span>
+          <span class="js-subscription-purchase-price subscription-purchase-price"></span>
+        </span>
+
+        <div class="js-subscribe-options subscribe-custom-options-list"></div>
+
+      </label>
+    </div>
+  </div>
+</subscribe-custom-widget>
+
+
+<script>
+  class SubscribeCustomWidget extends HTMLElement {
+      constructor() {
+          super();
+
+          this.subscribeOnetimeInput = this.querySelector('#subscribe-custom-onetime')
+          this.subscribeOptionsInput = this.querySelector('#subscribe-custom-options')
+          this.jsSubscribeOptions = this.querySelector('.js-subscribe-options')
+          this.jsDiscountLabel = this.querySelector('.js-discount-label')
+
+          this.variantSwatchInputs = document.querySelectorAll('.product-form__swatch__input')
+          // this.mainProductPrice = document.querySelector('.product-single__box__block--price .price__number .money')
+      }
+
+      connectedCallback() {
+          
+        this.getProductObject()
+
+      }
+
+      async getProductObject(){
+    
+          try{
+            const runFetchProduct = await fetch(this.dataset.url)
+            const data = await runFetchProduct.json()
+          
+            if(data.selling_plan_groups.length){
+
+              //run render html plans list
+              this.renderSellingPlanGroups(data)
+
+              //run code  
+              this.subscribeOnetime()
+
+              
+              this.variantProductChange(data);
+
+
+
+            }
+          }catch(error){
+            return false
+          }
+        
+      }
+
+
+
+    renderSellingPlanGroups(productObject){
+  
+      const data = productObject
+
+      // console.log(data)
+
+      this.jsSubscribeOptions.innerHTML = `
+        ${data.selling_plan_groups.map((item, index) => item.selling_plans.map(plan => `
+            <input type="radio" 
+            class="js-custom-plan-input" name="plan" 
+            id="plan-${plan.id}" 
+            ${index === 0 ? 'checked' : ''}
+            value="${plan.id}">
+            <label for="plan-${plan.id}" class="custom-plan-label">${plan.options[1].value.replace('-',' ').replace('day','Days')}</label>
+          `).join('')
+        ).join('')
+        }
+      `
+
+      if(document.querySelector('form input[name="selling_plan"]') === null){
+        const createElementSelingPlan = document.createElement('input')
+              createElementSelingPlan.name = 'selling_plan'
+              createElementSelingPlan.type = 'hidden'
+        document.querySelector('form.product-form[action="/cart/add"]').prepend(createElementSelingPlan)
+      }
+
+      this.querySelectorAll('.js-custom-plan-input').forEach(input => {
+        input.addEventListener('change', (e) => {
+          e.preventDefault()
+          document.querySelector('form input[name="selling_plan"]').value = e.currentTarget.value
+        })
+      })
+
+
+      this.jsDiscountLabel.innerHTML = `Save ${data.selling_plan_groups[0].selling_plans[0]?.price_adjustments[0]?.value}%` || ''
+
+    } 
+
+
+    subscribeOnetime(){
+
+        this.subscribeOnetimeInput.addEventListener('change', (e) => {
+          if(e.currentTarget.checked){
+              document.querySelector('form input[name="selling_plan"]').value = '';
+          }
+        })
+        this.subscribeOptionsInput.addEventListener('change', (e) => {
+          if(e.currentTarget.checked){
+              document.querySelector('form input[name="selling_plan"]').value = this.querySelector('.js-custom-plan-input:checked').value
+          }
+        })
+        if(this.subscribeOptionsInput.checked){
+          document.querySelector('form input[name="selling_plan"]').value = this.querySelector('.js-custom-plan-input:checked').value
+        }
+        
+    }
+
+
+    variantProductChange(data){
+  
+      if(this.variantSwatchInputs.length){
+
+        const changePriceInCustomSubscribeByCUrrentVariant = () => {
+
+        
+
+          setTimeout(()=>{
+              const locationVarinaId = new URLSearchParams(location.search)
+
+              const catchVariant = (currentVariant) => {
+                const getCurrentPrice = (currentVariant.price / 100).toFixed(2);
+                const getSellingCurrentPrice = (currentVariant.selling_plan_allocations[0].price / 100).toFixed(2);
+
+                this.querySelector('.js-one-time-purchase-price').innerHTML = '$'+getCurrentPrice
+                this.querySelector('.subscription-purchase-price').innerHTML = '$'+getSellingCurrentPrice
+                
+                // if(this.mainProductPrice){
+                //   this.mainProductPrice.innerHTML = '$'+getSellingCurrentPrice
+                // }
+
+                const sellingPlanId = currentVariant.selling_plan_allocations[0].selling_plan_id
+                const getVariantWthSellingPlan = data.selling_plan_groups.flatMap(price => price.selling_plans).find(id => id.id == sellingPlanId)
+                const getPercentageValue = getVariantWthSellingPlan.price_adjustments[0].value
+
+                // this.jsDiscountLabel
+                this.jsDiscountLabel.innerHTML = `Save ${getPercentageValue}%`
+              }
+
+              if(locationVarinaId.get('variant')){
+                   
+                if(data.variants.length){
+                
+                  const getCurrentVariantid = data.variants.find(price => price.id == locationVarinaId.get('variant'))
+                  catchVariant(getCurrentVariantid)
+                 
+                }
+              }else{
+                 catchVariant(data.variants[0])
+              }
+            },300)
+        }
+        changePriceInCustomSubscribeByCUrrentVariant()  
+
+
+        //restart price after variant changed
+        this.variantSwatchInputs.forEach(item => {
+          item.addEventListener('change', (e) => {
+            changePriceInCustomSubscribeByCUrrentVariant()
+          })
+        })
+      }
+
+    }
+
+  }
+
+  if (!customElements.get('subscribe-custom-widget')) {
+    customElements.define('subscribe-custom-widget', SubscribeCustomWidget);
+  }
+
+</script>

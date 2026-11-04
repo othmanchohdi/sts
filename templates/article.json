@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "date": {
+          "type": "date",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "tags": {
+          "type": "tags",
+          "settings": {}
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "date",
+        "title",
+        "tags",
+        "content"
+      ],
+      "settings": {
+        "show_img": false
+      }
+    },
+    "section_youcellarecalling_E4gawt": {
+      "type": "section-youcellarecalling",
+      "custom_css": [
+        ".yourcellsarecalling-wrp {padding: 0;}"
+      ],
+      "settings": {
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "url": "",
+        "image": "shopify://shop_images/starmen.png",
+        "mobile_image": "shopify://shop_images/345345.png",
+        "background_image": "shopify://shop_images/violetbubble.png",
+        "mobile_background_image": "shopify://shop_images/3535632.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_youcellarecalling_E4gawt"
+  ]
+}

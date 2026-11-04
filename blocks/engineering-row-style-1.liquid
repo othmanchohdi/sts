@@ -1,0 +1,51 @@
+<div class="engineering-tale-1-col engineering-tale-1-col-first h6">
+  {{ block.settings.col_1 }}
+</div>
+<div class="engineering-tale-1-col weight_500">
+  {% if block.settings.col_2 != blank %}
+    {{ block.settings.col_2 }}
+  {% else %}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none">
+      <path d="M16.7198 6.71973C17.0127 6.42683 17.4874 6.42683 17.7803 6.71973C18.0732 7.01262 18.0732 7.4874 17.7803 7.78027L13.0606 12.5L17.7803 17.2197C18.0732 17.5126 18.0732 17.9874 17.7803 18.2803C17.4875 18.5731 17.0127 18.5731 16.7198 18.2803L12.0001 13.5605L7.28033 18.2803C6.98746 18.5731 6.51269 18.5731 6.21979 18.2803C5.92689 17.9874 5.92689 17.5126 6.21979 17.2197L10.9395 12.5L6.21979 7.78027C5.92689 7.48738 5.92689 7.01262 6.21979 6.71973C6.51268 6.42683 6.98744 6.42683 7.28033 6.71973L12.0001 11.4395L16.7198 6.71973Z" fill="#8345FF" />
+    </svg>
+  {% endif %}
+</div>
+<div class="engineering-tale-1-col weight_500">
+  {{ block.settings.col_3 }}
+</div>
+
+
+{% schema %}
+
+  {
+    "name": "Engineering row style 1",
+    "class": "engineering-tale-1-row",
+    "settings": [
+      {
+        "type": "text",
+        "id": "col_1",
+        "label": "Column 1"
+      }, {
+        "type": "text",
+        "id": "col_2",
+        "label": "Column 2"
+      }, {
+        "type": "text",
+        "id": "col_3",
+        "label": "Column 3"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Engineering row style 1"
+      }
+    ]
+  }
+
+{% endschema %}

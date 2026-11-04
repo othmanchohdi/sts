@@ -1,0 +1,169 @@
+{% stylesheet %}
+  .ssland-howitworks {
+    border-top: 1px solid var(--ssl-border-soft);
+    background: linear-gradient(180deg, var(--ssl-bg-navy), var(--ssl-bg-deep));
+  }
+  .ssland-howitworks-head {
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  .ssland-howitworks-heading {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .ssland-howitworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .ssland-howitworks-card {
+    min-width: 0;
+    padding: 28px 24px;
+    border-radius: 18px;
+    border: 1px solid var(--ssl-border);
+    background: rgba(244, 241, 234, 0.02);
+  }
+  .ssland-howitworks-card--highlight {
+    border: 1px solid rgba(131, 69, 255, 0.34);
+    background: rgba(131, 69, 255, 0.07);
+  }
+  .ssland-howitworks-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .ssland-howitworks-num {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ssl-accent-bright);
+    border: 1px solid rgba(131, 69, 255, 0.5);
+  }
+  .ssland-howitworks-card--highlight .ssland-howitworks-num {
+    color: #ffffff;
+    background: var(--ssl-accent-gradient);
+    border: none;
+  }
+  .ssland-howitworks-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .ssland-howitworks-body {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ssl-text-secondary);
+  }
+  .ssland-howitworks-card--highlight .ssland-howitworks-body {
+    color: rgba(244, 241, 234, 0.8);
+  }
+  .ssland-howitworks-body p {
+    margin: 0;
+  }
+{% endstylesheet %}
+
+<section class="ssland-howitworks section-{{ section.id }}">
+  <div class="ssland-section-inner">
+
+    <div class="ssland-howitworks-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="ssland-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="ssland-howitworks-heading ssland-font-display">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="ssland-howitworks-grid">
+      {%- for block in section.blocks -%}
+        <div class="ssland-howitworks-card {% if block.settings.highlight %}ssland-howitworks-card--highlight{% endif %}" {{ block.shopify_attributes }}>
+          <div class="ssland-howitworks-card-head">
+            <span class="ssland-howitworks-num ssland-font-display">{{ block.settings.number }}</span>
+            <h3 class="ssland-howitworks-title ssland-font-display">{{ block.settings.title }}</h3>
+          </div>
+          <div class="ssland-howitworks-body">{{ block.settings.body }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "SS Landing: How it works",
+    "class": "section-ssland-how-it-works",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow",
+        "default": "How it works"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Open. Drink. Repeat tomorrow."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "Step",
+        "settings": [
+          {
+            "type": "text",
+            "id": "number",
+            "label": "Number",
+            "default": "01"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Seal"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>Hydrogen is dissolved into purified water under pressure and sealed in aluminum immediately. Plastic can't hold it — the can can.</p>"
+          },
+          {
+            "type": "checkbox",
+            "id": "highlight",
+            "label": "Highlight this step",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: How it works",
+        "blocks": [
+          { "type": "step", "settings": { "number": "01", "title": "Seal", "body": "<p>Hydrogen is dissolved into purified water under pressure and sealed in aluminum immediately. Plastic can't hold it — the can can.</p>", "highlight": false } },
+          { "type": "step", "settings": { "number": "02", "title": "Test", "body": "<p>Every run is independently tested for dissolved hydrogen before it ships. Minimum 2.2 ppm. Under that, it doesn't go out.</p>", "highlight": false } },
+          { "type": "step", "settings": { "number": "03", "title": "Drink Cold", "body": "<p>One can a day, straight from the fridge. Once it's open, finish it within about 30 minutes — like anything with dissolved gas.</p>", "highlight": false } },
+          { "type": "step", "settings": { "number": "04", "title": "Repeat", "body": "<p>Thirty cans is thirty mornings. The next box arrives before you run out, so the decision gets made once.</p>", "highlight": true } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

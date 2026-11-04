@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_pageheader_zV3Pwm": {
+      "type": "section-pageheader",
+      "name": "Page header",
+      "settings": {
+        "background_align": "center",
+        "image": "{{ blog.metafields.custom.blog_image.value }}",
+        "title": "{{ blog.title }}",
+        "text": "<p>{{ blog.metafields.custom.blog_description | metafield_tag }}</p>"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "blog_image_ratio": "4:3",
+        "show_rss": false,
+        "show_tags": false,
+        "show_blog_tags": true,
+        "show_blog_date": true,
+        "show_blog_read_more": false,
+        "page_width": "Shuffle",
+        "grid": 3,
+        "page_style": "shuffle"
+      }
+    },
+    "section_youcellarecalling_E4gawt": {
+      "type": "section-youcellarecalling",
+      "custom_css": [
+        ".yourcellsarecalling-wrp {padding: 0;}"
+      ],
+      "settings": {
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "url": "",
+        "image": "shopify://shop_images/starmen.png",
+        "mobile_image": "shopify://shop_images/345345.png",
+        "background_image": "shopify://shop_images/violetbubble.png",
+        "mobile_background_image": "shopify://shop_images/3535632.png"
+      }
+    }
+  },
+  "order": [
+    "section_pageheader_zV3Pwm",
+    "main",
+    "section_youcellarecalling_E4gawt"
+  ]
+}

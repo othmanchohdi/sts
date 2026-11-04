@@ -1,0 +1,575 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_hero_parallax_JHY3Ej": {
+      "type": "section-hero-parallax",
+      "custom_css": [
+        ".herobanner-title {max-width: 800px;}",
+        "@media (max-width: 768px) {.mobile-bottom-text-line svg {display: none; } .mobile-bottom-text-line {text-align: center; }}"
+      ],
+      "settings": {
+        "label": "Drink the",
+        "title": "Water of the Future...",
+        "button_label": "Shop Now",
+        "url": "shopify://products/star-sweat-elemental-water",
+        "text_bottom": "A premium daily ritual designed to help you live longer, healthier, and more beautiful - inside and out.",
+        "widget_image": "shopify://shop_images/Group_2294.png",
+        "widget_link": "/products/star-sweat-elemental-water#judgeme_product_reviews",
+        "background_img": "shopify://shop_images/23423424.png",
+        "main_image": "shopify://shop_images/3455768768789.png",
+        "image_1": "shopify://shop_images/image_1.png",
+        "image_2": "shopify://shop_images/image_3.png",
+        "image_3": "shopify://shop_images/bubble-violet.png"
+      }
+    },
+    "section_engineering_RqixN3": {
+      "type": "section-engineering",
+      "blocks": {
+        "engineering_table_1_XJhK8R": {
+          "type": "engineering-table-1",
+          "name": "Engineering table 1",
+          "settings": {
+            "head_col_1": "H2O",
+            "head_col_2": "Hydrogen Water"
+          },
+          "blocks": {
+            "engineering_row_style_1_r4dQfh": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Hydration Power",
+                "col_2": "Basic",
+                "col_3": "Middle"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_UGQW8j": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Toxin Removal",
+                "col_2": "Basic",
+                "col_3": "Middle"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_VtrtAa": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Energy & Focus",
+                "col_2": "",
+                "col_3": "Basic"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_FW43Wj": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Antioxidant Support",
+                "col_2": "",
+                "col_3": "Basic"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_8RqEkG": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Inflammation Reduction",
+                "col_2": "",
+                "col_3": "Minimal"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_DCrEqy": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Mental & Physical Health",
+                "col_2": "",
+                "col_3": "Basic"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_1_HVwrHr": {
+              "type": "engineering-row-style-1",
+              "name": "Engineering row style 1",
+              "settings": {
+                "col_1": "Longevity & Recovery",
+                "col_2": "",
+                "col_3": "Basic"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "engineering_row_style_1_r4dQfh",
+            "engineering_row_style_1_UGQW8j",
+            "engineering_row_style_1_VtrtAa",
+            "engineering_row_style_1_FW43Wj",
+            "engineering_row_style_1_8RqEkG",
+            "engineering_row_style_1_DCrEqy",
+            "engineering_row_style_1_HVwrHr"
+          ]
+        },
+        "engineering_table_2_c3nkkW": {
+          "type": "engineering-table-2",
+          "name": "Engineering table 2",
+          "settings": {
+            "head_img": "shopify://shop_images/StarSweat-White_ee4183aa-fb1e-46e7-bd4c-5ef557a786c9.svg"
+          },
+          "blocks": {
+            "engineering_row_style_2_rpe7z7": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Deepest functional hydration"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_parx6V": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Molecular-level detoxification"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_bDU739": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Sustained energy & sharp mental focus"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_K3K4Nx": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Nano-gold & platinum power"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_9e6ifB": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Fights swelling & speeds recovery"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_63NRxg": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Boosts mind & body performance"
+              },
+              "blocks": {}
+            },
+            "engineering_row_style_2_wd67b9": {
+              "type": "engineering-row-style-2",
+              "name": "Engineering row style 2",
+              "settings": {
+                "col_1": "Supports aging, recovery, and strength"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "engineering_row_style_2_rpe7z7",
+            "engineering_row_style_2_parx6V",
+            "engineering_row_style_2_bDU739",
+            "engineering_row_style_2_K3K4Nx",
+            "engineering_row_style_2_9e6ifB",
+            "engineering_row_style_2_63NRxg",
+            "engineering_row_style_2_wd67b9"
+          ]
+        }
+      },
+      "block_order": [
+        "engineering_table_1_XJhK8R",
+        "engineering_table_2_c3nkkW"
+      ],
+      "name": "Engineering",
+      "settings": {
+        "label": "engineering",
+        "title": "What is Elemental Water?",
+        "text": "<p>Elemental Water is hydration elevated by the universe itself - infused with molecular hydrogen, gold, and platinum. More than just clean, it’s designed to neutralize free radicals, cool inflammation, and support your body at the cellular level.</p><p>By fueling recovery, performance, and longevity, our premium Elemental Water turns everyday hydration into a purposeful ritual for living healthier, stronger, and more beautiful - inside and out.</p>",
+        "section_bg_1": "shopify://shop_images/image_4.png",
+        "stars_on": true
+      }
+    },
+    "section_engineering_zA7DGR": {
+      "type": "section-engineering-mobile",
+      "blocks": {
+        "block_7ebtGi": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Hydration Power",
+            "text_col_2": "Basic",
+            "text_col_3": "Middle",
+            "text_col_4": "Deepest functional hydration"
+          }
+        },
+        "block_48zqyh": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Toxin Removal",
+            "text_col_2": "Basic",
+            "text_col_3": "Middle",
+            "text_col_4": "Molecular-level detoxification"
+          }
+        },
+        "block_NCDTkm": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Energy & Focus",
+            "text_col_2": "",
+            "text_col_3": "Basic",
+            "text_col_4": "Sustained energy & sharp mental focus"
+          }
+        },
+        "block_CaWNKG": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Antioxidant Support",
+            "text_col_2": "",
+            "text_col_3": "Basic",
+            "text_col_4": "Nano-gold & platinum power"
+          }
+        },
+        "block_fzpPpJ": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Inflammation Reduction",
+            "text_col_2": "",
+            "text_col_3": "Minimal",
+            "text_col_4": "Fights swelling & speeds recovery"
+          }
+        },
+        "block_bikKd8": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Mental & Physical Health",
+            "text_col_2": "",
+            "text_col_3": "Basic",
+            "text_col_4": "Boosts mind & body performance"
+          }
+        },
+        "block_KR7mDm": {
+          "type": "block",
+          "settings": {
+            "text_col_1": "Longevity & Recovery",
+            "text_col_2": "",
+            "text_col_3": "Basic",
+            "text_col_4": "Anti-aging, recovery, performance-enhancing"
+          }
+        }
+      },
+      "block_order": [
+        "block_7ebtGi",
+        "block_48zqyh",
+        "block_NCDTkm",
+        "block_CaWNKG",
+        "block_fzpPpJ",
+        "block_bikKd8",
+        "block_KR7mDm"
+      ],
+      "name": "Engineering mobile",
+      "settings": {
+        "label": "engineering",
+        "title": "What is Elemental Water?",
+        "text": "<p>Elemental Water is a next-generation form of hydration — infused with molecular hydrogen, gold, and platinum to go beyond clean. It targets free radicals, cools inflammation, and helps your body repair at the cellular level. Engineered for performance, recovery, and longevity, it’s hydration with purpose.</p>",
+        "head_col_1": "H2O",
+        "head_col_2": "Hydrogen Water",
+        "head_img": "shopify://shop_images/StarSweat-White_ee4183aa-fb1e-46e7-bd4c-5ef557a786c9.svg",
+        "section_bg_1": "shopify://shop_images/image_4.png",
+        "stars_on": true
+      }
+    },
+    "section_howitworks_BEmfFE": {
+      "type": "section-howitworks",
+      "blocks": {
+        "block_c9rKa8": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/cfc1fde2d83713bfd6e00124c076051d86a6dd46.jpg",
+            "title": "Penetrate Deep",
+            "text": "<p>Hydrogen (H₂) is the smallest antioxidant - able to reach your cells, mitochondria, and even your brain.</p>"
+          }
+        },
+        "block_YYJmeB": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/add842d03d59dcb1607400dd526371cc8d05c2d4.jpg",
+            "title": "Seek & Neutralize",
+            "text": "<p>It selectively targets harmful free radicals - the ones that accelerate aging and slow recovery - leaving the good ones untouched.</p>"
+          }
+        },
+        "block_KAcrhA": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/47ddcbb33e4c7ecb6b702d53e75661383d932e0f.jpg",
+            "title": "Turn Stress Into Water",
+            "text": "<p>When H₂ reacts, it transforms oxidative stress into pure H₂O - literally turning damage into clean hydration.<br/><br/></p>"
+          }
+        },
+        "block_dFbgfR": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/4ceb04686ab42452737ff6fb71b041f3013c3f3c.png",
+            "title": "Defend & Rebuild",
+            "text": "<p>The result - sharper focus, faster recovery, and reduced signs of aging. One can. One ritual. One elemental defense system.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_c9rKa8",
+        "block_YYJmeB",
+        "block_KAcrhA",
+        "block_dFbgfR"
+      ],
+      "settings": {
+        "label": "How It Works",
+        "title": "Hydration at the Molecular Level",
+        "button_label": "Verified Results",
+        "url": "https://molecularhydrogeninstitute.org/"
+      }
+    },
+    "section_super_star_elixir_JFzQyz": {
+      "type": "section-super-star-elixir",
+      "blocks": {
+        "left_column_iG9tq7": {
+          "type": "left_column",
+          "settings": {
+            "icon": "shopify://shop_images/antioxidant_1.svg",
+            "title": "Tiny but Mighty Antioxidant",
+            "text": "<p>H2 is the smallest antioxidant known to man, allowing maximum cellular penetration to neutralize free radicals at a level other antioxidants can’t reach.</p>"
+          }
+        },
+        "left_column_HKY8RH": {
+          "type": "left_column",
+          "settings": {
+            "icon": "shopify://shop_images/rash_1.svg",
+            "title": "Inflammation Tamer",
+            "text": "<p>Star Sweat targets and reduces inflammation at its source, promoting healthier cells and reducing the risk of chronic disease.</p>"
+          }
+        },
+        "left_column_ajtGdA": {
+          "type": "left_column",
+          "settings": {
+            "icon": "shopify://shop_images/moisture_1.svg",
+            "title": "Cellular Hydration Hero",
+            "text": "<p>Infused with powerful elements, Star Sweat’s Elemental Water deeply hydrates your cells, enhancing energy production and recovery.</p>"
+          }
+        },
+        "right_column_kpdyea": {
+          "type": "right_column",
+          "settings": {
+            "icon": "shopify://shop_images/boost_1.svg",
+            "title": "All-Natural Energy Boost",
+            "text": "<p>Experience sustained energy and mental clarity as our Elemental Water boosts ATP production, without the typical crash or jitters.</p>"
+          }
+        },
+        "right_column_WDjqBz": {
+          "type": "right_column",
+          "settings": {
+            "icon": "shopify://shop_images/medical_1.svg",
+            "title": "Recovery Rockstar",
+            "text": "<p>Bounce back faster — our advanced formula reduces muscle fatigue and enhances repair, whether post-gym or post-marathon.</p>"
+          }
+        },
+        "right_column_pT3JQt": {
+          "type": "right_column",
+          "settings": {
+            "icon": "shopify://shop_images/water-proof_1.svg",
+            "title": "Glow-Getter",
+            "text": "<p>Protect your skin and combat aging. The potent infusion fights oxidative stress, promoting a vibrant, youthful appearance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_column_iG9tq7",
+        "left_column_HKY8RH",
+        "left_column_ajtGdA",
+        "right_column_kpdyea",
+        "right_column_WDjqBz",
+        "right_column_pT3JQt"
+      ],
+      "name": "Super star elixir",
+      "settings": {
+        "label": "Proven benefits",
+        "title": "The Super Star Elixir",
+        "image": "shopify://shop_images/2345654633.png",
+        "rock_image": "shopify://shop_images/image_10.png"
+      }
+    },
+    "section_card_imagetext_tkJQCK": {
+      "type": "section-card-imagetext",
+      "blocks": {
+        "block_hRXfa4": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223967.png",
+            "title": "Ultra-Purified Water",
+            "text": "<p>We start with ultra-purified reverse osmosis water, enhanced with naturally occurring electrolytes for balance and absorption.</p>"
+          }
+        },
+        "block_HLQkY9": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223968.png",
+            "title": "Elemental Precision",
+            "text": "<p>Research-grade colloidal gold and platinum are infused - trace elements used in elite wellness practices for centuries - supporting restoration and resilience.</p>"
+          }
+        },
+        "block_GCXNTQ": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147223969.png",
+            "title": "Maximum Molecular Hydrogen",
+            "text": "<p>Each can is infused with the highest verified concentration available - a minimum of 2.2mg/L of molecular hydrogen. Measured. Proven. Pure molecular power.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_hRXfa4",
+        "block_HLQkY9",
+        "block_GCXNTQ"
+      ],
+      "settings": {
+        "label": "How It’s made",
+        "title": "From Purity to Power"
+      }
+    },
+    "section_animation_counter_kRy6dN": {
+      "type": "section-animation-counter",
+      "settings": {
+        "image_1": "shopify://shop_images/3456575678.png",
+        "image_2": "shopify://shop_images/aust-1.png",
+        "image_3": "shopify://shop_images/image_5.png",
+        "title": "Antioxidant Equivalents in Star Sweat",
+        "sub_title": "(per 1 can)",
+        "text": "<p><strong>Star Sweat is the next evolution of hydration - combining research-grade molecular hydrogen, gold, and platinum in a precisely balanced formula.</strong></p><p><br/>Independently tested and verified to contain at least 2.2 ppm of dissolved hydrogen, this elemental synergy delivers antioxidant power that targets harmful free radicals, supports cellular repair, and enhances vitality. The effective dose is 0.5 ppm, while competitors typically test at 0.8–1.5 ppm. Our product consistently delivers 2.2 ppm or higher in every can.<br/></p><p>All contained in a sleek, BPA-free recyclable can. Elemental power, in your hand.</p>",
+        "counter_label": "Per Can",
+        "color_1": "#e587ff",
+        "name_1": "Apples",
+        "number_1": 122,
+        "color_2": "#4bc9ff",
+        "name_2": "Bananas",
+        "number_2": 183,
+        "color_3": "#8a62ff",
+        "name_3": "Blueberries",
+        "number_3": 213
+      }
+    },
+    "section_customers_saying_AqpDy9": {
+      "type": "section-customers-saying",
+      "blocks": {
+        "block_Y6Cyni": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse.png",
+            "title": "I’ve tried every wellness water out there, but nothing compares to Star Sweat.",
+            "text": "<p>Within days, my energy levels soared and my workouts felt smoother. It's like my body finally got what it needed.</p>",
+            "name": "Chris D., Marathoner",
+            "date": "May 20, 2025"
+          }
+        },
+        "block_4TGe9D": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_18593958-559e-4a67-8055-716705e89fac.png",
+            "title": "“I was skeptical at first, but after a month on Star Sweat!”",
+            "text": "<p>I noticed my skin was clearer and I wasn’t crashing mid-afternoon anymore. It’s now a daily part of my self-care routine.</p>",
+            "name": "Riley S., Skincare Enthusiast",
+            "date": "May 16, 2025"
+          }
+        },
+        "block_Rkxtj8": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_9549e722-ca5b-45a4-835d-1e5384b04960.png",
+            "title": "I’m fascinated by the science behind hydrogen water and Star Sweat takes it to the next level",
+            "text": "<p>As a runner, hydration is everything. Since switching to Star Sweat, my post-run soreness has drastically dropped. </p>",
+            "name": "Jordan M., Fitness Coach",
+            "date": "May 10, 2025"
+          }
+        }
+      },
+      "block_order": [
+        "block_Y6Cyni",
+        "block_4TGe9D",
+        "block_Rkxtj8"
+      ],
+      "settings": {
+        "label": "Testimonials",
+        "title": "What our customers are saying"
+      }
+    },
+    "section_lookinyour_age_6QFEfa": {
+      "type": "section-lookinyour-age",
+      "settings": {
+        "image": "shopify://shop_images/image.jpg",
+        "label": "Life support",
+        "title": "Strengthens your defenses against stress and aging.",
+        "text": "<p>At the molecular level, our premium formula works to neutralize harmful free radicals, support cellular repair, and reduce the visible signs of aging. Infused with molecular hydrogen plus research-grade gold and platinum, it helps optimize cellular function, boost ATP production, and keep neurons firing at full capacity.</p><p>The more you drink it, the more the benefits stack - energy, focus, and cellular resilience that build over time.*</p>",
+        "button_label": "Get Yours Now",
+        "url": "shopify://products/star-sweat-elemental-water",
+        "text_bottom": "<p><strong>*</strong>These statements have not been evaluated by the Food & Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>"
+      }
+    },
+    "section_youcellarecalling_E4gawt": {
+      "type": "section-youcellarecalling",
+      "blocks": {
+        "block_4ccpXK": {
+          "type": "block",
+          "settings": {
+            "label": "About us",
+            "title": "Hydration from Earth to Mars",
+            "text": "<p>At Star Sweat, our mission is to redefine hydration for the future of humanity. We aspire to be the first water ever sipped on Mars - setting a new standard as the future of water itself.</p><p>Through our premium <em>Elemental Water</em>, we celebrate the natural beauty of the universe - from the elements forged in the stars to the science that helps us harness them. By blending what nature gave us with cutting-edge discovery, we advance health, vitality, and human potential.</p><p>Designed to support cellular rejuvenation, defend against oxidative stress, and combat aging, Star Sweat is more than hydration. It’s a way to live longer, healthier, and more beautiful lives - inside and out - for everyone in this galaxy and beyond.</p>",
+            "button_label": "Read More",
+            "url": "shopify://pages/about",
+            "image": "shopify://shop_images/Mars.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_4ccpXK"
+      ],
+      "settings": {
+        "title": "Your Cells Are Calling.<br>Answer with Star Sweat",
+        "text": "<p>V1 sold out fast - secure your V2 before it’s gone.</p>",
+        "button_label": "Get Yours Now",
+        "url": "shopify://products/star-sweat-elemental-water",
+        "image": "shopify://shop_images/starmen.png",
+        "mobile_image": "shopify://shop_images/345345.png",
+        "background_image": "shopify://shop_images/violetbubble.png",
+        "mobile_background_image": "shopify://shop_images/3535632.png"
+      }
+    }
+  },
+  "order": [
+    "section_hero_parallax_JHY3Ej",
+    "section_engineering_RqixN3",
+    "section_engineering_zA7DGR",
+    "section_howitworks_BEmfFE",
+    "section_super_star_elixir_JFzQyz",
+    "section_card_imagetext_tkJQCK",
+    "section_animation_counter_kRy6dN",
+    "section_customers_saying_AqpDy9",
+    "section_lookinyour_age_6QFEfa",
+    "section_youcellarecalling_E4gawt"
+  ]
+}

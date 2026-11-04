@@ -1,0 +1,281 @@
+{% style %}
+  .engineering-mobile-wrp {
+    position: relative;
+    padding: 110px 0 50px;
+    display: none;
+  }
+  .engineering-mobile-title {
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+  .engineering-mobile-text {
+    max-width: 850px;
+    margin: auto;
+  }
+  .engineering-mobile-text p {
+    margin: 0;
+    color: var(--grey-20);
+    line-height: 25px;
+  }
+  .engineering-mobile-table {
+    position: relative;
+    padding: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .engineering-mobile-table-special-col img {
+    display: block;
+    margin: 0 auto;
+    max-width: 140px;
+  }
+  .engineering-table-mobile-title .engineering-mobile-table-col {
+    font-size: 16px !important;
+  }
+  .engineering-mobile-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2.5fr;
+    gap: 0 15px;
+    align-items: center;
+  }
+  .engineering-mobile-table-col {
+    line-height: 1.3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .engineering-mobile-table-col:first-child {
+    flex-direction: column;
+    grid-area: span 1 / span 4;
+    padding: 0;
+
+  }
+  .engineering-mobile-table-col:last-child {
+    flex-direction: column;
+    grid-area: span 1 / span 2;
+  }
+  .engineering-mobile-table-first-col {
+    font-size: 21px;
+    text-align: center;
+    background: var(--violet);
+  }
+  .engineering-mobile-table-last-col {
+    font-size: 16px;
+    padding-left: 31px;
+    background-image: url('data:image/svg+xml, <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_dd_628_6500)"><path d="M50 55C50 49.4772 54.4772 45 60 45C65.5228 45 70 49.4772 70 55C70 60.5228 65.5228 65 60 65C54.4772 65 50 60.5228 50 55Z" fill="%238345FF"/><path d="M64.6667 51.5L58.25 57.9167L55.3334 55" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><filter id="filter0_dd_628_6500" x="0" y="0" width="120" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="10"/><feGaussianBlur stdDeviation="12.5"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0.385412 0 0 0 0 0.231765 0 0 0 0 1 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_628_6500"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="5"/><feGaussianBlur stdDeviation="25"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0.385412 0 0 0 0 0.231765 0 0 0 0 1 0 0 0 0.25 0"/><feBlend mode="normal" in2="effect1_dropShadow_628_6500" result="effect2_dropShadow_628_6500"/><feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_628_6500" result="shape"/></filter></defs></svg>');
+    background-repeat: no-repeat;
+    background-position: -49px 42%;
+  }
+  .engineering-mobile-table-col svg {
+    display: block;
+  }
+  .engineering-mobile-table-col:nth-child(2) {
+    padding-left: 15px;
+  }
+  .engineering-mobile-table-col:nth-child(4) {
+    padding-right: 5px;
+  }
+  .engineering-mobile-rock {
+    text-align: right;
+  }
+  .engineering-mobile-rock img {
+    position: relative;
+    right: 5%;
+    animation: rotating 50s linear infinite
+    , brightness 5s linear infinite;
+  }
+  .section-{{ section.id }}
+  .star-1
+  , .section-{{ section.id }}
+  .star-2 {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    width: 80px;
+    height: 80px;
+    animation: brightness 3s linear infinite
+    , slide-right 35s linear infinite;
+  }
+  .section-{{ section.id }}
+  .star-2 {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 0;
+    animation: brightness 7s linear infinite
+    , slide-down 35s linear infinite;
+  }
+  @media(max-width: 768px) {
+    .engineering-mobile-wrp {
+      padding: 50px 0 20px;
+      display: block;
+    }
+  }
+{% endstyle %}
+
+<section class="engineering-mobile-wrp section-{{ section.id }}">
+
+  {% if section.settings.stars_on %}
+    <div class="star-css star-1"></div>
+    <div class="star-css star-css-2 star-2"></div>
+  {% endif %}
+
+  <div class="container container-1300">
+
+    {% if section.settings.label != blank %}
+
+      <div class="caps small color-violet weight_700 center engineering-mobile-label overflow-hidden">{{ section.settings.label }}</div>
+
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+
+      <div class="h2 engineering-mobile-title center overflow-hidden">{{ section.settings.title }}</div>
+
+    {% endif %}
+    {% if section.settings.text != blank %}
+
+      <div class="p engineering-mobile-text center overflow-hidden">{{ section.settings.text }}</div>
+
+    {% endif %}
+    {% if section.settings.section_bg_1 != blank %}
+      <div class="engineering-mobile-rock">
+        <img
+          src="{{section.settings.section_bg_1 | img_url : 'x100'}}"
+          class="engineering-mobile-rock-img"
+          alt="{{section.settings.section_bg_1.alt}}">
+      </div>
+    {% endif %}
+    <div class="engineering-mobile-table">
+      <div class="engineering-mobile-table-row engineering-table-mobile-title">
+        <div class="engineering-mobile-table-col"></div>
+        <div class="engineering-mobile-table-col h4">{{ section.settings.head_col_1 }}</div>
+        <div class="engineering-mobile-table-col h4">{{ section.settings.head_col_2 }}</div>
+        <div class="engineering-mobile-table-col engineering-mobile-table-special-col">
+          {% if section.settings.head_img != blank %}
+            <img src="{{section.settings.head_img | img_url : 'x140'}}" alt="{{section.settings.head_img.alt}}">
+          {% endif %}
+        </div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="engineering-mobile-table-row">
+          <div class="engineering-mobile-table-col h6 engineering-mobile-table-first-col">{{ block.settings.text_col_1 }}</div>
+          <div class="engineering-mobile-table-col">
+            {% if block.settings.text_col_2 != blank %}
+              {{ block.settings.text_col_2 }}
+            {% else %}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none">
+                <path d="M16.7198 6.71973C17.0127 6.42683 17.4874 6.42683 17.7803 6.71973C18.0732 7.01262 18.0732 7.4874 17.7803 7.78027L13.0606 12.5L17.7803 17.2197C18.0732 17.5126 18.0732 17.9874 17.7803 18.2803C17.4875 18.5731 17.0127 18.5731 16.7198 18.2803L12.0001 13.5605L7.28033 18.2803C6.98746 18.5731 6.51269 18.5731 6.21979 18.2803C5.92689 17.9874 5.92689 17.5126 6.21979 17.2197L10.9395 12.5L6.21979 7.78027C5.92689 7.48738 5.92689 7.01262 6.21979 6.71973C6.51268 6.42683 6.98744 6.42683 7.28033 6.71973L12.0001 11.4395L16.7198 6.71973Z" fill="#8345FF" />
+              </svg>
+            {% endif %}
+          </div>
+          <div class="engineering-mobile-table-col">{{ block.settings.text_col_3 }}</div>
+          <div class="engineering-mobile-table-col engineering-mobile-table-last-col weight_500 h6">{{ block.settings.text_col_4 }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Engineering mobile",
+    "class": "section-engineering-mobile",
+    "settings": [
+      {
+        "type": "text",
+        "id": "label",
+        "label": "Label"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Table header"
+      }, {
+        "type": "text",
+        "id": "head_col_1",
+        "label": "Header title 1"
+      }, {
+        "type": "text",
+        "id": "head_col_2",
+        "label": "Header title 2"
+      }, {
+        "type": "image_picker",
+        "id": "head_img",
+        "label": "Header image"
+      }, {
+        "type": "header",
+        "content": "Section image"
+      }, {
+        "type": "image_picker",
+        "id": "section_bg_1",
+        "label": "Image meteorite"
+      }, {
+        "type": "checkbox",
+        "id": "stars_on",
+        "default": true,
+        "label": "Stars"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Row",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text_col_1",
+            "label": "Text column 1"
+          }, {
+            "type": "text",
+            "id": "text_col_2",
+            "label": "Text column 2"
+          }, {
+            "type": "text",
+            "id": "text_col_3",
+            "label": "Text column 3"
+          }, {
+            "type": "text",
+            "id": "text_col_4",
+            "label": "Text column 4"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Engineering mobile"
+      }
+    ],
+    "enabled_on": {
+      "templates": [
+        "404",
+        "article",
+        "blog",
+        "cart",
+        "collection",
+        "index",
+        "list-collections",
+        "page",
+        "product",
+        "search"
+      ],
+      "groups": ["footer"]
+    }
+  }
+{% endschema %}

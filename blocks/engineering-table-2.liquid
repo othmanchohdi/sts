@@ -1,0 +1,39 @@
+
+
+
+<div class="engineering-tale-2-row engineering-tale-2-title">
+    <div class="engineering-tale-1-col">
+    {% if block.settings.head_img != blank %}
+      <img src="{{block.settings.head_img | img_url : 'x140'}}" alt="">
+    {% endif %}
+  </div>
+  
+</div>
+
+{% content_for 'blocks' %}
+
+{% schema %}
+
+  {
+    "name": "Engineering table 2",
+    "class": "engineering-tale-2",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "head_img",
+        "label": "Header image"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "engineering-row-style-2"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Engineering table 2"
+      }
+    ]
+  }
+
+{% endschema %}

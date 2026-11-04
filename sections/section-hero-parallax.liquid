@@ -1,0 +1,576 @@
+{% style %}
+    .herobanner-wrp{
+        margin-top:-30px;
+        position:relative;
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+        overflow:hidden;
+    }
+    .herobanner-bg-img{
+        height:100vh;
+        width:100%;
+        object-fit:cover;
+        animation:brightness-2 5s linear infinite;
+    }
+    .herobanner-image-overlay{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background: linear-gradient(to bottom,  rgba(0,0,0,0.54) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    .herobanner-content{
+        position:absolute;
+        padding-top:150px;
+        z-index:3;
+    }
+    .herobanner-title{
+        font-size: 72px;
+        line-height: 61px;
+        max-width: 450px;
+        margin:auto;
+        word-wrap: break-word;
+        opacity:0; 
+    }
+    .herobanner-label{
+       opacity:0;
+    }
+    .herobanner-btn{
+        margin-top:16px;
+    }
+    .herobanner-btn .c-btn{
+       opacity:0;
+    }
+    .herobanner-bottom-text-line.mobile-bottom-text-line{
+        display:none;
+    }
+    .herobanner-bottom-text-line{
+        position:absolute;
+        left:7%;
+        bottom:30%;
+        max-width: 470px;
+        align-items: center;
+        text-align: left;
+         display: flex;
+         gap: 15px;
+        z-index:3;
+     }
+     .herobanner-bottom-text-line svg{
+        max-width:70px;
+        width:100%;
+     } 
+    .herobanner-bottom-text{
+        line-height: 1.3;
+        font-size:21px;
+        opacity:0;
+    }
+    .herobanner-main_image, .herobanner-image_1, .herobanner-image_1, .herobanner-image_2, .herobanner-image_3{
+        display:block;
+        position:absolute;
+    }
+    .herobanner-main_image{
+        bottom:-130px;
+        max-width:50%;
+        transform: rotate(20deg);
+         animation: waves 15s linear infinite, brightness-2 5s linear infinite;
+    }
+    .herobanner-image_1{
+        bottom: 9%;
+        z-index: 1;
+        left: 35%;
+        animation: rotating 50s linear infinite, brightness 7s linear infinite;
+    }
+    .herobanner-image_2{
+        bottom: 36%;
+        right: 31%;
+        animation: rotating-2 50s linear infinite, brightness 7s linear infinite;
+    }
+     .herobanner-image_3{
+        bottom: 27%;
+        z-index: 1;
+        left: 54%;
+    }
+     .hero-widget-image-mobile{
+        display:none;
+     }
+    .hero-widget-image-desktop{
+        position:absolute;
+        right:10%;
+        bottom:20%;
+        animation: brightness 3s linear infinite;
+        opacity:0;
+    }
+
+    @media(max-width:768px){
+        .hero-widget-image-desktop{
+            display:none;
+        }
+        .hero-widget-image-mobile {
+            margin: 15px 10px 0 15px;
+            display: inline-flex;
+            animation: brightness 3s linear infinite;
+        }
+        .herobanner-content{
+            padding-top: 90px;
+        }
+        .herobanner-bg-img{
+            height: 97vh;
+        }
+        .herobanner-label{
+            font-size:24px;
+            line-height: 1;
+        }
+        .herobanner-title{
+            font-size:40px;
+            line-height: 1;
+        }
+        .herobanner-btn{
+            margin-top: 10px;
+        }
+        .herobanner-bottom-text-line{
+            display:none;
+            top: 33%;
+            left: 0;
+            bottom: auto;
+            width: 100%;
+            max-width: 100%;
+             align-items: center;
+        }
+        .herobanner-bottom-text{
+            font-size: 16px;
+            line-height: 19px;
+            margin: auto;
+            max-width: 400px;
+            padding: 0 0;
+        }
+       .herobanner-bottom-text-line.mobile-bottom-text-line{
+            position:static;
+            display:flex;
+            padding:0 15px;
+            gap:5px;
+            margin-top:15px;
+        }
+        .herobanner-image_1{
+            max-width:40%;
+            bottom: 9%;
+            left: 9%;
+        }
+        .herobanner-image_2{
+            max-width:30%;
+            bottom: 34%;
+            right: 9%;
+        }
+    }
+     @media(max-width:576px){
+        .herobanner-bottom-text-line{
+            top: 25%;
+        }
+     }
+
+    @media(max-width:500px){
+         .herobanner-main_image{
+            bottom: -50px;
+         }
+     }
+    
+      @media(max-width:375px){
+        .herobanner-content {
+            padding-top: 19%;
+        }
+        .herobanner-bottom-text-line{
+            top: 27%;
+        }
+     }
+
+
+
+    
+@media(max-height: 1000px) and (min-width: 1000px) {
+    .herobanner-main_image {
+        max-width: 20%;
+    }
+    .herobanner-image_2, .herobanner-image_1 {
+        max-width: 10%;
+    }
+}
+@media(max-height: 1000px) and (min-width: 1500px) {
+    .herobanner-main_image {
+        max-width: 17%;
+    }
+    .herobanner-image_2, .herobanner-image_1 {
+        max-width: 10%;
+    }
+}
+@media(max-height: 1000px) and (min-width: 4500px) {
+    .herobanner-main_image {
+        max-width: 10%;
+    }
+    .herobanner-image_2, .herobanner-image_1 {
+        max-width: 10%;
+    }
+}
+@media(max-height: 1000px) and (max-width: 991px) {
+    .herobanner-main_image {
+        max-width: 30%;
+    } 
+    .herobanner-image_2, .herobanner-image_1 {
+        max-width: 10%;
+    }
+}
+  @media(max-height: 1000px) and (max-width: 630px) {
+        .herobanner-main_image {
+            max-width: 40%;
+        }
+        .herobanner-image_2, .herobanner-image_1 {
+            max-width: 20%;
+        }
+    } 
+      @media(max-height: 1000px) and (max-width: 400px) {
+        .herobanner-main_image {
+            max-width: 50%;
+        }
+        .herobanner-image_2, .herobanner-image_1 {
+            max-width: 30%;
+        }
+    } 
+
+{% endstyle %}
+
+<section class="herobanner-wrp section-{{ section.id }}">
+        {% if section.settings.background_img != blank %}
+            {{
+                section.settings.background_img
+                | image_url: width: 3400
+                | image_tag:
+                loading: loading,
+                sizes: '100vw',
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946, 2400, 3400, 4100',
+                alt: section.settings.background_img.alt,
+                class: "herobanner-bg-img"
+            }}
+        {% endif %}
+
+        <div class="herobanner-image-overlay"></div>
+ 
+        <div class="herobanner-content center">
+                
+                {% if section.settings.label != blank %}
+
+                    <div class="h3 weight_700 herobanner-label js-herobanner-label overflow-hidden">{{section.settings.label}}</div>
+                
+                {% endif %}
+
+                {% if section.settings.title != blank %}
+
+                    <div class="h1 herobanner-title js-herobanner-title overflow-hidden">{{section.settings.title}}</div>
+                
+                {% endif %}
+                {% if section.settings.button_label != blank %}
+                    <div class="herobanner-btn">
+                        <a href="{{section.settings.url | default: '#'}}" 
+                        class="overflow-hidden weight-700 h6 c-btn c-btn-icon c-btn--hollow js-herobanner-btn">
+                            {{ section.settings.button_label }}
+                            {% render 'icon' with 'starship-violet' %}
+                        </a>
+                    </div>
+                {% endif %}     
+                {% if section.settings.text_bottom != blank %}
+                    <div class="herobanner-bottom-text-line mobile-bottom-text-line">
+                       
+                            <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+                                <path d="M46.848 33.503H36.781C36.424 33.503 36.093 33.313 35.915 33.003L30.881 24.284C30.702 23.974 30.702 23.594 30.881 23.284L35.915 14.565C36.094 14.255 36.424 14.065 36.781 14.065H46.848C47.205 14.065 47.536 14.255 47.714 14.565L52.748 23.284C52.927 23.594 52.927 23.974 52.748 24.284L47.714 33.003C47.535 33.313 47.205 33.503 46.848 33.503ZM37.358 31.503H46.271L50.728 23.784L46.271 16.065H37.358L32.901 23.784L37.358 31.503Z" fill="white"/>
+                                <path d="M36.6769 24.784C36.5069 24.784 36.3349 24.7409 36.1779 24.6499C35.6989 24.3739 35.5349 23.762 35.8119 23.284L38.3799 18.836C38.6559 18.357 39.2679 18.1929 39.7459 18.4699C40.2249 18.7459 40.3889 19.358 40.1119 19.836L37.5439 24.284C37.3579 24.605 37.0229 24.784 36.6769 24.784Z" fill="white"/>
+                                <path d="M21.523 33.497C21.353 33.497 21.181 33.454 21.024 33.363C20.545 33.087 20.381 32.475 20.658 31.997L23.226 27.549C23.502 27.07 24.115 26.907 24.592 27.183C25.071 27.459 25.235 28.071 24.958 28.549L22.39 32.997C22.204 33.318 21.869 33.497 21.523 33.497Z" fill="white"/>
+                                <path d="M31.694 42.216H21.627C21.27 42.216 20.939 42.026 20.761 41.716L15.727 32.997C15.548 32.687 15.548 32.307 15.727 31.997L20.761 23.278C20.94 22.968 21.27 22.778 21.627 22.778H31.694C32.051 22.778 32.382 22.968 32.56 23.278L37.594 31.997C37.773 32.307 37.773 32.687 37.594 32.997L32.56 41.716C32.381 42.026 32.051 42.216 31.694 42.216ZM22.204 40.216H31.117L35.574 32.497L31.117 24.778H22.204L17.747 32.497L22.204 40.216Z" fill="white"/>
+                                <path d="M61.973 42.223H51.905C51.548 42.223 51.217 42.033 51.039 41.723L46.005 33.004C45.826 32.694 45.826 32.314 46.005 32.004L51.039 23.285C51.218 22.975 51.548 22.785 51.905 22.785H61.973C62.526 22.785 62.973 23.233 62.973 23.785C62.973 24.337 62.526 24.785 61.973 24.785H52.482L48.025 32.504L52.482 40.223H61.973C62.526 40.223 62.973 40.671 62.973 41.223C62.973 41.775 62.526 42.223 61.973 42.223Z" fill="white"/>
+                                <path d="M41.814 16.065C41.261 16.065 40.814 15.617 40.814 15.065V6.50897C40.814 5.95697 41.261 5.50897 41.814 5.50897C42.367 5.50897 42.814 5.95697 42.814 6.50897V15.065C42.814 15.617 42.367 16.065 41.814 16.065Z" fill="white"/>
+                                <path d="M41.814 7.50898C39.881 7.50898 38.309 5.93698 38.309 4.00498C38.309 2.07298 39.881 0.500977 41.814 0.500977C43.747 0.500977 45.318 2.07298 45.318 4.00498C45.318 5.93698 43.746 7.50898 41.814 7.50898ZM41.814 2.49998C40.984 2.49998 40.309 3.17498 40.309 4.00398C40.309 4.83298 40.984 5.50798 41.814 5.50798C42.644 5.50798 43.318 4.83298 43.318 4.00398C43.318 3.17498 42.643 2.49998 41.814 2.49998Z" fill="white"/>
+                                <path d="M36.6769 42.216C36.5069 42.216 36.3349 42.173 36.1779 42.082C35.6989 41.806 35.5349 41.194 35.8119 40.716L38.3799 36.268C38.6559 35.789 39.2679 35.625 39.7459 35.902C40.2249 36.178 40.3889 36.79 40.1119 37.268L37.5439 41.716C37.3579 42.037 37.0229 42.216 36.6769 42.216Z" fill="white"/>
+                                <path d="M46.848 50.9349H36.781C36.424 50.9349 36.093 50.7449 35.915 50.4349L30.881 41.7159C30.702 41.4059 30.702 41.0259 30.881 40.7159L35.915 31.9969C36.094 31.6869 36.424 31.4969 36.781 31.4969H46.848C47.205 31.4969 47.536 31.6869 47.714 31.9969L52.748 40.7159C52.927 41.0259 52.927 41.4059 52.748 41.7159L47.714 50.4349C47.535 50.7449 47.205 50.9349 46.848 50.9349ZM37.358 48.9349H46.271L50.728 41.2159L46.271 33.497H37.358L32.901 41.2159L37.358 48.9349Z" fill="white"/>
+                                <path d="M41.814 59.4909C41.261 59.4909 40.814 59.0429 40.814 58.4909V49.9349C40.814 49.3829 41.261 48.9349 41.814 48.9349C42.367 48.9349 42.814 49.3829 42.814 49.9349V58.4909C42.814 59.0429 42.367 59.4909 41.814 59.4909Z" fill="white"/>
+                                <path d="M41.814 64.4999C39.881 64.4999 38.309 62.9279 38.309 60.9959C38.309 59.0639 39.881 57.4919 41.814 57.4919C43.747 57.4919 45.318 59.0639 45.318 60.9959C45.318 62.9279 43.746 64.4999 41.814 64.4999ZM41.814 59.4909C40.984 59.4909 40.309 60.1659 40.309 60.9949C40.309 61.8239 40.984 62.4989 41.814 62.4989C42.644 62.4989 43.318 61.8239 43.318 60.9949C43.318 60.1659 42.643 59.4909 41.814 59.4909Z" fill="white"/>
+                                <path d="M16.593 33.819H8.03601C7.48301 33.819 7.03601 33.371 7.03601 32.819C7.03601 32.267 7.48301 31.819 8.03601 31.819H16.593C17.146 31.819 17.593 32.267 17.593 32.819C17.593 33.371 17.146 33.819 16.593 33.819Z" fill="white"/>
+                                <path d="M5.53198 36.323C3.59898 36.323 2.02698 34.751 2.02698 32.819C2.02698 30.887 3.59898 29.315 5.53198 29.315C7.46498 29.315 9.03598 30.887 9.03598 32.819C9.03598 34.751 7.46398 36.323 5.53198 36.323ZM5.53198 31.314C4.70198 31.314 4.02698 31.989 4.02698 32.818C4.02698 33.647 4.70198 34.322 5.53198 34.322C6.36198 34.322 7.03598 33.647 7.03598 32.818C7.03598 31.989 6.36098 31.314 5.53198 31.314Z" fill="white"/>
+                            </svg>
+                            <div class="herobanner-bottom-text mobile-bottom-text js-mobile-bottom-text weight_600 overflow-hidden">
+                                {{section.settings.text_bottom}}
+                            </div>
+                    </div>
+                {% endif %} 
+                {% if section.settings.widget_link != blank %}
+                    <a href="{{section.settings.widget_link}}" class="hero-widget-image-mobile">
+                        {% if section.settings.widget_image_mob != blank %}
+                            <img src="{{section.settings.widget_image_mob | img_url : 'x400'}}" alt="">
+                        {% endif %}
+                    </a>
+                {% endif %}
+            
+        </div>
+         {% if section.settings.text_bottom != blank %}
+            <div class="herobanner-bottom-text-line">
+               
+                    <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+                        <path d="M46.848 33.503H36.781C36.424 33.503 36.093 33.313 35.915 33.003L30.881 24.284C30.702 23.974 30.702 23.594 30.881 23.284L35.915 14.565C36.094 14.255 36.424 14.065 36.781 14.065H46.848C47.205 14.065 47.536 14.255 47.714 14.565L52.748 23.284C52.927 23.594 52.927 23.974 52.748 24.284L47.714 33.003C47.535 33.313 47.205 33.503 46.848 33.503ZM37.358 31.503H46.271L50.728 23.784L46.271 16.065H37.358L32.901 23.784L37.358 31.503Z" fill="white"/>
+                        <path d="M36.6769 24.784C36.5069 24.784 36.3349 24.7409 36.1779 24.6499C35.6989 24.3739 35.5349 23.762 35.8119 23.284L38.3799 18.836C38.6559 18.357 39.2679 18.1929 39.7459 18.4699C40.2249 18.7459 40.3889 19.358 40.1119 19.836L37.5439 24.284C37.3579 24.605 37.0229 24.784 36.6769 24.784Z" fill="white"/>
+                        <path d="M21.523 33.497C21.353 33.497 21.181 33.454 21.024 33.363C20.545 33.087 20.381 32.475 20.658 31.997L23.226 27.549C23.502 27.07 24.115 26.907 24.592 27.183C25.071 27.459 25.235 28.071 24.958 28.549L22.39 32.997C22.204 33.318 21.869 33.497 21.523 33.497Z" fill="white"/>
+                        <path d="M31.694 42.216H21.627C21.27 42.216 20.939 42.026 20.761 41.716L15.727 32.997C15.548 32.687 15.548 32.307 15.727 31.997L20.761 23.278C20.94 22.968 21.27 22.778 21.627 22.778H31.694C32.051 22.778 32.382 22.968 32.56 23.278L37.594 31.997C37.773 32.307 37.773 32.687 37.594 32.997L32.56 41.716C32.381 42.026 32.051 42.216 31.694 42.216ZM22.204 40.216H31.117L35.574 32.497L31.117 24.778H22.204L17.747 32.497L22.204 40.216Z" fill="white"/>
+                        <path d="M61.973 42.223H51.905C51.548 42.223 51.217 42.033 51.039 41.723L46.005 33.004C45.826 32.694 45.826 32.314 46.005 32.004L51.039 23.285C51.218 22.975 51.548 22.785 51.905 22.785H61.973C62.526 22.785 62.973 23.233 62.973 23.785C62.973 24.337 62.526 24.785 61.973 24.785H52.482L48.025 32.504L52.482 40.223H61.973C62.526 40.223 62.973 40.671 62.973 41.223C62.973 41.775 62.526 42.223 61.973 42.223Z" fill="white"/>
+                        <path d="M41.814 16.065C41.261 16.065 40.814 15.617 40.814 15.065V6.50897C40.814 5.95697 41.261 5.50897 41.814 5.50897C42.367 5.50897 42.814 5.95697 42.814 6.50897V15.065C42.814 15.617 42.367 16.065 41.814 16.065Z" fill="white"/>
+                        <path d="M41.814 7.50898C39.881 7.50898 38.309 5.93698 38.309 4.00498C38.309 2.07298 39.881 0.500977 41.814 0.500977C43.747 0.500977 45.318 2.07298 45.318 4.00498C45.318 5.93698 43.746 7.50898 41.814 7.50898ZM41.814 2.49998C40.984 2.49998 40.309 3.17498 40.309 4.00398C40.309 4.83298 40.984 5.50798 41.814 5.50798C42.644 5.50798 43.318 4.83298 43.318 4.00398C43.318 3.17498 42.643 2.49998 41.814 2.49998Z" fill="white"/>
+                        <path d="M36.6769 42.216C36.5069 42.216 36.3349 42.173 36.1779 42.082C35.6989 41.806 35.5349 41.194 35.8119 40.716L38.3799 36.268C38.6559 35.789 39.2679 35.625 39.7459 35.902C40.2249 36.178 40.3889 36.79 40.1119 37.268L37.5439 41.716C37.3579 42.037 37.0229 42.216 36.6769 42.216Z" fill="white"/>
+                        <path d="M46.848 50.9349H36.781C36.424 50.9349 36.093 50.7449 35.915 50.4349L30.881 41.7159C30.702 41.4059 30.702 41.0259 30.881 40.7159L35.915 31.9969C36.094 31.6869 36.424 31.4969 36.781 31.4969H46.848C47.205 31.4969 47.536 31.6869 47.714 31.9969L52.748 40.7159C52.927 41.0259 52.927 41.4059 52.748 41.7159L47.714 50.4349C47.535 50.7449 47.205 50.9349 46.848 50.9349ZM37.358 48.9349H46.271L50.728 41.2159L46.271 33.497H37.358L32.901 41.2159L37.358 48.9349Z" fill="white"/>
+                        <path d="M41.814 59.4909C41.261 59.4909 40.814 59.0429 40.814 58.4909V49.9349C40.814 49.3829 41.261 48.9349 41.814 48.9349C42.367 48.9349 42.814 49.3829 42.814 49.9349V58.4909C42.814 59.0429 42.367 59.4909 41.814 59.4909Z" fill="white"/>
+                        <path d="M41.814 64.4999C39.881 64.4999 38.309 62.9279 38.309 60.9959C38.309 59.0639 39.881 57.4919 41.814 57.4919C43.747 57.4919 45.318 59.0639 45.318 60.9959C45.318 62.9279 43.746 64.4999 41.814 64.4999ZM41.814 59.4909C40.984 59.4909 40.309 60.1659 40.309 60.9949C40.309 61.8239 40.984 62.4989 41.814 62.4989C42.644 62.4989 43.318 61.8239 43.318 60.9949C43.318 60.1659 42.643 59.4909 41.814 59.4909Z" fill="white"/>
+                        <path d="M16.593 33.819H8.03601C7.48301 33.819 7.03601 33.371 7.03601 32.819C7.03601 32.267 7.48301 31.819 8.03601 31.819H16.593C17.146 31.819 17.593 32.267 17.593 32.819C17.593 33.371 17.146 33.819 16.593 33.819Z" fill="white"/>
+                        <path d="M5.53198 36.323C3.59898 36.323 2.02698 34.751 2.02698 32.819C2.02698 30.887 3.59898 29.315 5.53198 29.315C7.46498 29.315 9.03598 30.887 9.03598 32.819C9.03598 34.751 7.46398 36.323 5.53198 36.323ZM5.53198 31.314C4.70198 31.314 4.02698 31.989 4.02698 32.818C4.02698 33.647 4.70198 34.322 5.53198 34.322C6.36198 34.322 7.03598 33.647 7.03598 32.818C7.03598 31.989 6.36098 31.314 5.53198 31.314Z" fill="white"/>
+                    </svg>
+                    <div class="herobanner-bottom-text js-herobanner-bottom-text weight_600 overflow-hidden">
+                        {{section.settings.text_bottom}}
+                    </div>
+            </div>
+        {% endif %}
+             {% if section.settings.widget_link != blank %}
+                <a href="{{section.settings.widget_link}}" class="hero-widget-image-desktop">
+                     {% if section.settings.widget_image != blank %}
+                     <img src="{{section.settings.widget_image | img_url : 'x300'}}" alt="">
+                    {% endif %}
+                </a>
+            {% endif %}
+
+      
+        {% if section.settings.image_1 != blank %}
+            {{
+                section.settings.image_1
+                | image_url: width: 200
+                | image_tag:
+                loading: loading,
+                sizes: '100vw',
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                alt: section.settings.image_1.alt,
+                class: "herobanner-image_1"
+            }}
+        {% endif %}
+        {% if section.settings.image_2 != blank %}
+            {{
+                section.settings.image_2
+                | image_url: width: 200
+                | image_tag:
+                loading: loading,
+                sizes: '100vw',
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                alt: section.settings.image_2.alt,
+                class: "herobanner-image_2"
+            }}
+        {% endif %}
+        {% if section.settings.image_3 != blank %}
+            {{
+                section.settings.image_3
+                | image_url: width: 200
+                | image_tag:
+                loading: loading,
+                sizes: '100vw',
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                alt: section.settings.image_3.alt,
+                class: "herobanner-image_3"
+            }}
+        {% endif %}
+
+           {% if section.settings.main_image != blank %}
+            {{
+                section.settings.main_image
+                | image_url: width: 400
+                | image_tag:
+                loading: loading,
+                sizes: '100vw',
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                alt: section.settings.main_image.alt,
+                class: "herobanner-main_image"
+            }}
+        {% endif %}
+       
+
+
+</section>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function(event){
+        //GSAP Animation START
+        let heroBannerTextTl = gsap.timeline({
+            scrollTrigger:{
+                trigger: '.section-{{ section.id }}',
+                start: 'top center',
+                end: 'bottom center'
+            }
+        })
+
+        let heroTextSlitGsap = SplitText.create('.js-herobanner-bottom-text, .js-mobile-bottom-text',{
+            type: "chars, words"
+        })
+        heroBannerTextTl.set('.js-herobanner-bottom-text, .js-mobile-bottom-text',{
+            opacity: 1
+        })
+
+        let heroTitleSlitGsap = SplitText.create('.js-herobanner-title',{
+            type: "chars, words",
+        })
+        heroBannerTextTl.set('.js-herobanner-title',{
+            opacity: 1
+        })
+        let heroLabelSlitGsap = SplitText.create('.js-herobanner-label',{
+            type: "chars, words",
+        })
+        heroBannerTextTl.set('.js-herobanner-label',{
+            opacity: 1
+        })
+        heroBannerTextTl.from(heroLabelSlitGsap.words, {
+            y: 100,
+            autoAlpha:0,
+            delay: 0,
+            
+        },0.7)
+        heroBannerTextTl.from(heroTitleSlitGsap.words, {
+            y: 100,
+            autoAlpha:0,
+            delay: 0,
+            stagger: 0.05
+        },0.3)
+        heroBannerTextTl.fromTo(document.querySelector('.section-{{ section.id }} .js-herobanner-btn'),
+            {
+                y:100,
+                opacity:0
+            },
+            {
+                y:0,
+                opacity:1,
+                ease: "power2.inOut",
+            },
+            0.7
+        )
+        heroBannerTextTl.from(heroTextSlitGsap.chars, {
+            y: 100,
+            autoAlpha:0,
+            delay: 1,
+            stagger: {
+                amount: 1,
+                from: 'random',
+                yoyo: true
+            }
+            
+        },0.7)
+
+        heroBannerTextTl.fromTo(document.querySelector('.section-{{ section.id }} .hero-widget-image-desktop'),
+            {
+                opacity:0
+            },
+            {
+                opacity:1,
+                ease: "power2.inOut",
+            },
+            2
+        )
+        
+
+})
+</script>
+    
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "class": "section-herobaner",
+  "settings": [
+      
+        {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+        },
+        {   
+            "type": "text",
+            "id": "text_bottom",
+            "label": "Text bottom"
+        },
+          {   
+            "type": "image_picker",
+            "id": "widget_image",
+            "label": "Widget image"
+        },
+         {   
+            "type": "image_picker",
+            "id": "widget_image_mob",
+            "label": "Widget image mobile"
+        },
+        {   
+            "type": "url",
+            "id": "widget_link",
+            "label": "Widget link"
+        },
+         {
+            "type": "header",
+            "content": "Images"
+        },
+         {
+            "type": "image_picker",
+            "id": "background_img",
+            "label": "Background image"
+        },
+         {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Additional image 1"
+        },
+         {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Additional image 2"
+        },
+        { 
+            "type": "image_picker",
+            "id": "image_3",
+            "label": "Additional image 3"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

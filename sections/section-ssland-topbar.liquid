@@ -1,0 +1,183 @@
+{% stylesheet %}
+  .ssland-topbar-marquee {
+    overflow: hidden;
+    background: var(--ssl-bg-navy);
+    border-bottom: 1px solid var(--ssl-border-soft);
+  }
+  .ssland-topbar-marquee-track {
+    display: flex;
+    width: max-content;
+  }
+  .ssland-topbar-marquee-group {
+    display: flex;
+    gap: 44px;
+    padding: 10px 22px;
+    font-family: var(--ssl-font-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgba(244, 241, 234, 0.78);
+  }
+  .ssland-topbar-marquee-item--accent {
+    color: var(--ssl-accent-bright);
+  }
+  .ssland-topbar-marquee-item--silver {
+    color: var(--ssl-silver);
+  }
+  .ssland-topbar-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 22px;
+  }
+  .ssland-topbar-logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .ssland-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .ssland-topbar-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ssl-text-tertiary);
+    white-space: nowrap;
+  }
+  .ssland-topbar-cta {
+    padding: 11px 20px;
+    border-radius: 9999px;
+    background: rgba(131, 69, 255, 0.1);
+    border: 1px solid rgba(131, 69, 255, 0.45);
+    color: var(--ssl-accent-bright);
+    font-family: var(--ssl-font-display);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+  .ssland-topbar-cta:hover {
+    background: rgba(131, 69, 255, 0.2);
+  }
+{% endstylesheet %}
+
+<div class="section-{{ section.id }}">
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="ssland-topbar-marquee">
+      <div class="ssland-topbar-marquee-track ssland-animate-marquee">
+        {%- for i in (1..2) -%}
+          <div class="ssland-topbar-marquee-group">
+            {%- for block in section.blocks -%}
+              <span
+                class="ssland-topbar-marquee-item--{{ block.settings.style }}"
+                {{ block.shopify_attributes }}
+              >
+                {{- block.settings.text -}}
+              </span>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <header class="ssland-topbar-header">
+    <div class="ssland-topbar-logo ssland-font-display">{{ section.settings.logo_text }}</div>
+    <div class="ssland-topbar-right">
+      {%- if section.settings.nav_label != blank -%}
+        <span class="ssland-topbar-eyebrow">{{ section.settings.nav_label }}</span>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_url | default: '#offer' }}" class="ssland-topbar-cta ssland-font-display">
+          {{- section.settings.cta_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </header>
+
+</div>
+
+{% schema %}
+  {
+    "name": "SS Landing: Top bar",
+    "class": "section-ssland-topbar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_text",
+        "label": "Logo text",
+        "default": "Star Sweat"
+      },
+      {
+        "type": "text",
+        "id": "nav_label",
+        "label": "Nav label",
+        "default": "Elemental Water"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "CTA button label",
+        "default": "Get Star Sweat"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA button link",
+        "default": "#offer"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "marquee_item",
+        "name": "Marquee item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "The water of the future has arrived"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "Color",
+            "options": [
+              { "value": "accent", "label": "Accent (purple)" },
+              { "value": "silver", "label": "Silver" },
+              { "value": "plain", "label": "Plain" }
+            ],
+            "default": "accent"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SS Landing: Top bar",
+        "blocks": [
+          { "type": "marquee_item", "settings": { "text": "The water of the future has arrived", "style": "accent" } },
+          { "type": "marquee_item", "settings": { "text": "Free shipping on subscriptions", "style": "silver" } },
+          { "type": "marquee_item", "settings": { "text": "2.2 ppm H₂ verified", "style": "plain" } }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+  }
+{% endschema %}

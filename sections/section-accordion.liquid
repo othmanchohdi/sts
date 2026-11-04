@@ -1,0 +1,344 @@
+{% style %}
+  .section-{{ section.id }} {
+    position: relative;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+  custom-accordion {
+    position: relative;
+    display: block;
+    max-width: 885px;
+    margin: auto;
+  }
+  .custom-accordion-item {
+    cursor: pointer;
+    padding: 24px 35px 24px 24px;
+    border-radius: 10px;
+    border: 1px solid #272834;
+    background: rgba(35, 35, 46, 0.30);
+    backdrop-filter: blur(15px);
+    margin-bottom: 10px;
+  }
+  .custom-accordion-item.active {
+    padding-bottom: 20px;
+  }
+  .custom-accordion-title {
+    display: flex;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0;
+    transition: all 0.3s ease;
+  }
+
+  .custom-accordion-item.active .custom-accordion-title {
+    padding-bottom: 15px;
+    transition: all 0.3s ease;
+  }
+  .custom-accordion-text {
+    opacity: 0;
+    padding: 0;
+    color: var(--grey-20);
+    font-weight: 400;
+    line-height: 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .custom-accordion-item.active .custom-accordion-text {
+    max-height: var(--height);
+
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+  .custom-accordion-num {
+    display: inline-flex;
+    font-size: 18px;
+    margin-right: 15px;
+    font-weight: 600;
+    line-height: 25px;
+    background: var(--gradient-1, linear-gradient(180deg, #5B89FF 0%, #D586FF 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    letter-spacing: -1px;
+    -webkit-text-fill-color: transparent;
+  }
+  .custom-accordion-icon {
+    position: absolute;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-accordion-icon:after,
+  .custom-accordion-icon:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(91,137,255,1) 0%,rgba(213,134,255,1) 100%);
+  }
+  .custom-accordion-icon:after {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    margin-top: -1px;
+
+  }
+  .custom-accordion-icon:before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    margin-left: -1px;
+    opacity: 1;
+    transition: all 0.2s;
+
+  }
+  .custom-accordion-item.active .custom-accordion-icon:before {
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  .faq-img-1,
+  .faq-img-2 {
+    position: absolute;
+    max-width: 100%;
+    width: auto;
+    z-index: -1;
+
+  }
+  .faq-img-1 {
+    left: -250px;
+    top: 22%;
+    animation: slideUpDown 3s ease-in-out infinite
+    , brightness-2 5s ease-in-out infinite;
+  }
+  .faq-img-2 {
+    right: -170px;
+    bottom: 12%;
+    animation: rotating-2 25s linear infinite
+    , brightness-2 7s ease-in-out infinite;
+  }
+  @keyframes slideUpDown {
+    0% {
+      transform: translateY(0) rotate(-25deg);
+    }
+    50% {
+      transform: translateY(20px) rotate(-25deg);
+    }
+    100% {
+      transform: translateY(0) rotate(-25deg);
+
+    }
+  }
+  /* stars animation */
+  .accordion-use .star-1,
+  .accordion-use .star-2,
+  .accordion-use .star-3 {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 70px;
+    height: 70px;
+    animation: brightness 3s linear infinite;
+  }
+  .accordion-use .star-1 {
+    top: 10%;
+    left: 10%;
+    width: 20px;
+    height: 20px;
+  }
+  .accordion-use .star-2 {
+    position: absolute;
+    left: auto;
+    right: 10%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    animation: brightness 5s linear infinite;
+  }
+  .accordion-use .star-3 {
+    position: absolute;
+    left: auto;
+    right: 15%;
+    width: 10px;
+    height: 10px;
+    animation: brightness 3s linear infinite;
+  }
+  @media(max-width: 500px) {
+    .rose-accordion-title {
+      font-size: 70px;
+      line-height: 60px;
+      margin-bottom: 20px;
+    }
+    .section-{{ section.id }} {
+      padding-bottom: 20px;
+    }
+    .custom-accordion-item.active {
+      padding-bottom: 10px;
+    }
+    .custom-accordion-title {
+      font-size: 16px;
+
+    }
+    .faq-img-1 {
+      left: -58px;
+    }
+    .faq-img-2 {
+      right: -29px;
+    }
+  }
+{% endstyle %}
+
+<div class="accordion-use section-{{ section.id }} {{section.settings.sect_class}}">
+
+
+  <div class="star-css star-1"></div>
+  <div class="star-css star-css-2 star-2"></div>
+  <div class="star-css star-css-3 star-3"></div>
+
+  <div class="container">
+
+
+    <custom-accordion>
+      {% for block in section.blocks %}
+        <div class="js-custom-accordion-item custom-accordion-item">
+
+          {% if block.settings.title != blank %}
+            <div class="js-custom-accordion-title custom-accordion-title">
+              <div class="custom-accordion-title-cod">
+                <span class="custom-accordion-num">
+                  {% if forloop.index < 10 %}0{% endif %}
+                  {{ forloop.index }}</span>
+                {{ block.settings.title }}
+              </div>
+              <div class="custom-accordion-icon"></div>
+            </div>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <div class="js-custom-accordion-text custom-accordion-text">{{ block.settings.text }}</div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+      {% if section.settings.bg_img_1 != blank %}
+        {{
+          section.settings.bg_img_1 | image_url: width: 1946 | image_tag: loading: loading, sizes: '100vw', widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946', alt: section.settings.bg_img_1.alt, class: "faq-img-1"
+        }}
+      {% endif %}
+
+
+      {% if section.settings.bg_img_2 != blank %}
+        {{
+          section.settings.bg_img_2 | image_url: width: 1946 | image_tag: loading: loading, sizes: '100vw', widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946', alt: section.settings.bg_img_2.alt, class: "faq-img-2"
+        }}
+      {% endif %}
+    </custom-accordion>
+
+
+  </div>
+
+</div>
+
+<script>
+    class CustomAccordion extends HTMLElement {
+        constructor() {
+            super();
+
+            this.customAccordionItem = this.querySelectorAll('.js-custom-accordion-item');
+            this.customAccordionTitle = this.querySelectorAll('.js-custom-accordion-title');
+            this.customAccordionText = this.querySelectorAll('.js-custom-accordion-text');
+
+            
+
+        }
+        connectedCallback() {
+            this.accordionTitlteToggle()
+            this.customAccordionText.forEach(item => {
+              item.style.setProperty('--height', item.scrollHeight+'px');
+            })
+        }
+
+        accordionTitlteToggle(){
+            this.customAccordionItem.forEach(item => {
+
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                   
+                    if(!e.currentTarget.classList.contains('active')){
+                        this.ressetActiveClass();
+                        e.currentTarget.classList.add('active')
+                        
+                    }else{
+                        this.ressetActiveClass();
+                        e.currentTarget.classList.remove('active')
+                    }
+                    
+                 
+                    
+                })
+
+            })
+        }
+        ressetActiveClass(){
+            this.customAccordionItem.forEach(item => {
+                item.classList.remove('active')
+            })
+        }
+    }
+
+    if (!customElements.get('custom-accordion')) {
+        customElements.define('custom-accordion', CustomAccordion);
+    }
+
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "Custom accordion",
+    "tag": "section",
+    "class": "section-accordion",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_img_1",
+        "label": "Background image 1"
+      }, {
+        "type": "image_picker",
+        "id": "bg_img_2",
+        "label": "Background image 2"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "row",
+        "name": "Row",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "html",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom accordion"
+      }
+    ]
+  }
+{% endschema %}

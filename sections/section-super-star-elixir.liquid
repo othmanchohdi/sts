@@ -1,0 +1,818 @@
+{% stylesheet %}
+  .super-star-elixir-wrp {
+    position: relative;
+    padding: 50px 0 40px;
+    overflow: hidden;
+  }
+  .super-star-elixir-title {
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+  .super-star-elixir-label {
+    margin-bottom: 3px;
+  }
+  .super-star-elixir-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+  }
+  .super-star-elixir-center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .super-star-elixir-center:after {
+    content: '';
+    display: block;
+    padding-bottom: calc(100%/(1));
+  }
+  .elixir-main-img,
+  .elixir-rock-img {
+    position: absolute;
+    width: auto;
+  }
+  .super-star-elixir-box {
+    position: relative;
+  }
+  .super-star-elixir-left .super-star-elixir-box {
+    opacity: 0;
+  }
+  .super-star-elixir-right .super-star-elixir-box {
+    opacity: 0;
+  }
+  .super-star-elixir-box-inner {
+    display: flex;
+    padding: 20px 24px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #272834;
+    background: rgba(35, 35, 46, 0.30);
+    backdrop-filter: blur(5px);
+    margin-bottom: 20px;
+  }
+  .super-star-pointer {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  .super-star-elixir-left .super-star-pointer {
+    top: 50%;
+    left: 100%;
+    opacity: 0;
+  }
+  .super-star-elixir-right .super-star-pointer {
+    top: 50%;
+    right: 100%;
+    opacity: 0;
+  }
+  .super-star-box-title {
+    margin-bottom: 10px;
+    margin-top: 7px;
+    line-height: 1.5;
+  }
+  .super-star-box-text p {
+    margin: 0;
+    color: var(--grey-20);
+    line-height: 1.6;
+  }
+  /* left column pointers */
+  .super-star-elixir-left .super-star-elixir-box:nth-child(1) .super-star-pointer {
+    width: 145px;
+    height: 26px;
+    background-image: url('data:image/svg+xml, <svg width="148" height="30" viewBox="0 0 148 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M96.2609 1.00024L96.4927 0.557216L96.3838 0.500244H96.2609V1.00024ZM142.333 26.5002C142.333 27.973 143.527 29.1669 145 29.1669C146.473 29.1669 147.667 27.973 147.667 26.5002C147.667 25.0275 146.473 23.8336 145 23.8336C143.527 23.8336 142.333 25.0275 142.333 26.5002ZM0 1.00024V1.50024H96.2609V1.00024V0.500244H0V1.00024ZM96.2609 1.00024L96.0291 1.44327L144.768 26.9433L145 26.5002L145.232 26.0572L96.4927 0.557216L96.2609 1.00024Z" fill="white"/></svg>');
+  }
+  .super-star-elixir-left .super-star-elixir-box:nth-child(2) .super-star-pointer {
+    width: 65px;
+    height: 5px;
+    background-image: url('data:image/svg+xml, <svg width="68" height="6" viewBox="0 0 68 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M62.3333 3.00024C62.3333 4.473 63.5272 5.66691 65 5.66691C66.4728 5.66691 67.6667 4.473 67.6667 3.00024C67.6667 1.52748 66.4728 0.333577 65 0.333577C63.5272 0.333577 62.3333 1.52748 62.3333 3.00024ZM0 3.00024V3.50024H65V3.00024V2.50024H0V3.00024Z" fill="white"/></svg>');
+  }
+  .super-star-elixir-left .super-star-elixir-box:nth-child(3) .super-star-pointer {
+    width: 145px;
+    height: 26px;
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="148" height="29" viewBox="0 0 148 29" fill="none"><path d="M96.2609 28.5002L96.4927 28.9433L96.3838 29.0002H96.2609V28.5002ZM142.333 3.00024C142.333 1.52748 143.527 0.333578 145 0.333578C146.473 0.333578 147.667 1.52748 147.667 3.00024C147.667 4.473 146.473 5.66691 145 5.66691C143.527 5.66691 142.333 4.473 142.333 3.00024ZM0 28.5002V28.0002H96.2609V28.5002V29.0002H0V28.5002ZM96.2609 28.5002L96.0291 28.0572L144.768 2.55722L145 3.00024L145.232 3.44327L96.4927 28.9433L96.2609 28.5002Z" fill="white"/></svg>');
+  }
+  /* right column pointers */
+  .super-star-elixir-right .super-star-elixir-box:nth-child(1) .super-star-pointer {
+    width: 115px;
+    height: 26px;
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="148" height="30" viewBox="0 0 148 30" fill="none"><path d="M51.7391 1.00024L51.5073 0.557216L51.6162 0.500244H51.7391V1.00024ZM5.66667 26.5002C5.66667 27.973 4.47276 29.1669 3 29.1669C1.52724 29.1669 0.333328 27.973 0.333328 26.5002C0.333328 25.0275 1.52724 23.8336 3 23.8336C4.47276 23.8336 5.66667 25.0275 5.66667 26.5002ZM148 1.00024V1.50024H51.7391V1.00024V0.500244H148V1.00024ZM51.7391 1.00024L51.9709 1.44327L3.2318 26.9433L3 26.5002L2.7682 26.0572L51.5073 0.557216L51.7391 1.00024Z" fill="white"/></svg>');
+  }
+  .super-star-elixir-right .super-star-elixir-box:nth-child(2) .super-star-pointer {
+    width: 55px;
+    height: 5px;
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="68" height="6" viewBox="0 0 68 6" fill="none"><path d="M5.66667 3.00024C5.66667 4.473 4.47276 5.66691 3 5.66691C1.52724 5.66691 0.333336 4.473 0.333336 3.00024C0.333336 1.52748 1.52724 0.333577 3 0.333577C4.47276 0.333577 5.66667 1.52748 5.66667 3.00024ZM68 3.00024V3.50024H3V3.00024V2.50024H68V3.00024Z" fill="white"/></svg>');
+  }
+  .super-star-elixir-right .super-star-elixir-box:nth-child(3) .super-star-pointer {
+    width: 130px;
+    height: 26px;
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="148" height="29" viewBox="0 0 148 29" fill="none"><path d="M51.7391 28.5002L51.5073 28.9433L51.6162 29.0002H51.7391V28.5002ZM5.66667 3.00024C5.66667 1.52748 4.47276 0.333578 3 0.333578C1.52724 0.333578 0.333328 1.52748 0.333328 3.00024C0.333328 4.473 1.52724 5.66691 3 5.66691C4.47276 5.66691 5.66667 4.473 5.66667 3.00024ZM148 28.5002V28.0002H51.7391V28.5002V29.0002H148V28.5002ZM51.7391 28.5002L51.9709 28.0572L3.2318 2.55722L3 3.00024L2.7682 3.44327L51.5073 28.9433L51.7391 28.5002Z" fill="white"/></svg>');
+  }
+  .elixir-main-img {
+    z-index: 3;
+  }
+  @keyframes elixirmainimSlideUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
+
+    }
+  }
+  .elixirmainimSlideUpDown {
+    animation: elixirmainimSlideUpDown 3s ease-in-out infinite
+    , brightness-2 5s ease-in-out infinite;
+  }
+  .elixir-rock-img {
+    animation: elixirrockimgSlideUpDown 3.1s ease-in-out infinite
+    , brightness-2 5s ease-in-out infinite;
+  }
+  @keyframes elixirrockimgSlideUpDown {
+    0% {
+      transform: translateY(210px) rotate(-25deg);
+    }
+    50% {
+      transform: translateY(230px) rotate(-25deg);
+    }
+    100% {
+      transform: translateY(210px) rotate(-25deg);
+
+    }
+  }
+  .super-star-elixir-lighting {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 300px;
+    z-index: 7;
+    transform: scale(0.3, 0.3);
+  }
+  .super-star-elixir-lighting-blue {
+    background: radial-gradient(50% 50% at 50% 50%, #396BFF 0%, rgba(57, 107, 255, 0.00) 100%);
+    filter: blur(25px);
+    left: 13%;
+    top: 34%;
+  }
+  .super-star-elixir-lighting-violet {
+    background: radial-gradient(50% 50% at 50% 50%, #D239FF 0%, rgba(210, 57, 255, 0.00) 100%);
+    filter: blur(40px);
+    right: 17%;
+    top: 23%;
+  }
+  /* stars animation */
+  .super-star-elixir-wrp .star-1,
+  .super-star-elixir-wrp .star-2,
+  .super-star-elixir-wrp .star-3 {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 70px;
+    height: 70px;
+    animation: brightness 3s linear infinite;
+  }
+  .super-star-elixir-wrp .star-1 {
+    top: 50%;
+  }
+  .super-star-elixir-wrp .star-2 {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 75%;
+    width: 20px;
+    height: 20px;
+    animation: brightness 5s linear infinite;
+  }
+  .super-star-elixir-wrp .star-3 {
+    position: absolute;
+    left: auto;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    animation: brightness 3s linear infinite;
+  }
+  @media(max-width: 1250px) {
+    .super-star-elixir-box-inner {
+      min-height: 250px;
+    }
+  }
+  @media(max-width: 991px) {
+    .super-star-elixir-box-inner {
+      min-height: 270px;
+      padding: 10px 20px;
+    }
+  }
+  @media(max-width: 840px) {
+    .super-star-elixir-wrp .star-1,
+    .super-star-elixir-wrp .star-2,
+    .super-star-elixir-wrp .star-3 {
+      display: block;
+    }
+    .super-star-elixir-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 10px;
+    }
+    .super-star-elixir-center {
+      order: 1;
+      grid-area: span 1 / span 2;
+    }
+    .super-star-elixir-left {
+      position: relative;
+      z-index: 5;
+      order: 2;
+    }
+    .super-star-elixir-right {
+      order: 3;
+    }
+    .super-star-elixir-box {
+      opacity: 1 !important;
+    }
+    .super-star-elixir-box-inner {
+      min-height: 250px;
+      margin-bottom: 10px;
+    }
+    .super-star-elixir-box .super-star-pointer {
+      display: none !important;
+    }
+  }
+  @media(max-width: 768px) {
+    .super-star-elixir-wrp {
+      padding: 10px 0 0;
+    }
+  }
+  @media(max-width: 600px) {
+    .super-star-elixir-grid {
+      grid-template-columns: 1fr;
+      gap: 0 10px;
+    }
+    .super-star-elixir-center {
+      grid-area: span 1 / span 1;
+    }
+    .super-star-elixir-box-inner {
+      min-height: auto;
+      padding: 16px;
+    }
+    .super-star-elixir-title {
+      margin-bottom: 15px;
+    }
+    .super-star-elixir-left {
+      padding-top: 20px;
+    }
+    .super-star-box-icon img {
+      width: 30px;
+    }
+    .elixir-main-img {
+      max-width: 200px;
+  }
+  }
+{% endstylesheet %}
+
+<section class="super-star-elixir-wrp section-{{ section.id }}">
+
+
+  {% render 'stars-shower'
+    , count: 10 %}
+
+  <div class="container">
+
+
+    {% if section.settings.label != blank %}
+
+      <div class="caps small color-violet center weight_700 super-star-elixir-label overflow-hidden">{{ section.settings.label }}</div>
+
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+
+      <div class="h2 super-star-elixir-title center overflow-hidden">{{ section.settings.title }}</div>
+
+    {% endif %}
+
+    <div class="super-star-elixir-grid">
+      <div class="super-star-elixir-left">
+        {% for block in section.blocks %}
+          {% if block.type == 'left_column' %}
+            <div class="super-star-elixir-box">
+              <div class="super-star-pointer"></div>
+              <div class="super-star-elixir-box-inner">
+                {% if block.settings.icon != blank %}
+                  <div class="super-star-box-icon">
+                    <img src="{{block.settings.icon | img_url : 'x45'}}" alt="{{block.settings.icon.alt}}">
+                  </div>
+                {% endif %}
+                <div class="super-star-box-title h5 weight_700">
+                  {{ block.settings.title }}
+                </div>
+                <div class="super-star-box-text">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="super-star-elixir-center">
+
+        <div class="star-css star-1"></div>
+        <div class="star-css star-css-2 star-2"></div>
+        <div class="star-css star-3"></div>
+
+        {% if section.settings.image != blank %}
+          <img
+            src="{{section.settings.image | img_url: 'x450' }}"
+            class="elixir-main-img"
+            alt="{{section.settings.image.alt}}">
+
+        {% endif %}
+        {% if section.settings.rock_image != blank %}
+          {{
+            section.settings.rock_image | image_url: width: 1946 | image_tag: loading: loading, sizes: '(max-width: 900px) 1000px, (max-width: 2000px) 100vw, 50vw', widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946', alt: section.settings.rock_image.alt, class: "elixir-rock-img"
+          }}
+        {% endif %}
+        <div class="super-star-elixir-lighting super-star-elixir-lighting-blue"></div>
+        <div class="super-star-elixir-lighting super-star-elixir-lighting-violet"></div>
+      </div>
+      <div class="super-star-elixir-right">
+        {% for block in section.blocks %}
+          {% if block.type == 'right_column' %}
+            <div class="super-star-elixir-box">
+              <div class="super-star-pointer"></div>
+              <div class="super-star-elixir-box-inner">
+                {% if block.settings.icon != blank %}
+                  <div class="super-star-box-icon">
+                    <img src="{{block.settings.icon | img_url : 'x45'}}" alt="{{block.settings.icon.alt}}">
+                  </div>
+                {% endif %}
+                <div class="super-star-box-title h5 weight_700">
+                  {{ block.settings.title }}
+                </div>
+                <div class="super-star-box-text">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+
+        let superStarTL = gsap.timeline({
+            scrollTrigger:{
+                trigger: '.section-{{ section.id }}',
+                start: 'top 90%',
+                end: 'bottom 50%',
+                scrub: 1
+            }
+        })
+       
+        let superStarMobileTL = gsap.timeline({
+            scrollTrigger:{
+                trigger: '.section-{{ section.id }} .super-star-elixir-center',
+                start: 'top 90%',
+                end: 'bottom 50%',
+                scrub: 1
+            }
+        })
+
+        ScrollTrigger.matchMedia({
+
+            
+
+            "(min-width: 768px)": function() {
+               //Images
+                superStarTL.fromTo('.elixir-main-img',
+                    {
+                        y: 50,
+                        left:70,
+                        scale: 0.3,
+                    },
+                    {
+                        y:0,
+                        left:150,
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut",
+                        onComplete: () => {
+                            const element = document.querySelector(".elixir-main-img");
+                            if (element) element.classList.add("elixirmainimSlideUpDown", "active");
+                          },
+                          onReverseComplete: () => {
+                            const element = document.querySelector(".elixir-main-img");
+                            if (element) element.classList.remove("elixirmainimSlideUpDown", "active");
+                          }
+                    },
+                    0
+                );
+                 superStarTL.fromTo('.elixir-rock-img',
+                    {
+                        y: 70,
+                        left:-120,
+                        scale: 0.5,
+                        rotation: -50
+                    },
+                    {
+                        y:210,
+                        left:270,
+                        scale: 1,
+                        rotation: -25,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.1
+                );
+                superStarTL.fromTo('.super-star-elixir-lighting-blue',
+                    {
+                        scale: 0.3,
+                    },
+                    {
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.1
+                );
+                superStarTL.fromTo('.super-star-elixir-lighting-violet',
+                    {
+                        scale: 0.3,
+                    },
+                    {
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.2
+                );
+                // Left side
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:first-child',
+                    {
+                        y: 0,
+                        left:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        left:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0
+                );
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:nth-child(2)',
+                    {
+                        y: 0,
+                        left:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        left:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.1
+                );
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:nth-child(3)',
+                    {
+                        y: 0,
+                        left:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        left:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.2
+                );
+
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:first-child .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.3
+                );
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:nth-child(2) .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.4
+                );
+                superStarTL.fromTo('.super-star-elixir-left .super-star-elixir-box:nth-child(3) .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.5
+                );
+
+                // Right side
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:first-child',
+                    {
+                        y: 0,
+                        right:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        right:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0
+                );
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:nth-child(2)',
+                    {
+                        y: 0,
+                        right:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        right:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.1
+                );
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:nth-child(3)',
+                    {
+                        y: 0,
+                        right:-300,
+                        scale: 0.7,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        right:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.2
+                );
+
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:first-child .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.3
+                );
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:nth-child(2) .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.4
+                );
+                superStarTL.fromTo('.super-star-elixir-right .super-star-elixir-box:nth-child(3) .super-star-pointer',
+                    {
+                        y: 0,
+                        scale:0.5,
+                        opacity: 0
+                    },
+                    {
+                        y:0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.5
+                );
+             
+            },
+            "(max-width: 767px)": function() {
+
+               
+               //Images
+                superStarMobileTL.fromTo('.elixir-main-img',
+                    {
+                        y: 30,
+                        left:10,
+                        scale: 0.7,
+                    },
+                    {
+                        y:0,
+                        left:100,
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut",
+                         onComplete: () => {
+                          const elementelixirMainImg = document.querySelector('.elixir-main-img');
+                          if (elementelixirMainImg) elementelixirMainImg.classList.add('elixirmainimSlideUpDown');
+                        }
+                    },
+                    0
+                );
+                 superStarMobileTL.fromTo('.elixir-rock-img',
+                    {
+                        y: 200,
+                        left:270,
+                        scale: 0.7,
+                        rotation: -50
+                    },
+                    {
+                        y:100,
+                        left:210,
+                        scale: 1,
+                        rotation: -29,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.1
+                );
+                superStarMobileTL.fromTo('.super-star-elixir-lighting-blue',
+                    {
+                        scale: 0.3,
+                    },
+                    {
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.15
+                );
+                superStarMobileTL.fromTo('.super-star-elixir-lighting-violet',
+                    {
+                        scale: 0.3,
+                    },
+                    {
+                        scale: 1,
+                        duration: 1,
+                        ease: "power3.inOut"
+                    },
+                    0.2
+                );
+            }
+        })
+      
+    })
+</script>
+
+
+{% schema %}
+  {
+    "name": "Super star elixir",
+    "class": "section-super-star-elixir",
+    "settings": [
+      {
+        "type": "text",
+        "id": "label",
+        "label": "Label"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Main Image"
+      }, {
+        "type": "image_picker",
+        "id": "rock_image",
+        "label": "Rock Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "left_column",
+        "name": "Left column block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }, {
+        "type": "right_column",
+        "name": "Right column block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Super star elixir"
+      }
+    ],
+    "enabled_on": {
+      "templates": [
+        "404",
+        "article",
+        "blog",
+        "cart",
+        "collection",
+        "index",
+        "list-collections",
+        "page",
+        "product",
+        "search"
+      ],
+      "groups": ["footer"]
+    }
+  }
+{% endschema %}

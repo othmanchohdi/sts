@@ -1,0 +1,320 @@
+{% stylesheet %}
+    .customerssaying-wrp{
+        position:relative;
+        padding:50px 0 100px 0;
+    }
+    review-slider{
+        display:block;
+        overflow:hidden;
+    }
+    .customerssaying-title{
+        position:relative;
+        margin-bottom:30px;
+        z-index:1;
+        line-height: 1.2;
+    }
+    .review-slide-item{
+        padding:24px;
+        box-sizing:border-box;
+        border-radius: 20px;
+        border: 1px solid #272834;
+        background: rgba(35, 35, 46, 0.30);
+        backdrop-filter: blur(5px);
+        transition:all .2s;
+    }
+    .review-slide-item:hover{
+        border: 1px solid var(--violet);
+        transition:all .2s;
+    }
+    .customerssaying-wrp:after{
+        position:absolute;
+        content:"";
+        width:100%;
+        max-width: 517px;
+        height:270px;
+        left:50%;
+        top:23%;
+        margin-left:-250px;
+        background: rgb(70 67 138 / 85%);
+        filter: blur(150px);
+    }
+    review-slider .swiper-slide{
+        height:auto;
+    }
+    .review-slide-item{
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+        height:100%;
+            gap: 30px;
+    }
+    .review-text p{
+        color:var(--grey-20);
+        line-height:  25px;
+    }
+    .review-title{
+        line-height:31px;
+        margin-bottom:16px;
+         margin-top:19px;
+    }
+    .review-slide-user{
+        display:flex;
+        gap:20px;
+        align-items:center;
+    }
+    .review-slide-user .review-img img{
+        display:block;
+        width:56px;
+        height:56px;
+        border-radius:100px;
+        object-fit: cover;
+    }
+    .review-slide-user-text .review-name, .review-slide-user-text .review-date{
+        line-height:1;
+    }
+    .review-slide-user-text .review-date{
+        color:var(--grey-20);
+    }
+     .review-slide-user-text .review-name{
+       margin-bottom:10px;
+     }
+    .review-slider-nav{
+        position:relative;
+        margin-top:20px;
+    }
+    .review-slider-nav .slider-pagination{
+        position:static;
+    }
+     review-slider .swiper-pagination-bullet{
+        width: 14px;
+        height: 6px;
+        border-radius:3px;
+        background-color:#fff;
+        opacity:.3;
+        transition:all ease-in-out .2s;
+     }
+      review-slider .swiper-pagination-bullet-active{
+        width: 30px;
+        opacity:1;
+        transition:all ease-in-out .2s;
+     }
+     @media(max-width:768px){
+        .customerssaying-wrp{
+            padding-bottom:60px;
+        }
+        .customerssaying-title{
+            margin-bottom: 20px;
+        }
+         .review-title{
+            margin-bottom:10px;
+            margin-top:15px;
+        }
+         .review-slide-user .review-img img{
+            width:48px;
+            height:48px;
+          
+        }
+        .review-slider-nav{
+            margin-top: 10px;
+        }
+         review-slider .swiper-pagination-bullet{
+            width: 14px;
+            height: 4px;
+        }
+
+     }
+{% endstylesheet %}
+
+<section class="customerssaying-wrp section-{{ section.id }}">
+    <div class="container">
+        
+        {% if section.settings.label != blank %}
+
+            <div class="caps small color-violet weight_700 center customerssaying-label overflow-hidden">{{section.settings.label}}</div>
+        
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+
+            <div class="h2 customerssaying-title center overflow-hidden">{{section.settings.title}}</div>
+        
+        {% endif %}
+
+        <review-slider>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide">
+                            <div class="review-slide-item">
+                                <div class="review-slide-top">
+                                    <svg width="80" height="14" viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.7694 4.65314C12.7694 4.47355 12.6306 4.35926 12.353 4.31028L8.55712 3.74701L6.86733 0.318443C6.76937 0.122525 6.64692 0.0245657 6.49998 0.0245657C6.35304 0.0245657 6.23059 0.122525 6.13263 0.318443L4.44284 3.74701L0.646917 4.31028C0.369366 4.35926 0.230591 4.47355 0.230591 4.65314C0.230591 4.76742 0.295897 4.88987 0.426509 5.02048L3.16937 7.68987L2.50814 11.4613C2.50814 11.5266 2.50814 11.5756 2.50814 11.6082C2.50814 11.7062 2.53263 11.7919 2.58161 11.8654C2.63059 11.9389 2.71222 11.9756 2.82651 11.9756C2.90814 11.9756 3.0061 11.9429 3.12039 11.8776L6.49998 10.1144L9.87957 11.8776C9.99386 11.9429 10.0918 11.9756 10.1734 11.9756C10.2877 11.9756 10.3694 11.9389 10.4183 11.8654C10.4673 11.7919 10.4918 11.7062 10.4918 11.6082C10.4918 11.5429 10.4918 11.494 10.4918 11.4613L9.83059 7.68987L12.5734 5.02048C12.7041 4.88987 12.7694 4.76742 12.7694 4.65314Z" fill="#8345FF"/>
+                                    <path d="M28.7694 4.65314C28.7694 4.47355 28.6306 4.35926 28.353 4.31028L24.5571 3.74701L22.8673 0.318443C22.7694 0.122525 22.6469 0.0245657 22.5 0.0245657C22.353 0.0245657 22.2306 0.122525 22.1326 0.318443L20.4428 3.74701L16.6469 4.31028C16.3694 4.35926 16.2306 4.47355 16.2306 4.65314C16.2306 4.76742 16.2959 4.88987 16.4265 5.02048L19.1694 7.68987L18.5081 11.4613C18.5081 11.5266 18.5081 11.5756 18.5081 11.6082C18.5081 11.7062 18.5326 11.7919 18.5816 11.8654C18.6306 11.9389 18.7122 11.9756 18.8265 11.9756C18.9081 11.9756 19.0061 11.9429 19.1204 11.8776L22.5 10.1144L25.8796 11.8776C25.9939 11.9429 26.0918 11.9756 26.1734 11.9756C26.2877 11.9756 26.3694 11.9389 26.4183 11.8654C26.4673 11.7919 26.4918 11.7062 26.4918 11.6082C26.4918 11.5429 26.4918 11.494 26.4918 11.4613L25.8306 7.68987L28.5734 5.02048C28.7041 4.88987 28.7694 4.76742 28.7694 4.65314Z" fill="#8345FF"/>
+                                    <path d="M44.7694 4.65314C44.7694 4.47355 44.6306 4.35926 44.353 4.31028L40.5571 3.74701L38.8673 0.318443C38.7694 0.122525 38.6469 0.0245657 38.5 0.0245657C38.353 0.0245657 38.2306 0.122525 38.1326 0.318443L36.4428 3.74701L32.6469 4.31028C32.3694 4.35926 32.2306 4.47355 32.2306 4.65314C32.2306 4.76742 32.2959 4.88987 32.4265 5.02048L35.1694 7.68987L34.5081 11.4613C34.5081 11.5266 34.5081 11.5756 34.5081 11.6082C34.5081 11.7062 34.5326 11.7919 34.5816 11.8654C34.6306 11.9389 34.7122 11.9756 34.8265 11.9756C34.9081 11.9756 35.0061 11.9429 35.1204 11.8776L38.5 10.1144L41.8796 11.8776C41.9939 11.9429 42.0918 11.9756 42.1734 11.9756C42.2877 11.9756 42.3694 11.9389 42.4183 11.8654C42.4673 11.7919 42.4918 11.7062 42.4918 11.6082C42.4918 11.5429 42.4918 11.494 42.4918 11.4613L41.8306 7.68987L44.5734 5.02048C44.7041 4.88987 44.7694 4.76742 44.7694 4.65314Z" fill="#8345FF"/>
+                                    <path d="M60.7694 4.65314C60.7694 4.47355 60.6306 4.35926 60.353 4.31028L56.5571 3.74701L54.8673 0.318443C54.7694 0.122525 54.6469 0.0245657 54.5 0.0245657C54.353 0.0245657 54.2306 0.122525 54.1326 0.318443L52.4428 3.74701L48.6469 4.31028C48.3694 4.35926 48.2306 4.47355 48.2306 4.65314C48.2306 4.76742 48.2959 4.88987 48.4265 5.02048L51.1694 7.68987L50.5081 11.4613C50.5081 11.5266 50.5081 11.5756 50.5081 11.6082C50.5081 11.7062 50.5326 11.7919 50.5816 11.8654C50.6306 11.9389 50.7122 11.9756 50.8265 11.9756C50.9081 11.9756 51.0061 11.9429 51.1204 11.8776L54.5 10.1144L57.8796 11.8776C57.9939 11.9429 58.0918 11.9756 58.1734 11.9756C58.2877 11.9756 58.3694 11.9389 58.4183 11.8654C58.4673 11.7919 58.4918 11.7062 58.4918 11.6082C58.4918 11.5429 58.4918 11.494 58.4918 11.4613L57.8306 7.68987L60.5734 5.02048C60.7041 4.88987 60.7694 4.76742 60.7694 4.65314Z" fill="#8345FF"/>
+                                    <path d="M76.7694 4.65314C76.7694 4.47355 76.6306 4.35926 76.353 4.31028L72.5571 3.74701L70.8673 0.318443C70.7694 0.122525 70.6469 0.0245657 70.5 0.0245657C70.353 0.0245657 70.2306 0.122525 70.1326 0.318443L68.4428 3.74701L64.6469 4.31028C64.3694 4.35926 64.2306 4.47355 64.2306 4.65314C64.2306 4.76742 64.2959 4.88987 64.4265 5.02048L67.1694 7.68987L66.5081 11.4613C66.5081 11.5266 66.5081 11.5756 66.5081 11.6082C66.5081 11.7062 66.5326 11.7919 66.5816 11.8654C66.6306 11.9389 66.7122 11.9756 66.8265 11.9756C66.9081 11.9756 67.0061 11.9429 67.1204 11.8776L70.5 10.1144L73.8796 11.8776C73.9939 11.9429 74.0918 11.9756 74.1734 11.9756C74.2877 11.9756 74.3694 11.9389 74.4183 11.8654C74.4673 11.7919 74.4918 11.7062 74.4918 11.6082C74.4918 11.5429 74.4918 11.494 74.4918 11.4613L73.8306 7.68987L76.5734 5.02048C76.7041 4.88987 76.7694 4.76742 76.7694 4.65314Z" fill="#8345FF"/>
+                                    </svg>
+                                    
+                                    {% if block.settings.title != blank %}
+                                        <div class="review-title h5 weight_400">{{block.settings.title}}</div>
+                                    {% endif %}
+                                    {% if block.settings.text != blank %}
+                                        <div class="review-text">{{block.settings.text}}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="review-slide-user">
+                                     <div class="review-img">
+                                        <img src="{{block.settings.image | img_url : 'x56'}}" alt="{{block.settings.image.alt}}">
+                                     </div>
+                                     <div class="review-slide-user-text">
+                                        <div class="review-name weight_700">{{block.settings.name}}</div>
+                                        <div class="review-date weight_400">{{block.settings.date}}</div>
+                                     </div>
+                                    
+                                </div>
+                               
+                                
+                            </div>
+                        
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+                
+            <div class="slider-navigation-{{ section.id }} review-slider-nav">
+                <div class="{{ section.id }}-pagination slider-pagination swiper-pagination"></div>
+            </div>
+        </review-slider>
+    </div>
+
+</section>
+
+
+<script>
+    class ReviewSlider extends HTMLElement {
+        constructor() {
+            super();
+
+        }
+        connectedCallback() {
+
+            const swiperReviews = new Swiper(this.querySelector('.swiper-container'), {
+                slidesPerView: 3,
+                spaceBetween: 32,
+                loop: true,
+                autoplay: true,
+                speed:1000,
+                delay: 3000,
+                breakpoints: {
+                    0: {
+                     slidesPerView: 1,
+                    },
+                    550: {
+                        slidesPerView: 2,
+                        spaceBetween: 15,
+                    },
+                    1024: { 
+                        slidesPerView: 3,
+                    }
+                },
+                 pagination: {
+                    el: this.querySelector('.swiper-pagination'),
+                    clickable: true,
+                }
+            });
+
+        }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        if (!customElements.get('review-slider')) {
+        customElements.define('review-slider', ReviewSlider);
+        }
+    }) 
+
+    document.addEventListener('shopify:section:load', () => {
+        if (!customElements.get('review-slider')) {
+        customElements.define('review-slider', ReviewSlider);
+        }
+    })
+
+
+
+</script>
+    
+
+{% schema %}
+{
+  "name": "What customers saying",
+  "class": "section-customerssaying",
+  "settings": [
+        {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+        },
+         {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        }
+  ],
+   "blocks": [
+        {
+          "type": "block",
+          "name": "Review block",
+          "settings": [
+             {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+                {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "name",
+                "label": "Name"
+            },
+            {
+                "type": "text",
+                "id": "date",
+                "label": "Date"
+            }
+            
+          ]
+        }
+      ],
+  "presets": [
+    {
+      "name": "What customers saying",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

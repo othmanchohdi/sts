@@ -1,0 +1,277 @@
+{% stylesheet %}
+    .footer-logo-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr 2.2fr;
+        border-top:1px solid rgba(255, 255, 255, 0.20);
+        padding-top:40px; 
+    }
+    .subscribe__form-form{
+      overflow:visible!important;
+    }
+    .subscribe__form-form .o-layout{
+        display:flex;
+        gap:5px;
+    }
+    .subscribe__form-form .o-layout__item{
+
+    }
+    .subscribe__form-form .newsletter__input{
+        margin:0;
+        border-radius:100px;
+        height:55px;
+        border-color: rgba(255, 255, 255, .2);
+        padding-left:25px;
+        caret-color: var(--violet);
+    }
+     .subscribe__form-form .newsletter__input:focus{
+        border-color: var(--violet);
+        background: rgba(12, 13, 14, 0.02);
+    box-shadow: 0px 0px 20px 0px rgba(98, 59, 255, 0.35), 0px 20px 50px 0px rgba(98, 59, 255, 0.15);
+    }
+    .subscribe__form-form .c-btn {
+        border-radius:100px;
+        height:55px;
+        box-shadow: none;
+        background:#fff;
+        color: var(--violet);
+    }
+     .subscribe__form-form .c-btn:hover {
+        background: linear-gradient(130deg, #5E2CFF 19.38%, #9200BD 105.76%);
+        box-shadow: 0 0 20px #623bff59, 0 20px 50px #623bff33;
+        color: #fff;
+    } 
+    .subscribe__form-form .c-btn:hover .icon-starship-violet path{
+        fill:#fff;
+    }
+     .subscribe__form-form .c-btn:hover span{
+      color: #fff;
+     }
+    .subscribe__form-form .o-layout__item:first-child{
+        width:100%;
+    }
+    .footer-subscribe-label {
+        margin-bottom:20px;
+    }
+     .subscribe__form-form .btn-label{
+        display:none;
+        color:var(--black);
+        letter-spacing: 1px;
+        margin-right:9px;
+     }
+     .footer-policy-links-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:40px;
+      font-size: 14px;
+      font-weight: 400;
+      padding-bottom:30px;
+      color: #F6F6F6;
+     }
+     .footer-policy-links{
+       display:flex;
+        align-items:center;
+        gap:40px;
+     }
+     .footer-policy-links a{
+      color: #F6F6F6;
+      line-height:1.2;
+     }
+     .footer-policy-links a:hover{
+      color:var(--violet);
+     }
+    @media(max-width:1024px){
+        .footer-logo-grid{
+            grid-template-columns:1fr 1fr 1fr 1.5fr;
+            padding-top:24px
+        }
+    }
+    @media(max-width:768px){
+        .footer-logo-grid{
+            grid-template-columns:1fr 1fr;
+        }
+        .footer-logo-grid .footer-logo-col:nth-child(2),
+        .footer-logo-grid .footer-logo-col:nth-child(3){
+            display:none;
+        }
+    }
+     @media(max-width:600px){
+        .footer-logo-grid{
+            grid-template-columns:1fr;
+        }
+        .footer-subscribe-label{
+            text-align:center;
+            margin:9px 0 9px 0;
+        }
+        .footer-logo{
+            text-align:center;
+            
+        }
+        .footer-logo img{
+            max-width:159px;
+        }
+        .subscribe__form-form .o-layout{
+            flex-direction:column;
+        }
+         .subscribe__form-form .o-layout{
+            gap:10px;
+         }
+        .subscribe__form-form .c-btn{
+            width:100%;
+                height: 45px;
+        }
+         .subscribe__form-form .btn-label{
+            display:inline-block;
+        }
+        .footer-policy-links-grid{
+          flex-direction:column;
+          
+          margin-top:24px;
+                  align-items: flex-start;
+        }
+        .footer-policy-links{
+          gap:20px;
+          flex-wrap:wrap;
+          justify-content:center;
+        }
+        .footer-policy-col{
+          width:100%;
+
+        }
+        .footer-copy-text{
+          padding-top:10px;
+        }
+    }
+{% endstylesheet %}
+
+
+<section
+  class="
+    section
+    section--{{ section.id }}
+  "
+  data-section-id="{{ section.id }}"
+  data-section-type="logo-list"
+>
+  <div class="container">
+        <div class="footer-logo-grid">
+            <div class="footer-logo-col">
+                <div class="footer-logo">
+                    {% if section.settings.logo != blank %}
+                        <img src="{{ section.settings.logo | img_url : 'master' }}" alt="">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="footer-logo-col"></div>
+            <div class="footer-logo-col"></div>
+            <div class="footer-logo-col">
+                
+               <div class="footer-logo__form-wrapper">
+                        <div class="footer-subscribe-label h6 weight_400">Stay in the StarLoop</div>
+                    {% form 'customer', id: 'footersubscribe', class: 'subscribe__form-form' %}
+                       
+                      {{ form.errors | default_errors }}
+                      {% if form.posted_successfully? %}
+                        <div class="newsletter__form-message">
+                          <p class="newsletter__form-message__text" style="color:rgb(17, 193, 125);">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                        </div>
+                      {% else %}
+                        <div class="o-layout o-layout--flush o-layout--center">
+                      
+                          <div class="o-layout__item">
+                            <input type="hidden" name="contact[tags]" value="newsletter">
+                            <label for="Email-{{ section.id }}" class="u-hidden-visually">Email</label>
+                            <input
+                              type="email"
+                              name="contact[email]"
+                              id="Email-{{ section.id }}"
+                              class="newsletter__input"
+                              value="{% if customer %}{{ customer.email }}{% endif %}"
+                              placeholder="Your Email"
+                              autocorrect="off"
+                              autocapitalize="off"
+                              required
+                            >
+                          </div>
+                          <div class="o-layout__item">
+                            <button
+                              type="submit"
+                              class="c-btn "
+                              name="commit"
+                              id="Subscribe-Footer"
+                            >
+                            <span class="btn-label h6 weight_700">Submit</span>
+                             {% render 'icon' with 'starship-violet' %}
+
+                            </button>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endform %}
+                  </div>
+            </div>
+        </div>
+        <div class="footer-policy-links-grid">
+          <div class="footer-policy-col">
+            {% if section.settings.policy_links != blank %}
+               <div class="footer-policy-links">
+                {{ section.settings.policy_links }}
+                </div>
+              {% endif %}
+          </div>
+          <div class="footer-policy-col">
+            {% if section.settings.reserved != blank %}
+              <div class="footer-copy-text">
+              {{ section.settings.reserved }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+  </div>
+
+  </section>
+
+
+{% schema %}
+{
+  "name": "Footer logo",
+  "class": "footer-logo",
+  "settings": [
+   {
+    "type":"image_picker",
+    "id":"logo",
+    "label": "Logo"
+   },
+     {
+    "type":"html",
+    "id":"policy_links",
+    "label": "Links"
+   },
+   {
+    "type":"text",
+    "id":"reserved",
+    "label": "Copy text"
+   }
+  ],
+  "presets": [
+    {
+      "name": "Footer logo",
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "index",
+      "list-collections",
+      "page",
+      "product",
+      "search"
+    ],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}
