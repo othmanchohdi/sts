@@ -29,6 +29,34 @@
   }
 {% endstylesheet %}
 
+{%- liquid
+  assign ssl_has_color_override = false
+  if section.settings.color_background != blank or section.settings.color_heading != blank or section.settings.color_text != blank or section.settings.color_text_muted != blank
+    assign ssl_has_color_override = true
+  endif
+-%}
+{%- if ssl_has_color_override -%}
+  <style>
+    .section-{{ section.id }} {
+      {%- if section.settings.color_background != blank %}
+      background-color: {{ section.settings.color_background }};
+      {%- endif %}
+      {%- if section.settings.color_text != blank %}
+      color: {{ section.settings.color_text }};
+      --ssl-ink: {{ section.settings.color_text }};
+      {%- endif %}
+      {%- if section.settings.color_text_muted != blank %}
+      --ssl-ink-muted: {{ section.settings.color_text_muted }};
+      {%- endif %}
+    }
+    {%- if section.settings.color_heading != blank %}
+    .section-{{ section.id }} [class*="-headline"],
+    .section-{{ section.id }} [class*="-heading"] {
+      color: {{ section.settings.color_heading }};
+    }
+    {%- endif %}
+  </style>
+{%- endif -%}
 <footer class="ssland-footer section-{{ section.id }}">
   <div class="ssland-footer-inner">
     <div class="ssland-footer-logo">{{ section.settings.logo_text }}</div>
@@ -52,7 +80,13 @@
         "id": "legal_text",
         "label": "Legal text",
         "default": "Star Sweat, LLC. Elemental Water is a functional beverage. These statements have not been evaluated by the Food and Drug Administration and this product is not intended to diagnose, treat, cure, or prevent any disease. Hydrogen concentration reflects independent testing of sealed cans at a minimum of 2.2 ppm. Cans cannot be returned once shipped. Subscriptions renew every 30 days and can be skipped, paused or cancelled from your account at any time."
-      }
+      },
+      { "type": "header", "content": "Colors" },
+      { "type": "paragraph", "content": "Leave blank to use the theme's default Star Sweat colors." },
+      { "type": "color", "id": "color_background", "label": "Background color" },
+      { "type": "color", "id": "color_heading", "label": "Heading color" },
+      { "type": "color", "id": "color_text", "label": "Text color" },
+      { "type": "color", "id": "color_text_muted", "label": "Muted / secondary text color" }
     ],
     "presets": [
       {

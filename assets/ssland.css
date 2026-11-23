@@ -153,12 +153,12 @@
 
 .ssland-btn-gold {
   background: var(--ssl-solar);
-  color: #111214;
+  color: #0c0d10;
   border: none;
 }
 .ssland-btn-gold:hover {
   background: #e79433;
-  color: #111214;
+  color: #0c0d10;
 }
 
 .ssland-btn-outline {
