@@ -57,6 +57,14 @@
   color: var(--ssl-ink);
 }
 
+/* Safety net: any current or future button-style link (class containing
+   "-cta" or "btn-gold"/"btn-outline"/"btn-inverse") must never fall back
+   to the default underlined link look above, regardless of source order. */
+#ssland-page a[class*="-cta"],
+#ssland-page a[class*="ssland-btn"] {
+  text-decoration: none;
+}
+
 #ssland-page img {
   display: block;
   max-width: 100%;

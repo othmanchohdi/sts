@@ -56,28 +56,31 @@
     color: var(--ssl-ink-muted);
     white-space: nowrap;
   }
-  .ssland-topbar-cta {
+  #ssland-page .ssland-topbar-cta {
+    display: inline-flex;
     padding: 10px 18px;
     border-radius: var(--ssl-radius-control);
     background: var(--ssl-solar);
     border: none;
-    color: #111214;
+    color: #0c0d10;
     font-family: var(--ssl-font-display);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: normal;
     text-transform: none;
+    text-decoration: none;
     white-space: nowrap;
     transition: background-color 0.2s ease;
   }
-  .ssland-topbar-cta:hover {
+  #ssland-page .ssland-topbar-cta:hover {
     background: #e79433;
+    color: #0c0d10;
   }
 {% endstylesheet %}
 
 {%- liquid
   assign ssl_has_color_override = false
-  if section.settings.color_background != blank or section.settings.color_heading != blank or section.settings.color_text != blank or section.settings.color_text_muted != blank
+  if section.settings.color_background != blank or section.settings.color_heading != blank or section.settings.color_text != blank or section.settings.color_text_muted != blank or section.settings.color_button_text != blank
     assign ssl_has_color_override = true
   endif
 -%}
@@ -99,6 +102,12 @@
     .section-{{ section.id }} [class*="-headline"],
     .section-{{ section.id }} [class*="-heading"] {
       color: {{ section.settings.color_heading }};
+    }
+    {%- endif %}
+    {%- if section.settings.color_button_text != blank %}
+    .section-{{ section.id }} [class*="-btn-gold"],
+    .section-{{ section.id }} [class*="-cta"] {
+      color: {{ section.settings.color_button_text }};
     }
     {%- endif %}
   </style>
@@ -173,7 +182,8 @@
       { "type": "color", "id": "color_background", "label": "Background color" },
       { "type": "color", "id": "color_heading", "label": "Heading color" },
       { "type": "color", "id": "color_text", "label": "Text color" },
-      { "type": "color", "id": "color_text_muted", "label": "Muted / secondary text color" }
+      { "type": "color", "id": "color_text_muted", "label": "Muted / secondary text color" },
+      { "type": "color", "id": "color_button_text", "label": "Button text color" }
     ],
     "blocks": [
       {
