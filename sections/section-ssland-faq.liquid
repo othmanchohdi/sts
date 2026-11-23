@@ -1,16 +1,17 @@
 {% stylesheet %}
   .ssland-faq-section {
-    border-top: 1px solid var(--ssl-border-soft);
-    background: linear-gradient(180deg, var(--ssl-bg-navy), var(--ssl-bg-deep));
+    border-top: 1px solid var(--ssl-hairline);
+    background: var(--ssl-base);
   }
   .ssland-faq-inner {
     max-width: 920px;
   }
   .ssland-faq-heading {
-    font-size: clamp(28px, 3.6vw, 46px);
-    line-height: 1.02;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0 0 30px;
   }
 {% endstylesheet %}
@@ -18,11 +19,11 @@
 <section class="ssland-faq-section section-{{ section.id }}">
   <div class="ssland-section-inner ssland-faq-inner">
 
-    <h2 class="ssland-faq-heading ssland-font-display">{{ section.settings.heading }}</h2>
+    <h2 class="ssland-faq-heading">{{ section.settings.heading }}</h2>
 
     {%- for block in section.blocks -%}
       <details class="ssland-faq-item" {{ block.shopify_attributes }}>
-        <summary class="ssland-faq-summary ssland-font-display">
+        <summary class="ssland-faq-summary">
           {{ block.settings.question }}
           <span class="ssland-faq-icon" aria-hidden="true">+</span>
         </summary>

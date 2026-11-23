@@ -1,7 +1,7 @@
 {% stylesheet %}
   .ssland-testimonials {
-    border-top: 1px solid var(--ssl-border-soft);
-    background: linear-gradient(180deg, var(--ssl-bg-deep), var(--ssl-bg-navy));
+    border-top: 1px solid var(--ssl-hairline);
+    background: var(--ssl-base);
   }
   .ssland-testimonials-head {
     display: flex;
@@ -12,10 +12,11 @@
     margin-bottom: 34px;
   }
   .ssland-testimonials-heading {
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1.02;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(28px, 3.4vw, 42px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
   }
   .ssland-testimonials-grid {
@@ -25,30 +26,34 @@
   }
   .ssland-testimonial-card {
     min-width: 0;
-    border-radius: 20px;
+    border-radius: var(--ssl-radius-card);
     padding: 30px 26px;
-    border: 1px solid var(--ssl-border);
-    background: rgba(244, 241, 234, 0.025);
+    border: 1px solid var(--ssl-hairline);
+    background: var(--ssl-surface);
   }
   .ssland-testimonial-label {
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-ink-muted);
     margin-bottom: 16px;
-    font-weight: 700;
+    font-weight: 400;
   }
   .ssland-testimonial-quote {
+    font-family: var(--ssl-font-display);
     margin: 0 0 20px;
     font-size: 19px;
     line-height: 1.4;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    letter-spacing: normal;
   }
   .ssland-testimonial-byline {
+    font-family: var(--ssl-font-mono);
     font-size: 13px;
-    font-weight: 300;
-    color: var(--ssl-text-tertiary);
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
 {% endstylesheet %}
 
@@ -56,16 +61,16 @@
   <div class="ssland-section-inner">
 
     <div class="ssland-testimonials-head">
-      <h2 class="ssland-testimonials-heading ssland-font-display">{{ section.settings.heading }}</h2>
+      <h2 class="ssland-testimonials-heading">{{ section.settings.heading }}</h2>
     </div>
 
     <div class="ssland-testimonials-grid">
       {%- for block in section.blocks -%}
         <div class="ssland-testimonial-card" {{ block.shopify_attributes }}>
           {%- if block.settings.label != blank -%}
-            <div class="ssland-testimonial-label ssland-font-display">{{ block.settings.label }}</div>
+            <div class="ssland-testimonial-label">{{ block.settings.label }}</div>
           {%- endif -%}
-          <p class="ssland-testimonial-quote ssland-font-display">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <p class="ssland-testimonial-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
           <div class="ssland-testimonial-byline">{{ block.settings.name }} &middot; {{ block.settings.location }}</div>
         </div>
       {%- endfor -%}

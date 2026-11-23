@@ -1,6 +1,6 @@
 {% stylesheet %}
   .ssland-footer {
-    border-top: 1px solid var(--ssl-border-soft);
+    border-top: 1px solid var(--ssl-hairline);
     padding: 36px 22px 48px;
   }
   .ssland-footer-inner {
@@ -12,23 +12,26 @@
     align-items: start;
   }
   .ssland-footer-logo {
+    font-family: var(--ssl-font-display);
     font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
   }
   .ssland-footer-legal {
     margin: 0;
+    font-family: var(--ssl-font-mono);
     font-size: 12px;
+    letter-spacing: 0.02em;
     line-height: 1.6;
-    font-weight: 300;
-    color: var(--ssl-text-tertiary);
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
 {% endstylesheet %}
 
 <footer class="ssland-footer section-{{ section.id }}">
   <div class="ssland-footer-inner">
-    <div class="ssland-footer-logo ssland-font-display">{{ section.settings.logo_text }}</div>
+    <div class="ssland-footer-logo">{{ section.settings.logo_text }}</div>
     <p class="ssland-footer-legal">{{ section.settings.legal_text }}</p>
   </div>
 </footer>

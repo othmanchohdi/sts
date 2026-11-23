@@ -2,57 +2,44 @@
    Star Sweat Landing — shared design tokens & utilities
    Loaded only by layout/landing.liquid. Scoped to pages using that layout;
    does not affect the rest of the theme.
+
+   Brand: Star Sweat Brand Guidelines v1.0 (Nov 2026). Dark is the default
+   theme; .ssland-light-section is the "Aluminum" theme. Restraint first —
+   no shadows, glows or blurs anywhere; depth comes only from the base →
+   surface step.
    ========================================================================== */
 
 :root {
-  /* Brand accent (Star Sweat purple, per brand site) */
-  --ssl-accent: #8345ff;
-  --ssl-accent-light: #9e6eff;
-  --ssl-accent-bright: #b490ff;
-  --ssl-accent-dark: #6a2fdb;
-  --ssl-accent-gradient: linear-gradient(100deg, #9e6eff, #6a2fdb);
-  --ssl-accent-gradient-hover: linear-gradient(100deg, #b490ff, #8345ff);
-  --ssl-accent-glow: rgba(131, 69, 255, 0.6);
+  /* Brand accents */
+  --ssl-solar: #f0a04b;
+  --ssl-solar-text: #f0a04b;
+  --ssl-signal: #4a98ff;
+  --ssl-violet: #b866da;
 
-  /* Neutrals */
-  --ssl-silver: #b9c2ce;
-  --ssl-cream: #f4f1ea;
-  --ssl-ink: #0a0d14;
+  /* Dark (default) theme tokens */
+  --ssl-base: #0c0d10;
+  --ssl-surface: #34363d;
+  --ssl-symbol-tonal: #16171b;
+  --ssl-ink: #e7e1d7;
+  --ssl-ink-muted: #b8b4ae;
+  --ssl-hairline: #2a2a2e;
+  --ssl-control-border: #858790;
 
-  /* Surfaces (dark) */
-  --ssl-bg-base: #05070d;
-  --ssl-bg-deep: #070a12;
-  --ssl-bg-navy: #0b1220;
-
-  /* Surfaces (light sections) */
-  --ssl-cream-surface: #f4f1ea;
-  --ssl-cream-card: #eae5da;
-  --ssl-cream-card-alt: #efeae0;
-
-  /* Text */
-  --ssl-text-primary: var(--ssl-cream);
-  --ssl-text-secondary: rgba(244, 241, 234, 0.72);
-  --ssl-text-tertiary: rgba(244, 241, 234, 0.45);
-
-  /* Borders */
-  --ssl-border: rgba(244, 241, 234, 0.14);
-  --ssl-border-soft: rgba(244, 241, 234, 0.08);
+  /* Radius: 2px buttons/inputs, 4px cards, 0 images */
+  --ssl-radius-control: 2px;
+  --ssl-radius-card: 4px;
 
   /* Type */
-  --ssl-font-display: 'Syne', system-ui, sans-serif;
-  --ssl-font-body: 'Sora', system-ui, sans-serif;
-
-  /* Radius */
-  --ssl-radius-sm: 8px;
-  --ssl-radius-md: 14px;
-  --ssl-radius-lg: 20px;
-  --ssl-radius-full: 9999px;
+  --ssl-font-display: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --ssl-font-body: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --ssl-font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 }
 
 #ssland-page {
-  background: var(--ssl-bg-base);
-  color: var(--ssl-text-primary);
+  background: var(--ssl-base);
+  color: var(--ssl-ink);
   font-family: var(--ssl-font-body);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
   padding-bottom: 0;
@@ -63,20 +50,22 @@
 }
 
 #ssland-page a {
-  color: var(--ssl-accent);
-  text-decoration: none;
+  color: var(--ssl-signal);
+  text-decoration: underline;
 }
 #ssland-page a:hover {
-  color: var(--ssl-accent-bright);
+  color: var(--ssl-ink);
 }
 
 #ssland-page img {
   display: block;
   max-width: 100%;
+  border-radius: 0;
 }
 
 .ssland-font-display {
   font-family: var(--ssl-font-display);
+  font-weight: 300;
 }
 
 /* ── Layout ── */
@@ -87,24 +76,26 @@
 }
 
 .ssland-eyebrow {
-  font-family: var(--ssl-font-display);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-family: var(--ssl-font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ssl-accent);
+  color: var(--ssl-ink-muted);
   margin-bottom: 14px;
 }
 
 .ssland-light-section {
-  background: var(--ssl-cream-surface);
-  color: #0c1018;
+  background: #d2d3d5;
+  color: #111214;
 }
 .ssland-light-section .ssland-eyebrow {
-  color: #6a2fdb;
+  color: #50504c;
 }
 
-/* ── Keyframes ── */
+/* ── Motion ──
+   Brand calls for restraint: no glow pulses, no decorative drifting orbs.
+   Only a plain fade/rise-in on content is kept. */
 @keyframes ssland-marquee {
   from {
     transform: translateX(0);
@@ -123,15 +114,6 @@
     transform: translateY(0);
   }
 }
-@keyframes ssland-glow-pulse {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.9;
-  }
-}
 
 .ssland-animate-marquee {
   animation: ssland-marquee 34s linear infinite;
@@ -139,95 +121,115 @@
 .ssland-animate-rise {
   animation: ssland-rise 0.7s ease both;
 }
-.ssland-animate-glow {
-  animation: ssland-glow-pulse 9s ease-in-out infinite;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ssland-animate-marquee,
-  .ssland-animate-rise,
-  .ssland-animate-glow {
+  .ssland-animate-rise {
     animation: none;
   }
 }
 
-/* ── Buttons ── */
-.ssland-btn-gold {
+/* ── Buttons ──
+   One solar button per view. Everything else is secondary, inverse or a
+   text link. 2px corners. No shadows, glows or blurs. */
+.ssland-btn-gold,
+.ssland-btn-outline,
+.ssland-btn-inverse {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 28px;
-  border-radius: var(--ssl-radius-full);
-  background: var(--ssl-accent-gradient);
-  color: #ffffff;
+  padding: 15px 26px;
+  border-radius: var(--ssl-radius-control);
   font-family: var(--ssl-font-display);
-  font-size: clamp(14px, 1.1vw, 16px);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
   text-decoration: none;
-  border: none;
   cursor: pointer;
-  box-shadow: 0 14px 40px -14px var(--ssl-accent-glow);
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.15s ease;
   white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.ssland-btn-gold {
+  background: var(--ssl-solar);
+  color: #111214;
+  border: none;
 }
 .ssland-btn-gold:hover {
-  background: var(--ssl-accent-gradient-hover);
-  box-shadow: 0 18px 50px -14px var(--ssl-accent-glow);
-  transform: translateY(-1px);
-  color: #ffffff;
+  background: #e79433;
+  color: #111214;
 }
 
 .ssland-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 28px;
-  border-radius: var(--ssl-radius-full);
   background: transparent;
-  color: var(--ssl-cream);
-  font-family: var(--ssl-font-display);
-  font-size: clamp(14px, 1.1vw, 16px);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid rgba(244, 241, 234, 0.28);
-  cursor: pointer;
-  transition: border-color 0.2s ease;
+  color: var(--ssl-ink);
+  border: 1px solid var(--ssl-control-border);
 }
 .ssland-btn-outline:hover {
-  border-color: rgba(244, 241, 234, 0.65);
+  border-color: var(--ssl-ink);
+}
+.ssland-light-section .ssland-btn-outline {
+  color: #111214;
+  border-color: #73736f;
+}
+.ssland-light-section .ssland-btn-outline:hover {
+  border-color: #111214;
 }
 
-/* ── Badges / pills ── */
+/* Inverse: ink fill, used on Aluminum sections when solar is already
+   spent elsewhere on the same screen. */
+.ssland-btn-inverse {
+  background: #111214;
+  color: #e7e1d7;
+  border: none;
+}
+.ssland-btn-inverse:hover {
+  background: #000000;
+}
+.ssland-light-section .ssland-btn-inverse {
+  background: #111214;
+  color: #d2d3d5;
+}
+
+/* ── Badges / data tags ──
+   Quiet bordered tags, DM Mono "data" style. Not uppercase, not bold. */
 .ssland-badge {
   display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
-  border-radius: var(--ssl-radius-full);
-  font-family: var(--ssl-font-display);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: var(--ssl-radius-card);
+  font-family: var(--ssl-font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  border: 1px solid var(--ssl-hairline);
+  color: var(--ssl-ink-muted);
 }
 .ssland-badge--accent {
-  border: 1px solid rgba(131, 69, 255, 0.45);
-  background: rgba(131, 69, 255, 0.1);
-  color: var(--ssl-accent-bright);
+  border-color: rgba(184, 102, 218, 0.5);
+  color: var(--ssl-violet);
 }
 .ssland-badge--secondary {
-  border: 1px solid rgba(185, 194, 206, 0.34);
-  color: var(--ssl-silver);
+  border-color: var(--ssl-control-border);
+  color: var(--ssl-ink-muted);
 }
 .ssland-badge--default {
-  border: 1px solid rgba(244, 241, 234, 0.2);
-  color: rgba(244, 241, 234, 0.7);
+  border-color: var(--ssl-hairline);
+  color: var(--ssl-ink-muted);
+}
+.ssland-light-section .ssland-badge {
+  border-color: #d9d9d5;
+  color: #50504c;
+}
+.ssland-light-section .ssland-badge--accent {
+  border-color: rgba(138, 43, 176, 0.45);
+  color: #8a2bb0;
+}
+.ssland-light-section .ssland-badge--secondary {
+  border-color: #73736f;
+  color: #50504c;
 }
 
 /* ── Plan toggle (Subscribe vs Buy once) ──
@@ -241,26 +243,31 @@ html[data-ssland-plan='once'] [data-ssland-show='sub'] {
 }
 
 .ssland-plan-card {
-  border-radius: var(--ssl-radius-lg);
+  border-radius: var(--ssl-radius-card);
   padding: 28px;
   cursor: pointer;
   min-width: 0;
-  transition:
-    border-color 0.18s ease,
-    background 0.18s ease,
-    box-shadow 0.18s ease;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   outline: none;
-  border: 1.5px solid var(--ssl-border);
-  background: rgba(244, 241, 234, 0.025);
+  border: 1.5px solid var(--ssl-hairline);
+  background: var(--ssl-surface);
 }
 .ssland-plan-card:focus-visible {
-  box-shadow: 0 0 0 3px rgba(131, 69, 255, 0.5);
+  border-color: var(--ssl-violet);
 }
 html[data-ssland-plan='sub'] .ssland-plan-card[data-ssland-plan-option='sub'],
 html[data-ssland-plan='once'] .ssland-plan-card[data-ssland-plan-option='once'] {
-  border-color: rgba(131, 69, 255, 0.85);
-  background: linear-gradient(180deg, rgba(131, 69, 255, 0.12), rgba(131, 69, 255, 0.02));
-  box-shadow: 0 0 0 4px rgba(131, 69, 255, 0.1);
+  border-color: var(--ssl-violet);
+  background: rgba(184, 102, 218, 0.07);
+}
+.ssland-light-section .ssland-plan-card {
+  border-color: #d9d9d5;
+  background: #ffffff;
+}
+.ssland-light-section html[data-ssland-plan='sub'] .ssland-plan-card[data-ssland-plan-option='sub'],
+.ssland-light-section html[data-ssland-plan='once'] .ssland-plan-card[data-ssland-plan-option='once'] {
+  border-color: #8a2bb0;
+  background: rgba(138, 43, 176, 0.06);
 }
 
 .ssland-plan-dot {
@@ -269,49 +276,55 @@ html[data-ssland-plan='once'] .ssland-plan-card[data-ssland-plan-option='once'] 
   border-radius: 50%;
   flex-shrink: 0;
   background: transparent;
-  border: 2px solid rgba(244, 241, 234, 0.35);
+  border: 2px solid var(--ssl-control-border);
   transition: border 0.15s ease;
 }
 html[data-ssland-plan='sub'] [data-ssland-plan-option='sub'] .ssland-plan-dot,
 html[data-ssland-plan='once'] [data-ssland-plan-option='once'] .ssland-plan-dot {
-  border: 6px solid var(--ssl-accent);
+  border: 6px solid var(--ssl-violet);
 }
 
 .ssland-mini-plan-card {
-  border-radius: 16px;
+  border-radius: var(--ssl-radius-card);
   padding: 20px;
   cursor: pointer;
   min-width: 0;
   text-align: left;
-  border: 1.5px solid var(--ssl-border);
-  background: rgba(244, 241, 234, 0.025);
-  transition:
-    border-color 0.18s ease,
-    background 0.18s ease;
+  border: 1.5px solid var(--ssl-hairline);
+  background: var(--ssl-surface);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   outline: none;
 }
 html[data-ssland-plan='sub'] .ssland-mini-plan-card[data-ssland-plan-option='sub'],
 html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='once'] {
-  border-color: rgba(131, 69, 255, 0.85);
-  background: rgba(131, 69, 255, 0.1);
+  border-color: var(--ssl-violet);
+  background: rgba(184, 102, 218, 0.08);
+}
+.ssland-light-section .ssland-mini-plan-card {
+  border-color: #d9d9d5;
+  background: #ffffff;
 }
 
 .ssland-founding-badge {
   padding: 18px;
-  border-radius: var(--ssl-radius-md);
-  border: 1px solid rgba(131, 69, 255, 0.3);
-  background: rgba(131, 69, 255, 0.08);
+  border-radius: var(--ssl-radius-card);
+  border: 1px solid rgba(184, 102, 218, 0.35);
+  background: rgba(184, 102, 218, 0.06);
+}
+.ssland-light-section .ssland-founding-badge {
+  border-color: rgba(138, 43, 176, 0.3);
+  background: rgba(138, 43, 176, 0.05);
 }
 
 /* ── FAQ / accordion (native <details>) ── */
 .ssland-faq-item {
-  border-top: 1px solid var(--ssl-border);
+  border-top: 1px solid var(--ssl-hairline);
 }
 .ssland-faq-item:last-child {
-  border-bottom: 1px solid var(--ssl-border);
+  border-bottom: 1px solid var(--ssl-hairline);
 }
 .ssland-light-section .ssland-faq-item {
-  border-color: rgba(12, 16, 24, 0.14);
+  border-color: #d9d9d5;
 }
 
 .ssland-faq-summary {
@@ -322,8 +335,8 @@ html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='on
   padding: 20px 0;
   cursor: pointer;
   font-family: var(--ssl-font-display);
-  font-size: clamp(15px, 1.1vw, 17.5px);
-  font-weight: 700;
+  font-size: clamp(16px, 1.1vw, 18px);
+  font-weight: 500;
   color: inherit;
   list-style: none;
   user-select: none;
@@ -334,13 +347,14 @@ html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='on
 
 .ssland-faq-icon {
   flex-shrink: 0;
-  color: var(--ssl-accent);
-  font-size: 22px;
+  color: var(--ssl-ink-muted);
+  font-size: 20px;
   line-height: 1;
+  font-weight: 400;
   transition: transform 0.2s ease;
 }
 .ssland-light-section .ssland-faq-icon {
-  color: #8a7238;
+  color: #73736f;
 }
 .ssland-faq-item[open] .ssland-faq-icon {
   transform: rotate(45deg);
@@ -349,18 +363,19 @@ html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='on
 .ssland-faq-body {
   padding-bottom: 22px;
   font-family: var(--ssl-font-body);
-  font-size: 15px;
-  line-height: 1.65;
-  font-weight: 300;
-  color: var(--ssl-text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--ssl-ink-muted);
   max-width: 72ch;
   margin: 0 0 22px;
 }
 .ssland-light-section .ssland-faq-body {
-  color: #3c4048;
+  color: #50504c;
 }
 
-/* ── Sticky purchase bar ── */
+/* ── Sticky purchase bar ──
+   Solid surface, no blur. */
 .ssland-sticky-bar {
   position: fixed;
   left: 0;
@@ -368,10 +383,8 @@ html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='on
   bottom: 0;
   z-index: 50;
   padding: 12px 18px;
-  background: rgba(7, 10, 18, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(244, 241, 234, 0.12);
+  background: var(--ssl-surface);
+  border-top: 1px solid var(--ssl-hairline);
   display: none;
 }
 @media (max-width: 900px) {
@@ -380,32 +393,23 @@ html[data-ssland-plan='once'] .ssland-mini-plan-card[data-ssland-plan-option='on
   }
 }
 
-/* ── Decorative overlays ── */
+/* ── Decorative: subtle star graphics only ──
+   symbol-tonal is for subtle star graphics; kept minimal, static, and
+   never a blur/glow bloom. No starfields, no orbital rings. */
 .ssland-grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(244, 241, 234, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 241, 234, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
-  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .ssland-orbital {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(131, 69, 255, 0.12);
-  pointer-events: none;
+  display: none;
 }
 
 /* ── Placeholder image fallback ── */
 #ssland-page .placeholder-svg {
   width: 100%;
   height: 100%;
-  background: rgba(244, 241, 234, 0.05);
+  background: var(--ssl-surface);
 }
 #ssland-page .placeholder-svg--light {
-  background: rgba(12, 16, 24, 0.06);
+  background: #c3c4c6;
 }

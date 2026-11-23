@@ -3,14 +3,6 @@
     position: relative;
     overflow: clip;
   }
-  .ssland-hero-glow {
-    position: absolute;
-    inset: -20% -10% 10% -10%;
-    background:
-      radial-gradient(46% 40% at 62% 30%, rgba(185, 194, 206, 0.14), rgba(5, 7, 13, 0) 72%),
-      radial-gradient(52% 46% at 30% 62%, rgba(131, 69, 255, 0.12), rgba(5, 7, 13, 0) 74%);
-    pointer-events: none;
-  }
   .ssland-hero-inner {
     position: relative;
     padding-top: clamp(14px, 3vw, 34px);
@@ -29,38 +21,37 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 7px 14px;
-    border-radius: 9999px;
-    border: 1px solid rgba(185, 194, 206, 0.32);
-    background: rgba(185, 194, 206, 0.07);
+    padding: 6px 0;
     margin-bottom: 22px;
   }
   .ssland-hero-pill-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--ssl-accent);
+    background: var(--ssl-violet);
     flex-shrink: 0;
   }
   .ssland-hero-pill-text {
-    font-size: 11.5px;
-    letter-spacing: 0.18em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(244, 241, 234, 0.82);
+    color: var(--ssl-ink-muted);
   }
   .ssland-hero-headline {
-    font-size: clamp(42px, 5.4vw, 78px);
-    line-height: 0.96;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(42px, 5.4vw, 72px);
+    line-height: 1.0;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0 0 20px;
     text-wrap: balance;
   }
   .ssland-hero-subcopy {
-    font-size: clamp(16px, 1.35vw, 19px);
-    line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: clamp(16px, 1.35vw, 18px);
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
     margin: 0 0 28px;
     max-width: 44ch;
     text-wrap: pretty;
@@ -80,15 +71,16 @@
     align-items: flex-end;
     gap: 16px 30px;
     padding: 20px 0;
-    border-top: 1px solid var(--ssl-border);
-    border-bottom: 1px solid var(--ssl-border);
+    border-top: 1px solid var(--ssl-hairline);
+    border-bottom: 1px solid var(--ssl-hairline);
     margin-bottom: 22px;
   }
   .ssland-hero-price-label {
-    font-size: 11.5px;
-    letter-spacing: 0.16em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ssl-text-tertiary);
+    color: var(--ssl-ink-muted);
     margin-bottom: 7px;
   }
   .ssland-hero-price-row {
@@ -97,18 +89,24 @@
     gap: 10px;
   }
   .ssland-hero-price {
+    font-family: var(--ssl-font-display);
     font-size: clamp(32px, 3.6vw, 44px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 300;
+    letter-spacing: normal;
+    color: var(--ssl-solar-text);
   }
   .ssland-hero-price-percan {
-    font-size: 14px;
-    color: var(--ssl-accent-bright);
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ssl-signal);
   }
   .ssland-hero-compare {
-    font-size: 13.5px;
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
     line-height: 1.5;
-    color: var(--ssl-text-tertiary);
+    color: var(--ssl-ink-muted);
   }
   .ssland-hero-compare-price {
     text-decoration: line-through;
@@ -128,24 +126,13 @@
     position: relative;
     min-width: 0;
   }
-  .ssland-hero-media-orb {
-    position: absolute;
-    left: 50%;
-    top: 48%;
-    width: 76%;
-    aspect-ratio: 1 / 1;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(131, 69, 255, 0.28), rgba(5, 7, 13, 0) 70%);
-    pointer-events: none;
-  }
   .ssland-hero-media-main {
     position: relative;
     aspect-ratio: 4 / 5;
-    border-radius: 22px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--ssl-border);
-    background: linear-gradient(180deg, rgba(185, 194, 206, 0.08), rgba(5, 7, 13, 0.4));
+    border: 1px solid var(--ssl-hairline);
+    background: var(--ssl-surface);
   }
   .ssland-hero-media-main img,
   .ssland-hero-thumb img {
@@ -162,16 +149,13 @@
   .ssland-hero-thumb {
     min-width: 0;
     aspect-ratio: 1 / 1;
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--ssl-border);
+    border: 1px solid var(--ssl-hairline);
   }
 {% endstylesheet %}
 
 <section class="ssland-hero section-{{ section.id }}">
-  <div class="ssland-hero-glow ssland-animate-glow"></div>
-  <div class="ssland-grid-overlay"></div>
-
   <div class="ssland-section-inner ssland-hero-inner">
     <div class="ssland-hero-grid">
 
@@ -228,7 +212,6 @@
       </div>
 
       <div class="ssland-hero-media">
-        <div class="ssland-hero-media-orb"></div>
         <div class="ssland-hero-media-main">
           {%- if section.settings.main_image != blank -%}
             {{

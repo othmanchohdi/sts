@@ -12,13 +12,14 @@
     margin-bottom: 40px;
   }
   .ssland-comparison-heading {
-    font-size: clamp(30px, 4vw, 52px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
     text-wrap: balance;
-    color: #0c1018;
+    color: #111214;
   }
   .ssland-comparison-grid {
     display: grid;
@@ -28,40 +29,32 @@
   }
   .ssland-comparison-card {
     min-width: 0;
-    border-radius: 20px;
+    border-radius: var(--ssl-radius-card);
     padding: 30px 26px;
-    border: 1px solid rgba(12, 16, 24, 0.1);
+    border: 1px solid #d9d9d5;
   }
   .ssland-comparison-card--muted {
-    background: #eae5da;
+    background: #ffffff;
   }
   .ssland-comparison-card--muted2 {
-    background: #efeae0;
+    background: #ffffff;
   }
   .ssland-comparison-card--featured {
     position: relative;
-    background: linear-gradient(170deg, #0c1018, #131b2a);
-    color: var(--ssl-cream);
-    border: 1.5px solid rgba(131, 69, 255, 0.55);
-    box-shadow: 0 26px 60px -26px rgba(12, 16, 24, 0.6);
-  }
-  .ssland-comparison-card--featured::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: radial-gradient(60% 45% at 70% 12%, rgba(131, 69, 255, 0.22), rgba(12, 16, 24, 0) 72%);
-    pointer-events: none;
+    background: var(--ssl-base);
+    color: var(--ssl-ink);
+    border: 1.5px solid var(--ssl-violet);
   }
   .ssland-comparison-card-content {
     position: relative;
   }
   .ssland-comparison-card-title {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #63666e;
+    color: #50504c;
     margin-bottom: 20px;
   }
   .ssland-comparison-card--featured .ssland-comparison-card-title {
@@ -70,20 +63,17 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-violet);
   }
   .ssland-comparison-list {
     display: grid;
     gap: 11px;
-    font-size: 14.5px;
-    font-weight: 300;
-    color: #4a4c54;
-  }
-  .ssland-comparison-card--muted2 .ssland-comparison-list {
-    color: #4a4c54;
+    font-size: 15px;
+    font-weight: 400;
+    color: #50504c;
   }
   .ssland-comparison-card--featured .ssland-comparison-list {
-    color: inherit;
+    color: var(--ssl-ink-muted);
   }
   .ssland-comparison-item {
     display: flex;
@@ -92,24 +82,23 @@
   .ssland-comparison-item--no {
     opacity: 0.55;
   }
-  .ssland-comparison-card--muted .ssland-comparison-item--yes span:first-child {
-    color: #9a9ca4;
-  }
+  .ssland-comparison-card--muted .ssland-comparison-item--yes span:first-child,
   .ssland-comparison-card--muted2 .ssland-comparison-item--yes span:first-child {
-    color: #2f7a56;
+    color: #174fa8;
   }
   .ssland-comparison-card--featured .ssland-comparison-item span:first-child {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-violet);
     flex-shrink: 0;
   }
   .ssland-comparison-footnote {
     margin-top: 22px;
     padding-top: 18px;
-    border-top: 1px solid rgba(244, 241, 234, 0.14);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--ssl-accent-bright);
+    border-top: 1px solid var(--ssl-hairline);
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ssl-violet);
   }
 {% endstylesheet %}
 
@@ -127,7 +116,7 @@
       {%- for block in section.blocks -%}
         <div class="ssland-comparison-card ssland-comparison-card--{{ block.settings.style }}" {{ block.shopify_attributes }}>
           <div class="ssland-comparison-card-content">
-            <div class="ssland-comparison-card-title ssland-font-display">
+            <div class="ssland-comparison-card-title">
               {{ block.settings.title }}
               {%- if block.settings.badge != blank and block.settings.style == 'featured' -%}
                 <span class="ssland-badge ssland-badge--accent">{{ block.settings.badge }}</span>
@@ -157,7 +146,7 @@
               {%- endfor -%}
             </div>
             {%- if block.settings.footnote != blank -%}
-              <div class="ssland-comparison-footnote ssland-font-display">{{ block.settings.footnote }}</div>
+              <div class="ssland-comparison-footnote">{{ block.settings.footnote }}</div>
             {%- endif -%}
           </div>
         </div>

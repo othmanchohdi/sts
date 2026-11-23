@@ -1,17 +1,18 @@
 {% stylesheet %}
   .ssland-howitworks {
-    border-top: 1px solid var(--ssl-border-soft);
-    background: linear-gradient(180deg, var(--ssl-bg-navy), var(--ssl-bg-deep));
+    border-top: 1px solid var(--ssl-hairline);
+    background: var(--ssl-base);
   }
   .ssland-howitworks-head {
     max-width: 600px;
     margin-bottom: 40px;
   }
   .ssland-howitworks-heading {
-    font-size: clamp(30px, 4vw, 52px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
     text-wrap: balance;
   }
@@ -23,13 +24,13 @@
   .ssland-howitworks-card {
     min-width: 0;
     padding: 28px 24px;
-    border-radius: 18px;
-    border: 1px solid var(--ssl-border);
-    background: rgba(244, 241, 234, 0.02);
+    border-radius: var(--ssl-radius-card);
+    border: 1px solid var(--ssl-hairline);
+    background: var(--ssl-surface);
   }
   .ssland-howitworks-card--highlight {
-    border: 1px solid rgba(131, 69, 255, 0.34);
-    background: rgba(131, 69, 255, 0.07);
+    border: 1px solid var(--ssl-violet);
+    background: var(--ssl-surface);
   }
   .ssland-howitworks-card-head {
     display: flex;
@@ -45,31 +46,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--ssl-font-mono);
     font-size: 13px;
-    font-weight: 800;
-    color: var(--ssl-accent-bright);
-    border: 1px solid rgba(131, 69, 255, 0.5);
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
+    border: 1px solid var(--ssl-control-border);
   }
   .ssland-howitworks-card--highlight .ssland-howitworks-num {
-    color: #ffffff;
-    background: var(--ssl-accent-gradient);
-    border: none;
+    color: var(--ssl-violet);
+    background: transparent;
+    border: 1px solid var(--ssl-violet);
   }
   .ssland-howitworks-title {
-    font-size: 18px;
-    font-weight: 700;
+    font-family: var(--ssl-font-display);
+    font-size: 19px;
+    font-weight: 400;
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: normal;
   }
   .ssland-howitworks-body {
     margin: 0;
-    font-size: 14.5px;
-    line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-howitworks-card--highlight .ssland-howitworks-body {
-    color: rgba(244, 241, 234, 0.8);
+    color: var(--ssl-ink-muted);
   }
   .ssland-howitworks-body p {
     margin: 0;
@@ -90,8 +93,8 @@
       {%- for block in section.blocks -%}
         <div class="ssland-howitworks-card {% if block.settings.highlight %}ssland-howitworks-card--highlight{% endif %}" {{ block.shopify_attributes }}>
           <div class="ssland-howitworks-card-head">
-            <span class="ssland-howitworks-num ssland-font-display">{{ block.settings.number }}</span>
-            <h3 class="ssland-howitworks-title ssland-font-display">{{ block.settings.title }}</h3>
+            <span class="ssland-howitworks-num">{{ block.settings.number }}</span>
+            <h3 class="ssland-howitworks-title">{{ block.settings.title }}</h3>
           </div>
           <div class="ssland-howitworks-body">{{ block.settings.body }}</div>
         </div>

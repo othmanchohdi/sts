@@ -2,13 +2,7 @@
   .ssland-founder {
     position: relative;
     overflow: clip;
-    border-top: 1px solid var(--ssl-border-soft);
-  }
-  .ssland-founder-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(60% 55% at 50% 110%, rgba(131, 69, 255, 0.18), rgba(5, 7, 13, 0) 70%);
-    pointer-events: none;
+    border-top: 1px solid var(--ssl-hairline);
   }
   .ssland-founder-inner {
     position: relative;
@@ -20,10 +14,11 @@
     align-items: center;
   }
   .ssland-founder-heading {
+    font-family: var(--ssl-font-display);
     font-size: clamp(28px, 3.6vw, 48px);
-    line-height: 1.02;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0 0 20px;
     text-wrap: balance;
   }
@@ -31,21 +26,22 @@
     margin: 0 0 16px;
     font-size: 16px;
     line-height: 1.6;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-founder-signature {
-    font-size: 14px;
-    font-weight: 700;
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    font-weight: 400;
     letter-spacing: 0.04em;
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-ink-muted);
   }
   .ssland-founder-media {
     min-width: 0;
     aspect-ratio: 1 / 1;
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--ssl-border);
+    border: 1px solid var(--ssl-hairline);
   }
   .ssland-founder-media img {
     width: 100%;
@@ -55,7 +51,6 @@
 {% endstylesheet %}
 
 <section class="ssland-founder section-{{ section.id }}">
-  <div class="ssland-founder-glow"></div>
   <div class="ssland-section-inner ssland-founder-inner">
     <div class="ssland-founder-grid">
       <div>
@@ -65,7 +60,7 @@
         <h2 class="ssland-founder-heading ssland-font-display">{{ section.settings.heading }}</h2>
         <div class="ssland-founder-body">{{ section.settings.body }}</div>
         {%- if section.settings.signature != blank -%}
-          <div class="ssland-founder-signature ssland-font-display">{{ section.settings.signature }}</div>
+          <div class="ssland-founder-signature">{{ section.settings.signature }}</div>
         {%- endif -%}
       </div>
       <div class="ssland-founder-media">

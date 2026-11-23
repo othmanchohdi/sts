@@ -1,13 +1,7 @@
 {% stylesheet %}
   .ssland-formula {
     position: relative;
-    border-top: 1px solid var(--ssl-border-soft);
-  }
-  .ssland-formula-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(46% 50% at 18% 30%, rgba(131, 69, 255, 0.1), rgba(5, 7, 13, 0) 70%);
-    pointer-events: none;
+    border-top: 1px solid var(--ssl-hairline);
   }
   .ssland-formula-inner {
     position: relative;
@@ -20,19 +14,20 @@
     margin-bottom: 40px;
   }
   .ssland-formula-heading {
-    font-size: clamp(30px, 4vw, 52px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
     text-wrap: balance;
   }
   .ssland-formula-subcopy {
     margin: 0;
-    font-size: 15.5px;
-    line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-formula-grid {
     display: grid;
@@ -41,65 +36,65 @@
   }
   .ssland-formula-card {
     min-width: 0;
-    border-radius: 18px;
+    border-radius: var(--ssl-radius-card);
     padding: 26px 22px;
-    background: linear-gradient(180deg, rgba(185, 194, 206, 0.09), rgba(244, 241, 234, 0.02));
-    border: 1px solid var(--ssl-border);
+    background: var(--ssl-surface);
+    border: 1px solid var(--ssl-hairline);
   }
   .ssland-formula-card--highlight {
-    background: linear-gradient(180deg, rgba(131, 69, 255, 0.14), rgba(244, 241, 234, 0.02));
-    border: 1px solid rgba(131, 69, 255, 0.32);
+    background: var(--ssl-surface);
+    border: 1px solid var(--ssl-signal);
   }
   .ssland-formula-num {
-    font-size: 11.5px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    color: rgba(185, 194, 206, 0.8);
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ssl-violet);
     margin-bottom: 46px;
   }
-  .ssland-formula-card--highlight .ssland-formula-num {
-    color: rgba(131, 69, 255, 0.9);
-  }
   .ssland-formula-symbol {
+    font-family: var(--ssl-font-mono);
     font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: normal;
     margin-bottom: 10px;
-    color: var(--ssl-silver);
+    color: var(--ssl-ink-muted);
   }
   .ssland-formula-card--highlight .ssland-formula-symbol {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-signal);
   }
   .ssland-formula-name {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: var(--ssl-font-display);
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: normal;
     margin: 0 0 8px;
   }
   .ssland-formula-body {
     margin: 0 0 10px;
     font-size: 14px;
-    line-height: 1.5;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-formula-body p {
     margin: 0;
   }
   .ssland-formula-tag {
-    font-size: 11.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--ssl-silver);
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-formula-card--highlight .ssland-formula-tag {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-signal);
   }
 {% endstylesheet %}
 
 <section class="ssland-formula section-{{ section.id }}">
-  <div class="ssland-formula-glow"></div>
   <div class="ssland-section-inner ssland-formula-inner">
 
     <div class="ssland-formula-head">
@@ -117,12 +112,12 @@
     <div class="ssland-formula-grid">
       {%- for block in section.blocks -%}
         <div class="ssland-formula-card {% if block.settings.highlight %}ssland-formula-card--highlight{% endif %}" {{ block.shopify_attributes }}>
-          <div class="ssland-formula-num ssland-font-display">{{ block.settings.number }}</div>
-          <div class="ssland-formula-symbol ssland-font-display">{{ block.settings.symbol }}</div>
-          <h3 class="ssland-formula-name ssland-font-display">{{ block.settings.name }}</h3>
+          <div class="ssland-formula-num">{{ block.settings.number }}</div>
+          <div class="ssland-formula-symbol">{{ block.settings.symbol }}</div>
+          <h3 class="ssland-formula-name">{{ block.settings.name }}</h3>
           <div class="ssland-formula-body">{{ block.settings.body }}</div>
           {%- if block.settings.tag != blank -%}
-            <div class="ssland-formula-tag ssland-font-display">{{ block.settings.tag }}</div>
+            <div class="ssland-formula-tag">{{ block.settings.tag }}</div>
           {%- endif -%}
         </div>
       {%- endfor -%}

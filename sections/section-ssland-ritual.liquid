@@ -7,19 +7,20 @@
     margin-bottom: 34px;
   }
   .ssland-ritual-heading {
-    font-size: clamp(30px, 4vw, 52px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
     text-wrap: balance;
   }
   .ssland-ritual-subcopy {
     margin: 0;
-    font-size: 15.5px;
-    line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-ritual-grid {
     display: grid;
@@ -30,9 +31,9 @@
     grid-column: 1 / -1;
     position: relative;
     aspect-ratio: 21 / 9;
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--ssl-border);
+    border: 1px solid var(--ssl-hairline);
   }
   .ssland-ritual-hero img,
   .ssland-ritual-tile img {
@@ -43,7 +44,7 @@
   .ssland-ritual-hero-scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(5, 7, 13, 0.5), transparent);
+    background: linear-gradient(90deg, rgba(12, 13, 16, 0.5), transparent);
   }
   .ssland-ritual-hero-caption {
     position: absolute;
@@ -54,16 +55,17 @@
     margin-bottom: 6px;
   }
   .ssland-ritual-hero-title {
+    font-family: var(--ssl-font-display);
     font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 400;
+    letter-spacing: normal;
   }
   .ssland-ritual-tile {
     min-width: 0;
     aspect-ratio: 4 / 5;
-    border-radius: 18px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--ssl-border);
+    border: 1px solid var(--ssl-hairline);
     position: relative;
   }
   .ssland-ritual-tile-caption {
@@ -72,15 +74,15 @@
     left: 0;
     right: 0;
     padding: 24px 20px;
-    background: linear-gradient(0deg, rgba(5, 7, 13, 0.82), transparent);
+    background: linear-gradient(0deg, rgba(12, 13, 16, 0.82), transparent);
   }
   .ssland-ritual-tile-label {
     margin-bottom: 2px;
   }
   .ssland-ritual-tile-text {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
 {% endstylesheet %}
 

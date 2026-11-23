@@ -1,8 +1,8 @@
 {% stylesheet %}
   .ssland-topbar-marquee {
     overflow: hidden;
-    background: var(--ssl-bg-navy);
-    border-bottom: 1px solid var(--ssl-border-soft);
+    background: var(--ssl-base);
+    border-bottom: 1px solid var(--ssl-hairline);
   }
   .ssland-topbar-marquee-track {
     display: flex;
@@ -12,19 +12,19 @@
     display: flex;
     gap: 44px;
     padding: 10px 22px;
-    font-family: var(--ssl-font-display);
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     white-space: nowrap;
-    color: rgba(244, 241, 234, 0.78);
+    color: var(--ssl-ink-muted);
   }
   .ssland-topbar-marquee-item--accent {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-violet);
   }
   .ssland-topbar-marquee-item--silver {
-    color: var(--ssl-silver);
+    color: var(--ssl-control-border);
   }
   .ssland-topbar-header {
     position: relative;
@@ -39,9 +39,9 @@
   }
   .ssland-topbar-logo {
     font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
   }
   .ssland-topbar-right {
     display: flex;
@@ -49,28 +49,29 @@
     gap: 22px;
   }
   .ssland-topbar-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.16em;
+    font-family: var(--ssl-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ssl-text-tertiary);
+    color: var(--ssl-ink-muted);
     white-space: nowrap;
   }
   .ssland-topbar-cta {
-    padding: 11px 20px;
-    border-radius: 9999px;
-    background: rgba(131, 69, 255, 0.1);
-    border: 1px solid rgba(131, 69, 255, 0.45);
-    color: var(--ssl-accent-bright);
+    padding: 10px 18px;
+    border-radius: var(--ssl-radius-control);
+    background: var(--ssl-solar);
+    border: none;
+    color: #111214;
     font-family: var(--ssl-font-display);
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
     white-space: nowrap;
-    transition: background 0.2s ease;
+    transition: background-color 0.2s ease;
   }
   .ssland-topbar-cta:hover {
-    background: rgba(131, 69, 255, 0.2);
+    background: #e79433;
   }
 {% endstylesheet %}
 

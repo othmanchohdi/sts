@@ -8,8 +8,8 @@
 {% stylesheet %}
   .ssland-offer {
     position: relative;
-    border-top: 1px solid var(--ssl-border-soft);
-    background: linear-gradient(180deg, var(--ssl-bg-deep), var(--ssl-bg-navy));
+    border-top: 1px solid var(--ssl-hairline);
+    background: var(--ssl-base);
   }
   .ssland-offer-head {
     display: grid;
@@ -19,19 +19,20 @@
     margin-bottom: 32px;
   }
   .ssland-offer-heading {
-    font-size: clamp(28px, 3.6vw, 46px);
-    line-height: 1.02;
-    font-weight: 800;
-    letter-spacing: -0.025em;
+    font-family: var(--ssl-font-display);
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: normal;
     margin: 0;
     text-wrap: balance;
   }
   .ssland-offer-subcopy {
     margin: 0;
-    font-size: 15.5px;
-    line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-offer-cards {
     display: grid;
@@ -52,9 +53,10 @@
     gap: 13px;
   }
   .ssland-offer-card-title {
+    font-family: var(--ssl-font-display);
     font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    letter-spacing: normal;
   }
   .ssland-offer-price-row {
     display: flex;
@@ -63,35 +65,41 @@
     gap: 12px;
   }
   .ssland-offer-price {
+    font-family: var(--ssl-font-display);
     font-size: clamp(32px, 3.4vw, 42px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 300;
+    letter-spacing: normal;
+    color: var(--ssl-solar-text);
   }
   .ssland-offer-percan {
-    font-size: 15px;
+    font-family: var(--ssl-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
   }
   .ssland-offer-card[data-ssland-plan-option='sub'] .ssland-offer-percan {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-signal);
   }
   .ssland-offer-card[data-ssland-plan-option='once'] .ssland-offer-percan {
-    color: rgba(244, 241, 234, 0.7);
+    color: var(--ssl-ink-muted);
   }
   .ssland-offer-note {
-    font-size: 13px;
-    color: var(--ssl-text-tertiary);
+    font-family: var(--ssl-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ssl-ink-muted);
     margin: 7px 0 20px;
   }
   .ssland-offer-features {
     display: grid;
     gap: 10px;
-    font-size: 14.5px;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 400;
   }
   .ssland-offer-card[data-ssland-plan-option='sub'] .ssland-offer-features {
-    color: rgba(244, 241, 234, 0.84);
+    color: var(--ssl-ink);
   }
   .ssland-offer-card[data-ssland-plan-option='once'] .ssland-offer-features {
-    color: rgba(244, 241, 234, 0.7);
+    color: var(--ssl-ink-muted);
   }
   .ssland-offer-feature {
     display: flex;
@@ -102,10 +110,10 @@
     opacity: 0.4;
   }
   .ssland-offer-card[data-ssland-plan-option='sub'] .ssland-offer-feature--yes span:first-child {
-    color: var(--ssl-accent-bright);
+    color: var(--ssl-violet);
   }
   .ssland-offer-card[data-ssland-plan-option='once'] .ssland-offer-feature--yes span:first-child {
-    color: var(--ssl-silver);
+    color: var(--ssl-control-border);
   }
   .ssland-offer-feature span:first-child {
     flex-shrink: 0;
@@ -113,12 +121,12 @@
   .ssland-offer-once-note {
     margin-top: 22px;
     padding: 18px;
-    border-radius: 14px;
-    border: 1px dashed rgba(185, 194, 206, 0.28);
-    font-size: 13.5px;
+    border-radius: var(--ssl-radius-card);
+    border: 1px dashed var(--ssl-control-border);
+    font-size: 13px;
     line-height: 1.5;
-    font-weight: 300;
-    color: rgba(244, 241, 234, 0.58);
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
   .ssland-offer-footer {
     max-width: 620px;
@@ -132,8 +140,8 @@
     margin: 14px 0 0;
     font-size: 13px;
     line-height: 1.55;
-    font-weight: 300;
-    color: var(--ssl-text-tertiary);
+    font-weight: 400;
+    color: var(--ssl-ink-muted);
   }
 {% endstylesheet %}
 
@@ -164,16 +172,16 @@
         <div class="ssland-offer-card-head">
           <div class="ssland-offer-card-head-left">
             <div class="ssland-plan-dot"></div>
-            <div class="ssland-offer-card-title ssland-font-display">{{ section.settings.sub_title }}</div>
+            <div class="ssland-offer-card-title">{{ section.settings.sub_title }}</div>
           </div>
           {%- if section.settings.sub_save_badge != blank -%}
-            <div class="ssland-badge ssland-badge--accent" style="background: var(--ssl-accent-gradient); color: #fff; border: none;">
+            <div class="ssland-badge ssland-badge--accent">
               {{- section.settings.sub_save_badge -}}
             </div>
           {%- endif -%}
         </div>
         <div class="ssland-offer-price-row">
-          <span class="ssland-offer-price ssland-font-display">{{ section.settings.sub_price }}</span>
+          <span class="ssland-offer-price">{{ section.settings.sub_price }}</span>
           <span class="ssland-offer-percan">{{ section.settings.sub_price_per_can }}</span>
         </div>
         <div class="ssland-offer-note">{{ section.settings.sub_note }}</div>
@@ -202,10 +210,10 @@
         </div>
         {%- if section.settings.founding_badge_label != blank -%}
           <div class="ssland-founding-badge" style="margin-top: 22px;">
-            <div class="ssland-font-display" style="font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ssl-accent-bright); margin-bottom: 11px;">
+            <div style="font-family: var(--ssl-font-mono); font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ssl-violet); margin-bottom: 11px;">
               {{ section.settings.founding_badge_label }}
             </div>
-            <div style="display: grid; gap: 8px; font-size: 13.5px; line-height: 1.45; font-weight: 300; color: rgba(244,241,234,0.86);">
+            <div style="display: grid; gap: 8px; font-size: 14px; line-height: 1.5; font-weight: 400; color: var(--ssl-ink-muted);">
               {%- assign founding_badge_lines = section.settings.founding_badge_items | split: "\n" -%}
               {%- for line in founding_badge_lines -%}
                 {%- assign line = line | strip -%}
@@ -228,11 +236,11 @@
         <div class="ssland-offer-card-head">
           <div class="ssland-offer-card-head-left">
             <div class="ssland-plan-dot"></div>
-            <div class="ssland-offer-card-title ssland-font-display">{{ section.settings.once_title }}</div>
+            <div class="ssland-offer-card-title">{{ section.settings.once_title }}</div>
           </div>
         </div>
         <div class="ssland-offer-price-row">
-          <span class="ssland-offer-price ssland-font-display">{{ section.settings.once_price }}</span>
+          <span class="ssland-offer-price">{{ section.settings.once_price }}</span>
           <span class="ssland-offer-percan">{{ section.settings.once_price_per_can }}</span>
         </div>
         <div class="ssland-offer-note">{{ section.settings.once_note }}</div>
