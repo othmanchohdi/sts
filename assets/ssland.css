@@ -132,9 +132,9 @@
 /* ── Buttons ──
    One solar button per view. Everything else is secondary, inverse or a
    text link. 2px corners. No shadows, glows or blurs. */
-.ssland-btn-gold,
-.ssland-btn-outline,
-.ssland-btn-inverse {
+#ssland-page .ssland-btn-gold,
+#ssland-page .ssland-btn-outline,
+#ssland-page .ssland-btn-inverse {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -151,43 +151,43 @@
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-.ssland-btn-gold {
+#ssland-page .ssland-btn-gold {
   background: var(--ssl-solar);
   color: #0c0d10;
   border: none;
 }
-.ssland-btn-gold:hover {
+#ssland-page .ssland-btn-gold:hover {
   background: #e79433;
   color: #0c0d10;
 }
 
-.ssland-btn-outline {
+#ssland-page .ssland-btn-outline {
   background: transparent;
   color: var(--ssl-ink);
   border: 1px solid var(--ssl-control-border);
 }
-.ssland-btn-outline:hover {
+#ssland-page .ssland-btn-outline:hover {
   border-color: var(--ssl-ink);
 }
-.ssland-light-section .ssland-btn-outline {
+#ssland-page .ssland-light-section .ssland-btn-outline {
   color: #111214;
   border-color: #73736f;
 }
-.ssland-light-section .ssland-btn-outline:hover {
+#ssland-page .ssland-light-section .ssland-btn-outline:hover {
   border-color: #111214;
 }
 
 /* Inverse: ink fill, used on Aluminum sections when solar is already
    spent elsewhere on the same screen. */
-.ssland-btn-inverse {
+#ssland-page .ssland-btn-inverse {
   background: #111214;
   color: #e7e1d7;
   border: none;
 }
-.ssland-btn-inverse:hover {
+#ssland-page .ssland-btn-inverse:hover {
   background: #000000;
 }
-.ssland-light-section .ssland-btn-inverse {
+#ssland-page .ssland-light-section .ssland-btn-inverse {
   background: #111214;
   color: #d2d3d5;
 }
