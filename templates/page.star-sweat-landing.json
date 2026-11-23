@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "landing",
   "sections": {
@@ -8,28 +17,73 @@
     },
     "ssland_topbar": {
       "type": "section-ssland-topbar",
-      "name": "Top bar",
       "blocks": {
-        "marquee_1": { "type": "marquee_item", "settings": { "text": "The water of the future has arrived", "style": "accent" } },
-        "marquee_2": { "type": "marquee_item", "settings": { "text": "Free shipping on subscriptions", "style": "silver" } },
-        "marquee_3": { "type": "marquee_item", "settings": { "text": "2.2 ppm H₂ verified", "style": "plain" } }
+        "marquee_1": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "The water of the future has arrived",
+            "style": "accent"
+          }
+        },
+        "marquee_2": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Free shipping on subscriptions",
+            "style": "silver"
+          }
+        },
+        "marquee_3": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "2.2 ppm H₂ verified",
+            "style": "plain"
+          }
+        }
       },
-      "block_order": ["marquee_1", "marquee_2", "marquee_3"],
+      "block_order": [
+        "marquee_1",
+        "marquee_2",
+        "marquee_3"
+      ],
+      "name": "Top bar",
       "settings": {
         "logo_text": "Star Sweat",
         "nav_label": "Elemental Water",
-        "cta_label": "Get Star Sweat"
+        "cta_label": "Get Star Sweat",
+        "cta_url": "shopify://collections/frontpage"
       }
     },
     "ssland_hero": {
       "type": "section-ssland-hero",
-      "name": "Hero",
       "blocks": {
-        "badge_1": { "type": "badge", "settings": { "text": "H₂ 2.2 ppm", "style": "accent" } },
-        "badge_2": { "type": "badge", "settings": { "text": "Gold + Platinum", "style": "secondary" } },
-        "badge_3": { "type": "badge", "settings": { "text": "Zero sugar", "style": "default" } }
+        "badge_1": {
+          "type": "badge",
+          "settings": {
+            "text": "H₂ 2.2 ppm",
+            "style": "accent"
+          }
+        },
+        "badge_2": {
+          "type": "badge",
+          "settings": {
+            "text": "Gold + Platinum",
+            "style": "secondary"
+          }
+        },
+        "badge_3": {
+          "type": "badge",
+          "settings": {
+            "text": "Zero sugar",
+            "style": "default"
+          }
+        }
       },
-      "block_order": ["badge_1", "badge_2", "badge_3"],
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3"
+      ],
+      "name": "Hero",
       "settings": {
         "pill_text": "Introducing Elemental Water",
         "headline": "Drink the Water of the Future.",
@@ -40,21 +94,72 @@
         "compare_price": "$119.70 one-time",
         "note_text": "Free shipping · skip or cancel anytime",
         "primary_cta_label": "Get Star Sweat",
-        "secondary_cta_label": "See why"
+        "primary_cta_url": "",
+        "secondary_cta_label": "See why",
+        "secondary_cta_url": ""
       }
     },
     "ssland_benefits": {
       "type": "section-ssland-benefits",
-      "name": "Benefits",
       "blocks": {
-        "b1": { "type": "benefit", "settings": { "number": "01", "title": "Cellular-level hydration", "body": "<p>H₂ is the smallest molecule in existence. It goes where bulk water stops — reaching cells that ordinary water never touches.</p>" } },
-        "b2": { "type": "benefit", "settings": { "number": "02", "title": "Energy + focus", "body": "<p>No caffeine, no sugar, no crash. Magnesium and molecular hydrogen, clean and cold.</p>" } },
-        "b3": { "type": "benefit", "settings": { "number": "03", "title": "Recovery support", "body": "<p>The can you reach for after training, not another thing to mix. One daily ritual.</p>" } },
-        "b4": { "type": "benefit", "settings": { "number": "04", "title": "Longevity thinking", "body": "<p>The one input you take every single day — water — upgraded once and done.</p>" } },
-        "b5": { "type": "benefit", "settings": { "number": "05", "title": "Antioxidant support", "body": "<p>Molecular hydrogen selectively targets harmful free radicals, turning oxidative stress into water.</p>" } },
-        "b6": { "type": "benefit", "settings": { "number": "06", "title": "Deep vitality", "body": "<p>Gold and platinum trace elements — rare, elemental, part of the larger formula for human performance.</p>" } }
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "number": "01",
+            "title": "Cellular-level hydration",
+            "body": "<p>H₂ is the smallest molecule in existence. It goes where bulk water stops — reaching cells that ordinary water never touches.</p>"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "number": "02",
+            "title": "Energy + focus",
+            "body": "<p>No caffeine, no sugar, no crash. Magnesium and molecular hydrogen, clean and cold.</p>"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "number": "03",
+            "title": "Recovery support",
+            "body": "<p>The can you reach for after training, not another thing to mix. One daily ritual.</p>"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "number": "04",
+            "title": "Longevity thinking",
+            "body": "<p>The one input you take every single day — water — upgraded once and done.</p>"
+          }
+        },
+        "b5": {
+          "type": "benefit",
+          "settings": {
+            "number": "05",
+            "title": "Antioxidant support",
+            "body": "<p>Molecular hydrogen selectively targets harmful free radicals, turning oxidative stress into water.</p>"
+          }
+        },
+        "b6": {
+          "type": "benefit",
+          "settings": {
+            "number": "06",
+            "title": "Deep vitality",
+            "body": "<p>Gold and platinum trace elements — rare, elemental, part of the larger formula for human performance.</p>"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "name": "Benefits",
       "settings": {
         "eyebrow": "Why Star Sweat",
         "heading": "Hydration, evolved.",
@@ -64,13 +169,44 @@
     },
     "ssland_comparison": {
       "type": "section-ssland-comparison",
-      "name": "Comparison",
       "blocks": {
-        "col_1": { "type": "column", "settings": { "title": "Bottled Water", "style": "muted", "items": "+ Hydration, baseline\n- No molecular hydrogen\n- No added minerals\n- No trace elements\n- Plastic, usually" } },
-        "col_2": { "type": "column", "settings": { "title": "Hydrogen Water", "style": "muted2", "items": "+ Molecular hydrogen, in theory\n- Tablets, machines, pouches\n- H₂ escapes before you drink it\n- Concentration rarely published\n- No trace elements" } },
-        "col_3": { "type": "column", "settings": { "title": "Star Sweat", "style": "featured", "badge": "Elemental", "items": "+ 2.2 ppm H₂, independently tested\n+ Sealed aluminum, holds the hydrogen\n+ Magnesium\n+ Trace colloidal gold + platinum\n+ Zero sugar, zero caffeine, zero calories", "footnote": "H₂ + Mg + Au + Pt" } }
+        "col_1": {
+          "type": "column",
+          "settings": {
+            "title": "Bottled Water",
+            "style": "muted",
+            "badge": "",
+            "items": "+ Hydration, baseline\n- No molecular hydrogen\n- No added minerals\n- No trace elements\n- Plastic, usually",
+            "footnote": ""
+          }
+        },
+        "col_2": {
+          "type": "column",
+          "settings": {
+            "title": "Hydrogen Water",
+            "style": "muted2",
+            "badge": "",
+            "items": "+ Molecular hydrogen, in theory\n- Tablets, machines, pouches\n- H₂ escapes before you drink it\n- Concentration rarely published\n- No trace elements",
+            "footnote": ""
+          }
+        },
+        "col_3": {
+          "type": "column",
+          "settings": {
+            "title": "Star Sweat",
+            "style": "featured",
+            "badge": "Elemental",
+            "items": "+ 2.2 ppm H₂, independently tested\n+ Sealed aluminum, holds the hydrogen\n+ Magnesium\n+ Trace colloidal gold + platinum\n+ Zero sugar, zero caffeine, zero calories",
+            "footnote": "H₂ + Mg + Au + Pt"
+          }
+        }
       },
-      "block_order": ["col_1", "col_2", "col_3"],
+      "block_order": [
+        "col_1",
+        "col_2",
+        "col_3"
+      ],
+      "name": "Comparison",
       "settings": {
         "eyebrow": "The difference",
         "heading": "Three waters. One is engineered."
@@ -78,15 +214,71 @@
     },
     "ssland_formula": {
       "type": "section-ssland-formula",
-      "name": "Formula",
       "blocks": {
-        "e1": { "type": "element", "settings": { "number": "01", "symbol": "H₂O", "name": "Purified Water", "body": "<p>The base, stripped clean so nothing competes with what we add back.</p>", "tag": "Clean slate", "highlight": false } },
-        "e2": { "type": "element", "settings": { "number": "02", "symbol": "H₂", "name": "Molecular Hydrogen", "body": "<p>Dissolved under pressure. The smallest molecule in existence. 2.2 ppm, independently tested.</p>", "tag": "2.2 ppm verified", "highlight": true } },
-        "e3": { "type": "element", "settings": { "number": "03", "symbol": "Mg", "name": "Magnesium", "body": "<p>The mineral most people are short on, in the thing they drink daily.</p>", "tag": "Electrolyte", "highlight": false } },
-        "e4": { "type": "element", "settings": { "number": "04", "symbol": "Au", "name": "Colloidal Gold", "body": "<p>A trace precious element, suspended. Part of what makes this elemental.</p>", "tag": "Au, trace", "highlight": false } },
-        "e5": { "type": "element", "settings": { "number": "05", "symbol": "Pt", "name": "Colloidal Platinum", "body": "<p>Rarer than gold — the reason for the name Star Sweat.</p>", "tag": "Pt, trace", "highlight": false } }
+        "e1": {
+          "type": "element",
+          "settings": {
+            "number": "01",
+            "symbol": "H₂O",
+            "name": "Purified Water",
+            "body": "<p>The base, stripped clean so nothing competes with what we add back.</p>",
+            "tag": "Clean slate",
+            "highlight": false
+          }
+        },
+        "e2": {
+          "type": "element",
+          "settings": {
+            "number": "02",
+            "symbol": "H₂",
+            "name": "Molecular Hydrogen",
+            "body": "<p>Dissolved under pressure. The smallest molecule in existence. 2.2 ppm, independently tested.</p>",
+            "tag": "2.2 ppm verified",
+            "highlight": true
+          }
+        },
+        "e3": {
+          "type": "element",
+          "settings": {
+            "number": "03",
+            "symbol": "Mg",
+            "name": "Magnesium",
+            "body": "<p>The mineral most people are short on, in the thing they drink daily.</p>",
+            "tag": "Electrolyte",
+            "highlight": false
+          }
+        },
+        "e4": {
+          "type": "element",
+          "settings": {
+            "number": "04",
+            "symbol": "Au",
+            "name": "Colloidal Gold",
+            "body": "<p>A trace precious element, suspended. Part of what makes this elemental.</p>",
+            "tag": "Au, trace",
+            "highlight": false
+          }
+        },
+        "e5": {
+          "type": "element",
+          "settings": {
+            "number": "05",
+            "symbol": "Pt",
+            "name": "Colloidal Platinum",
+            "body": "<p>Rarer than gold — the reason for the name Star Sweat.</p>",
+            "tag": "Pt, trace",
+            "highlight": false
+          }
+        }
       },
-      "block_order": ["e1", "e2", "e3", "e4", "e5"],
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5"
+      ],
+      "name": "Formula",
       "settings": {
         "eyebrow": "The formula",
         "heading": "Five elements. Nothing else.",
@@ -95,14 +287,51 @@
     },
     "ssland_how_it_works": {
       "type": "section-ssland-how-it-works",
-      "name": "How it works",
       "blocks": {
-        "s1": { "type": "step", "settings": { "number": "01", "title": "Seal", "body": "<p>Hydrogen is dissolved into purified water under pressure and sealed in aluminum immediately. Plastic can't hold it — the can can.</p>", "highlight": false } },
-        "s2": { "type": "step", "settings": { "number": "02", "title": "Test", "body": "<p>Every run is independently tested for dissolved hydrogen before it ships. Minimum 2.2 ppm. Under that, it doesn't go out.</p>", "highlight": false } },
-        "s3": { "type": "step", "settings": { "number": "03", "title": "Drink Cold", "body": "<p>One can a day, straight from the fridge. Once it's open, finish it within about 30 minutes — like anything with dissolved gas.</p>", "highlight": false } },
-        "s4": { "type": "step", "settings": { "number": "04", "title": "Repeat", "body": "<p>Thirty cans is thirty mornings. The next box arrives before you run out, so the decision gets made once.</p>", "highlight": true } }
+        "s1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Seal",
+            "body": "<p>Hydrogen is dissolved into purified water under pressure and sealed in aluminum immediately. Plastic can't hold it — the can can.</p>",
+            "highlight": false
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Test",
+            "body": "<p>Every run is independently tested for dissolved hydrogen before it ships. Minimum 2.2 ppm. Under that, it doesn't go out.</p>",
+            "highlight": false
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Drink Cold",
+            "body": "<p>One can a day, straight from the fridge. Once it's open, finish it within about 30 minutes — like anything with dissolved gas.</p>",
+            "highlight": false
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "number": "04",
+            "title": "Repeat",
+            "body": "<p>Thirty cans is thirty mornings. The next box arrives before you run out, so the decision gets made once.</p>",
+            "highlight": true
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "name": "How it works",
       "settings": {
         "eyebrow": "How it works",
         "heading": "Open. Drink. Repeat tomorrow."
@@ -110,13 +339,35 @@
     },
     "ssland_ritual": {
       "type": "section-ssland-ritual",
-      "name": "Daily ritual",
       "blocks": {
-        "m1": { "type": "moment", "settings": { "label": "Training", "caption": "Post-workout recovery" } },
-        "m2": { "type": "moment", "settings": { "label": "Focus", "caption": "Desk, 9am" } },
-        "m3": { "type": "moment", "settings": { "label": "Evening", "caption": "Wind-down ritual" } }
+        "m1": {
+          "type": "moment",
+          "settings": {
+            "label": "Training",
+            "caption": "Post-workout recovery"
+          }
+        },
+        "m2": {
+          "type": "moment",
+          "settings": {
+            "label": "Focus",
+            "caption": "Desk, 9am"
+          }
+        },
+        "m3": {
+          "type": "moment",
+          "settings": {
+            "label": "Evening",
+            "caption": "Wind-down ritual"
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "name": "Daily ritual",
       "settings": {
         "eyebrow": "The daily ritual",
         "heading": "One can. One ritual. Every day.",
@@ -127,29 +378,100 @@
     },
     "ssland_testimonials": {
       "type": "section-ssland-testimonials",
-      "name": "Testimonials",
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "label": "Early drinker", "quote": "Cold out of the fridge it tastes like nothing at all, which is exactly what I wanted from water.", "name": "Jordan L.", "location": "Austin, TX" } },
-        "t2": { "type": "testimonial", "settings": { "label": "Founding member", "quote": "The box on the counter is what made it stick. One can with breakfast and I stopped thinking about it.", "name": "Maya R.", "location": "Los Angeles, CA" } },
-        "t3": { "type": "testimonial", "settings": { "label": "Subscriber", "quote": "I bought it because the can was the only version of this I could see myself drinking every day.", "name": "Chris T.", "location": "New York, NY" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "label": "Early drinker",
+            "quote": "Cold out of the fridge it tastes like nothing at all, which is exactly what I wanted from water.",
+            "name": "Jordan L.",
+            "location": "Austin, TX"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "label": "Founding member",
+            "quote": "The box on the counter is what made it stick. One can with breakfast and I stopped thinking about it.",
+            "name": "Maya R.",
+            "location": "Los Angeles, CA"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "label": "Subscriber",
+            "quote": "I bought it because the can was the only version of this I could see myself drinking every day.",
+            "name": "Chris T.",
+            "location": "New York, NY"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "name": "Testimonials",
       "settings": {
         "heading": "What early drinkers say"
       }
     },
     "ssland_science": {
       "type": "section-ssland-science",
-      "name": "Science",
       "blocks": {
-        "stat_1": { "type": "stat", "settings": { "value": "2.2 ppm", "label": "Minimum dissolved H₂, independently tested per run" } },
-        "stat_2": { "type": "stat", "settings": { "value": "Aluminum", "label": "The only packaging that holds hydrogen to the shelf" } },
-        "stat_3": { "type": "stat", "settings": { "value": "USA", "label": "Copacked domestically, chosen for H₂ retention" } },
-        "qa_1": { "type": "qa", "settings": { "question": "What molecular hydrogen actually is", "answer": "<p>H₂ is two hydrogen atoms bound together — the smallest, lightest molecule in existence. Dissolve it into water under pressure and you have hydrogen water. The water doesn't change; what changes is that a measurable amount of hydrogen gas is now in it. It's volatile and escapes quickly, which is why packaging decides whether any of it reaches you.</p>" } },
-        "qa_2": { "type": "qa", "settings": { "question": "What the research does and doesn't show", "answer": "<p>Molecular hydrogen has been the subject of a few hundred published papers, most of them small and early. Researchers are still establishing what it does in people, at what dose, over what timeframe. We're not going to tell you it fixes anything. When our own results are in and reviewed, they go on this page with the methodology attached.</p>" } },
-        "qa_3": { "type": "qa", "settings": { "question": "Gold and platinum, and why they're here", "answer": "<p>Both are present as trace colloidal elements — suspended particles, not dissolved salts. They're part of the Elemental Water formulation. Specific concentrations and the sourcing detail drop in here once we're cleared to publish them.</p>" } }
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "2.2 ppm",
+            "label": "Minimum dissolved H₂, independently tested per run"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "Aluminum",
+            "label": "The only packaging that holds hydrogen to the shelf"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "USA",
+            "label": "Copacked domestically, chosen for H₂ retention"
+          }
+        },
+        "qa_1": {
+          "type": "qa",
+          "settings": {
+            "question": "What molecular hydrogen actually is",
+            "answer": "<p>H₂ is two hydrogen atoms bound together — the smallest, lightest molecule in existence. Dissolve it into water under pressure and you have hydrogen water. The water doesn't change; what changes is that a measurable amount of hydrogen gas is now in it. It's volatile and escapes quickly, which is why packaging decides whether any of it reaches you.</p>"
+          }
+        },
+        "qa_2": {
+          "type": "qa",
+          "settings": {
+            "question": "What the research does and doesn't show",
+            "answer": "<p>Molecular hydrogen has been the subject of a few hundred published papers, most of them small and early. Researchers are still establishing what it does in people, at what dose, over what timeframe. We're not going to tell you it fixes anything. When our own results are in and reviewed, they go on this page with the methodology attached.</p>"
+          }
+        },
+        "qa_3": {
+          "type": "qa",
+          "settings": {
+            "question": "Gold and platinum, and why they're here",
+            "answer": "<p>Both are present as trace colloidal elements — suspended particles, not dissolved salts. They're part of the Elemental Water formulation. Specific concentrations and the sourcing detail drop in here once we're cleared to publish them.</p>"
+          }
+        }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3", "qa_1", "qa_2", "qa_3"],
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "qa_1",
+        "qa_2",
+        "qa_3"
+      ],
+      "name": "Science",
       "settings": {
         "eyebrow": "Credibility",
         "heading": "Is it actually backed by anything?",
@@ -185,18 +507,75 @@
     },
     "ssland_faq": {
       "type": "section-ssland-faq",
-      "name": "FAQ",
       "blocks": {
-        "f1": { "type": "faq", "settings": { "question": "What is Elemental Water?", "answer": "<p>A functional beverage: purified water as the base, with molecular hydrogen at 2.2 ppm minimum, magnesium, and trace colloidal gold and platinum. Five things, in a sealed 12 oz can.</p>" } },
-        "f2": { "type": "faq", "settings": { "question": "How is it different from other hydrogen water?", "answer": "<p>Most hydrogen water is a tablet you drop in a glass, a machine on a counter, or a pouch that's lost its hydrogen by the time you open it. Ours is sealed in aluminum, tested per run, and publishes the concentration. It also adds magnesium and trace gold and platinum, which plain hydrogen water doesn't.</p>" } },
-        "f3": { "type": "faq", "settings": { "question": "How much hydrogen is in each can?", "answer": "<p>A minimum of 2.2 ppm dissolved H₂, independently tested. If a run tests under that, it doesn't ship.</p>" } },
-        "f4": { "type": "faq", "settings": { "question": "Does it taste different?", "answer": "<p>Barely. Hydrogen has no taste. Cold, it drinks like clean water with a light crispness from the dissolved gas. Magnesium is the only thing you might notice, faintly.</p>" } },
-        "f5": { "type": "faq", "settings": { "question": "How should I drink and store it?", "answer": "<p>One can a day, cold. Store sealed cans cool and out of direct sun. Once open, finish within about 30 minutes — hydrogen leaves an open can the way carbonation does.</p>" } },
-        "f6": { "type": "faq", "settings": { "question": "How does the subscription work?", "answer": "<p>One 30-pack ships monthly at $95.76 with free shipping, renewing every 30 days. Skip, pause or change frequency from your account. We email before each charge.</p>" } },
-        "f7": { "type": "faq", "settings": { "question": "Can I cancel anytime?", "answer": "<p>Yes — two clicks in your account, including before your second box. No email, no phone call. Cans already shipped can't be returned.</p>" } },
-        "f8": { "type": "faq", "settings": { "question": "What does shipping cost, and where is it made?", "answer": "<p>Subscriptions ship free, every order. One-time orders are $10. Made in the United States with a copacker chosen for hydrogen retention.</p>" } }
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is Elemental Water?",
+            "answer": "<p>A functional beverage: purified water as the base, with molecular hydrogen at 2.2 ppm minimum, magnesium, and trace colloidal gold and platinum. Five things, in a sealed 12 oz can.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "How is it different from other hydrogen water?",
+            "answer": "<p>Most hydrogen water is a tablet you drop in a glass, a machine on a counter, or a pouch that's lost its hydrogen by the time you open it. Ours is sealed in aluminum, tested per run, and publishes the concentration. It also adds magnesium and trace gold and platinum, which plain hydrogen water doesn't.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "How much hydrogen is in each can?",
+            "answer": "<p>A minimum of 2.2 ppm dissolved H₂, independently tested. If a run tests under that, it doesn't ship.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it taste different?",
+            "answer": "<p>Barely. Hydrogen has no taste. Cold, it drinks like clean water with a light crispness from the dissolved gas. Magnesium is the only thing you might notice, faintly.</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I drink and store it?",
+            "answer": "<p>One can a day, cold. Store sealed cans cool and out of direct sun. Once open, finish within about 30 minutes — hydrogen leaves an open can the way carbonation does.</p>"
+          }
+        },
+        "f6": {
+          "type": "faq",
+          "settings": {
+            "question": "How does the subscription work?",
+            "answer": "<p>One 30-pack ships monthly at $95.76 with free shipping, renewing every 30 days. Skip, pause or change frequency from your account. We email before each charge.</p>"
+          }
+        },
+        "f7": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I cancel anytime?",
+            "answer": "<p>Yes — two clicks in your account, including before your second box. No email, no phone call. Cans already shipped can't be returned.</p>"
+          }
+        },
+        "f8": {
+          "type": "faq",
+          "settings": {
+            "question": "What does shipping cost, and where is it made?",
+            "answer": "<p>Subscriptions ship free, every order. One-time orders are $10. Made in the United States with a copacker chosen for hydrogen retention.</p>"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8"
+      ],
+      "name": "FAQ",
       "settings": {
         "heading": "Questions, answered"
       }
@@ -245,7 +624,8 @@
         "once_label": "Star Sweat · one-time 30-pack",
         "once_price": "$119.70",
         "once_price_per_can": "$3.99 / can",
-        "cta_label": "Get Star Sweat"
+        "cta_label": "Get Star Sweat",
+        "cta_url": ""
       }
     }
   },
